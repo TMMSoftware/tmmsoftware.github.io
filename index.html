@@ -19,6 +19,7 @@
       flex-direction: column;
       min-height: 100vh;
       justify-content: space-between;
+      margin: 0;
     }
 
     /* Dark Mode */
@@ -51,7 +52,7 @@
     
     /* Custom style for dark/light switch button */
     .btn-switch {
-      border: 2px solid currentColor;  /* Uses the current text color for the border */
+      border: 2px solid currentColor;
       border-radius: 999px;
       background-color: transparent;
       padding: 8px 16px;
@@ -63,14 +64,20 @@
     .product-container {
       display: flex;
       justify-content: center;
+      align-items: stretch;
       gap: 40px;
       max-width: 900px;
       margin: auto;
     }
 
     .product {
+      display: flex;
+      flex-direction: column;
       text-align: center;
       flex: 1;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
     }
 
     .email-input {
@@ -80,6 +87,12 @@
       width: 100%;
       max-width: 250px;
       text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Waitlist container: pushes email input and button to the bottom */
+    .waitlist-container {
+      margin-top: auto;
     }
 
     /* Footer */
@@ -88,7 +101,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      background-color: inherit; /* Matches the body's background color */
+      background-color: inherit;
       padding: 10px 20px;
       font-size: 14px;
       color: #888;
@@ -136,20 +149,26 @@
     <div class="product">
       <h3>📚 WebQuiz</h3>
       <p>Master new concepts with interactive quizzes.</p>
-      <input type="email" class="email-input" placeholder="Enter your email" />
-      <button class="btn-custom">Join Waitlist</button>
+      <div class="waitlist-container">
+        <input type="email" class="email-input" placeholder="Enter your email" />
+        <button class="btn-custom">Join Waitlist</button>
+      </div>
     </div>
     <div class="product">
       <h3>🖐️ Gesture Recognition System</h3>
       <p>Revolutionize your Mac operations with gestures.</p>
-      <input type="email" class="email-input" placeholder="Enter your email" />
-      <button class="btn-custom">Join Waitlist</button>
+      <div class="waitlist-container">
+        <input type="email" class="email-input" placeholder="Enter your email" />
+        <button class="btn-custom">Join Waitlist</button>
+      </div>
     </div>
     <div class="product">
       <h3>📂 Smart File Organizer</h3>
       <p>Automate and simplify your file management.</p>
-      <input type="email" class="email-input" placeholder="Enter your email" />
-      <button class="btn-custom">Join Waitlist</button>
+      <div class="waitlist-container">
+        <input type="email" class="email-input" placeholder="Enter your email" />
+        <button class="btn-custom">Join Waitlist</button>
+      </div>
     </div>
   </section>
 
