@@ -33,12 +33,6 @@ navbar {
   color: #888;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-
 /* Hero Section */
 header {
   text-align: center;
