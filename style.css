@@ -21,6 +21,24 @@ body.dark-mode {
   color: white;
 }
 
+/* Navigation Bar */
+navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: inherit;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #888;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+
 /* Hero Section */
 header {
   text-align: center;
