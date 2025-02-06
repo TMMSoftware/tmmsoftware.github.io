@@ -114,7 +114,7 @@ header {
   border: 2px solid currentColor;
   border-radius: 999px;
   background-color: transparent;
-  padding: 8px 16px;
+  padding: 6px 12px;
   font-size: 16px;
   cursor: pointer;
 }
