@@ -21,16 +21,67 @@ body.dark-mode {
   color: white;
 }
 
-/* Navigation Bar */
-navbar {
+/* Updated style.css for TMM Software index */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #121212;
+  text-align: center;
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   justify-content: space-between;
+  margin: 0;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background-color: white;
+  position: sticky;
+  top: 0;
   width: 100%;
-  background-color: inherit;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: #888;
+  z-index: 50;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left img {
+  width: 40px;
+  height: auto;
+}
+
+.nav-center {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-center a:hover {
+  text-decoration: underline;
+  color: #0073e6;
+}
+
+.nav-right {
+  display: flex;
+  gap: 12px;
 }
 
 /* Hero Section */
