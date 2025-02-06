@@ -21,6 +21,11 @@ body.dark-mode {
   color: white;
 }
 
+/* Hero Section */
+header {
+  text-align: center;
+}
+
 /* Custom Buttons */
 .btn-custom {
   border-radius: 999px;
