@@ -11,9 +11,22 @@
 </head>
 <body>
   <!-- Navigation Bar -->
-  <nav class="navbar">
-   <div class="navbar">TMM Software</div>
-  </nav>
+  <header class="sticky top-0 z-40 bg-white underline-offset-4 lg:static">
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="/">
+          <img src="logo.png" alt="TMM Logo" class="nav-logo" />
+        </a>
+      </div>
+      <div class="nav-center">
+        <a href="/categories" class="hover:underline focus:underline focus:outline-none focus:ring-0">Categories</a>
+      </div>
+      <div class="nav-right">
+        <button class="btn-outline">Sign In</button>
+        <button class="btn-dark">Download</button>
+      </div>
+    </nav>
+  </header>
   <!-- Theme Toggle -->
   <div class="switch">
     <button onclick="toggleTheme()" class="btn-switch" aria-label="Toggle dark mode">
