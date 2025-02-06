@@ -94,10 +94,13 @@ header {
   text-align: center;
   flex: 1;
   padding: 20px;
-  border: hover {
-  background-color: #333;
-  }
+  border: 1px solid transparent;
   border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+/* Visible border on hover */
+.product:hover {
+  border-color: #ddd; 
 }
 
 .email-input {
