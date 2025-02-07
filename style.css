@@ -58,11 +58,7 @@ body.dark-mode {
 .nav-left img {
   width: 40px;
   height: auto;
-}
-
-.nav-center {
-  display: flex;
-  gap: 20px;
+  gap: 20px
 }
 
 .nav-center a {
@@ -75,7 +71,7 @@ body.dark-mode {
 
 .nav-center a:hover {
   text-decoration: underline;
-  color: #0073e6;
+  color: inherit;
 }
 
 .nav-right {
