@@ -61,19 +61,6 @@ body.dark-mode {
   gap: 20px
 }
 
-.nav-center a {
-  text-decoration: none;
-  color: #121212;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s ease-in-out;
-}
-
-.nav-center a:hover {
-  text-decoration: underline;
-  color: inherit;
-}
-
 .nav-right {
   display: flex;
   gap: 12px;
