@@ -14,13 +14,13 @@ body {
 }
 
 /* Dark Mode */
-body.dark-mode .navbar {
+body.dark-mode .navbar .nav-left {
   background-color: #121212;
   color: white;
 }
 
 /* Dark Mode Links & Buttons */
-body.dark-mode .nav-left .nav-right button {
+body.dark-mode .nav-right button {
   color:white;
 }
 
