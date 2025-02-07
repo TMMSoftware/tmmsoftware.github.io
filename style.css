@@ -1,3 +1,28 @@
+/* style.css for TMM Software index
+  For layout, dark mode, buttons, products, and footer.
+*/
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #121212;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  margin: 0;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+/* Updated style.css for TMM Software index */
+
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
@@ -35,39 +60,32 @@ body.dark-mode {
   height: auto;
 }
 
+.nav-center {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-center a:hover {
+  text-decoration: underline;
+  color: #0073e6;
+}
+
 .nav-right {
   display: flex;
   gap: 12px;
 }
 
 /* Hero Section */
-.hero-grid {
-  display: grid;
-  grid-template-rows: auto auto;
-  justify-content: center;
+header {
   text-align: center;
-  height: 250px;
-  margin-top: 40px;
-}
-
-/* Grid for TMM */
-.hero-title-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  font-size: 80px;
-  font-weight: bold;
-  text-align: center;
-  justify-content: space-evenly;
-  letter-spacing: 20px;
-}
-
-/* SOFTWARE text below */
-.hero-subtitle {
-  font-size: 40px;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
-  letter-spacing: 8px;
 }
 
 /* Custom Buttons */
@@ -85,7 +103,7 @@ body.dark-mode {
   background-color: #333;
 }
 
-/* Toggle Button Container */
+/* Toggle Button Container & Button */
 .switch {
   position: absolute;
   top: 20px;
@@ -93,6 +111,24 @@ body.dark-mode {
 }
 
 .btn-switch {
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background-color: transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-signin {
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background-color: transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-login {
   border: 2px solid currentColor;
   border-radius: 999px;
   background-color: transparent;
@@ -142,7 +178,6 @@ body.dark-mode {
   border-radius: 8px;
   transition: border-color 0.3s ease;
 }
-
 /* Visible border on hover */
 .product:hover {
   border-color: #ddd; 
@@ -156,6 +191,11 @@ body.dark-mode {
   max-width: 250px;
   text-align: center;
   margin-bottom: 10px;
+}
+
+/* Waitlist Container */
+.waitlist-container {
+  margin-top: auto;
 }
 
 /* Footer */
@@ -183,4 +223,3 @@ footer {
 .footer-links a:hover {
   text-decoration: underline;
 }
- 
