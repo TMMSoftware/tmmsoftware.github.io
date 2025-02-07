@@ -14,7 +14,7 @@ body {
 }
 
 /* Dark Mode */
-body.dark-mode .navbar .nav-left .nav-right .btn-switch .btn-signin{
+body.dark-mode .navbar .nav-left .nav-right .btn-switch .btn-signin .btn-login{
   background-color: #121212;
   color: white;
 }
@@ -23,10 +23,10 @@ body.dark-mode .navbar .nav-left .nav-right .btn-switch .btn-signin{
 body.dark-mode button {
   color:white;
 }
-body.dark-mode .btn-login {
+/*{
   border: 2px solid white;
   color: white;
-}
+}*/
 
 
 /* General Styles */
