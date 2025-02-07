@@ -19,15 +19,11 @@ body.dark-mode .navbar .nav-left .nav-right .btn-switch .btn-signin .btn-login{
   color: white;
 }
 
-/* Dark Mode Links & Buttons */
-body.dark-mode button {
-  color:white;
 }
 /*{
   border: 2px solid white;
   color: white;
 }*/
-
 
 /* General Styles */
 body {
