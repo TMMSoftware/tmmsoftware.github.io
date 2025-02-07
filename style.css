@@ -14,7 +14,7 @@ body {
 }
 
 /* Dark Mode */
-body.dark-mode { /* .navbar /*.nav-left .nav-right .btn-login */
+body.dark-mode {
   background-color: #121212;
   color: white;
 }
