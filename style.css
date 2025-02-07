@@ -128,6 +128,15 @@ header {
   cursor: pointer;
 }
 
+.btn-login {
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background-color: transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 /* Download Button Style */
 .btn-download {
   border-radius: 50%;
