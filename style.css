@@ -22,7 +22,7 @@ body.dark-mode { /* .navbar /*.nav-left .nav-right .btn-login */
 /* Dark Mode Buttons */
 body.dark-mode .btn-switch .btn-signin {
   background-color: #121212;
-  border: 1px solid white;
+  border: 1px solid transparent;
   color: white;
 }
 
