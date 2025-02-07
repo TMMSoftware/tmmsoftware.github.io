@@ -26,11 +26,6 @@ body.dark-mode .btn-switch .btn-signin {
   color: white;
 }
 
-/* Visible border on buttons hover */
-.btn-switch:hover {
-  border-color: #ddd; 
-}
-
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
