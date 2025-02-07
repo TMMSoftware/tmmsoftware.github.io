@@ -32,12 +32,6 @@ body {
   margin: 0;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
 /* Navigation Bar */
 .navbar {
   display: flex;
