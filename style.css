@@ -17,7 +17,6 @@ body {
 body.dark-mode .navbar .btn-switch .btn-signin .btn-login {
   background-color: #121212;
   color: white;
-  border: 1px solid white;
 }
 
 /* General Styles */
