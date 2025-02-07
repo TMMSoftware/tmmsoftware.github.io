@@ -14,13 +14,13 @@ body {
 }
 
 /* Dark Mode */
-body.dark-mode .navbar /*.nav-left .nav-right .btn-login*/{
+body.dark-mode { /* .navbar /*.nav-left .nav-right .btn-login */
   background-color: #121212;
   color: white;
 }
 
 /* Dark Mode Buttons */
-body.dark-mode .btn-switch .btn-signin{
+body.dark-mode .btn-switch .btn-signin {
   background-color: #121212;
   border: 1px solid white;
   color: white;
