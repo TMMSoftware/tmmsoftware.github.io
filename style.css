@@ -16,7 +16,7 @@ body {
 }
 
 /* Dark Mode */
-body.dark-mode {
+body.dark-mode .navbar {
   background-color: #121212;
   color: white;
 }
