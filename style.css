@@ -16,8 +16,8 @@ body {
 /* Dark Mode */
 body.dark-mode .navbar /*.nav-left .nav-right .btn-switch .btn-signin .btn-login*/{
   background-color: #121212;
-  border: 2px solid white;
   color: white;
+  /* border: 2px solid white ;*/
 }
 
 /* General Styles */
