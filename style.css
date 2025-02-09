@@ -99,6 +99,10 @@ header {
   cursor: pointer;
 }
 
+.btn-switch:hover {
+  background-color: #555;
+}
+
 .btn-signin {
   border: 1px solid currentColor;
   border-radius: 999px;
