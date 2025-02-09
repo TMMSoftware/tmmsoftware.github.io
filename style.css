@@ -91,7 +91,7 @@ header {
 }
 
 .btn-switch {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 999px;
   background-color: transparent;
   padding: 6px 12px;
@@ -104,7 +104,7 @@ header {
 }
 
 .btn-signin {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 999px;
   background-color: transparent;
   padding: 6px 12px;
@@ -118,7 +118,7 @@ header {
 }
 
 .btn-login {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 999px;
   background-color: transparent;
   padding: 6px 12px;
@@ -179,7 +179,7 @@ header {
 .email-input {
   border-radius: 999px;
   padding: 8px 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   width: 100%;
   max-width: 250px;
   text-align: center;
