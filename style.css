@@ -11,9 +11,21 @@ body {
   margin: 0;
 }
 
-/* Dark Mode via System Preference */
+/* Ensure all sections inherit background */
+header, section, footer {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Automatic Dark Mode (System Preference) */
 @media (prefers-color-scheme: dark) {
   body {
+    background-color: #121212;
+    color: white;
+  }
+
+  /* Apply dark mode to all elements */
+  header, section, footer {
     background-color: #121212;
     color: white;
   }
@@ -36,8 +48,21 @@ body {
     background-color: #ccc;
   }
 
+  .product {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #555;
+  }
+
   .product:hover {
-    border-color: #555;
+    border-color: #888;
+  }
+
+  /* Ensure input fields are readable in dark mode */
+  .email-input {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #ccc;
   }
 
   footer {
@@ -45,43 +70,39 @@ body {
     color: #ddd;
   }
 
-  /* Toggle button appearance */
+  /* Toggle button colors */
   .btn-switch {
     color: white;
     border-color: white;
   }
 }
 
-/* Manual Dark Mode Toggle using Checkbox */
+/* Manual Dark Mode Toggle (CSS Only) */
 .theme-toggle {
   display: none;
 }
 
-.theme-toggle:checked ~ body {
+.theme-toggle:checked ~ body,
+.theme-toggle:checked ~ header,
+.theme-toggle:checked ~ section,
+.theme-toggle:checked ~ footer {
   background-color: #121212;
   color: white;
 }
 
-/* Toggle button styles */
-.btn-switch {
-  border: 2px solid currentColor;
-  border-radius: 999px;
-  background-color: transparent;
-  padding: 6px 12px;
-  font-size: 16px;
-  cursor: pointer;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
+/* Update product section */
+.theme-toggle:checked ~ .product {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #555;
 }
 
-/* Dark Mode Navbar */
+/* Update Navbar */
 .theme-toggle:checked ~ .navbar {
   background-color: #1e1e1e;
 }
 
-/* Dark Mode Buttons */
+/* Update buttons */
 .theme-toggle:checked ~ .btn-custom,
 .theme-toggle:checked ~ .btn-signin,
 .theme-toggle:checked ~ .btn-login {
@@ -96,7 +117,7 @@ body {
   background-color: #ccc;
 }
 
-/* Dark Mode Footer */
+/* Update footer */
 .theme-toggle:checked ~ footer {
   background-color: #1e1e1e;
   color: #ddd;
