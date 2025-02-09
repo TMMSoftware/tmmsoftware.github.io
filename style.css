@@ -80,7 +80,7 @@ header {
 }
 
 .btn-waitlist:hover {
-  background-color: #555;
+  background-color: #777;
 }
 
 /* Toggle Button Container & Button */
@@ -100,7 +100,7 @@ header {
 }
 
 .btn-switch:hover {
-  background-color: #555;
+  background-color: #777;
 }
 
 .btn-signin {
@@ -114,7 +114,7 @@ header {
 }
 
 .btn-signin:hover {
-  background-color: #555;
+  background-color: #777;
 }
 
 .btn-login {
@@ -128,7 +128,7 @@ header {
 }
 
 .btn-login:hover {
-  background-color: #555;
+  background-color: #777;
 }
 
 /* Download Button Style */
@@ -149,7 +149,7 @@ header {
 }
 
 .btn-download:hover {
-  background-color: #555;
+  background-color: #777;
 }
 
 /* Products Section */
@@ -174,7 +174,7 @@ header {
 }
 /* Visible border on hover */
 .product:hover {
-  border-color: #555; 
+  border-color: #777; 
 }
 
 .email-input {
