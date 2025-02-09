@@ -112,6 +112,10 @@ header {
   cursor: pointer;
 }
 
+.btn-signin:hover {
+  background-color: #555;
+}
+
 .btn-login {
   border: 1px solid currentColor;
   border-radius: 999px;
