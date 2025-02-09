@@ -20,7 +20,7 @@ body.dark-mode {
 }
 
 /* Dark Mode Buttons */
-body.dark-mode .btn-switch .btn-signin {
+body.dark-mode .btn-switch .btn-signin .btn-login {
   background-color: #121212;
   border: 1px solid transparent;
   color: white;
