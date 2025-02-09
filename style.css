@@ -80,7 +80,7 @@ header {
 }
 
 .btn-custom:hover {
-  background-color: #ddd;
+  background-color: #555;
 }
 
 /* Toggle Button Container & Button */
@@ -135,7 +135,7 @@ header {
 }
 
 .btn-download:hover {
-  background-color: #ddd;
+  background-color: #555;
 }
 
 /* Products Section */
@@ -160,7 +160,7 @@ header {
 }
 /* Visible border on hover */
 .product:hover {
-  border-color: #ddd; 
+  border-color: #555; 
 }
 
 .email-input {
