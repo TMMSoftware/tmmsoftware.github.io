@@ -125,6 +125,10 @@ header {
   cursor: pointer;
 }
 
+.btn-login:hover {
+  background-color: #555;
+}
+
 /* Download Button Style */
 .btn-download {
   border-radius: 50%;
