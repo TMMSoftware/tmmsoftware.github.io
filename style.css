@@ -107,6 +107,7 @@ header {
   border: 1px solid #ccc;
   border-radius: 999px;
   background-color: transparent;
+  color: currentColor;
   padding: 6px 12px;
   font-size: 16px;
   cursor: pointer;
