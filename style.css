@@ -69,6 +69,12 @@ header {
 }
 
 /* Custom Buttons */
+.btn-disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
 .btn-waitlist {
   border-radius: 999px;
   background-color: black;
