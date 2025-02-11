@@ -70,8 +70,10 @@ header {
 
 /* Custom Buttons */
 .btn-disabled {
+  border-radius: 999px;
   background-color: #ccc;
   color: #666;
+  padding: 6px 12px;
   cursor: not-allowed;
 }
 
