@@ -114,7 +114,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Invalid Input */
 .email-input:invalid {
   border-color: red;
-  background-color: #ffe6e6;
+  background-color: none;
 }
 
 /* Valid Input */
