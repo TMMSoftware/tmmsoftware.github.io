@@ -93,6 +93,22 @@ header {
   background-color: #777;
 }
 
+.btn-waitlist:active {
+  transform: scale(0.95);
+}
+
+/* When button is clicked */
+.btn-waitlist:focus {
+  background-color: green;
+  color: white;
+  pointer-events: none;
+}
+
+.btn-waitlist:focus::after {
+  content: "✔ You're on the list!";
+  display: inline-block;
+}
+
 /* Toggle Button Container & Button */
 .switch {
   position: absolute;
