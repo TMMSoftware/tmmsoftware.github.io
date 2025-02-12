@@ -83,7 +83,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   flex-direction: column;
   text-align: center;
   flex: 1;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid transparent;
   border-radius: 8px;
   transition: border-color 0.3s ease;
