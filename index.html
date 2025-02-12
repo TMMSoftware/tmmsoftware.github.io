@@ -28,7 +28,7 @@
   </header>
 
   <!-- Hero Section -->
-  <header>
+  <section class="hero">
     <div>
       <h1 class="hero-title-1">T M M</h1>
     </div>
@@ -39,40 +39,52 @@
     <div>
       <h5 class="subtitle-1">From Demo to Early Access!</h5>
     </div>
-     <div>
-      <h5 class="subtitle-2">Register Below to Get Them Uppon Release</h5>
+    <div>
+      <h5 class="subtitle-2">Register Below to Get Them Upon Release</h5>
     </div>
-  </header>
+  </section>
 
   <!-- Products Section -->
   <section class="product-container">
+    <!-- Product 1 -->
     <div class="product">
       <h3>📚 WebQuiz DevNet</h3>
       <p>Master new concepts with interactive quizzes.</p>
       <div class="waitlist-container">
-        <input type="email" class="email-input" placeholder="Enter your email" />
-        <button class="btn-waitlist">Request Early Access</button>
-        <button class="btn-disabled" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+        <form>
+          <input type="email" class="email-input" placeholder="Enter your email" required>
+          <button type="submit" class="btn-waitlist" disabled>Request Early Access</button>
+          <p class="success-message">Thanks! <span class="highlight">You're on the list!</span></p>
+          <button class="btn-disabled" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+        </form>
       </div>
     </div>
 
+    <!-- Product 2 -->
     <div class="product">
       <h3>🖐️ Gesture Recognition System</h3>
       <p>Revolutionize your Mac operations with gestures.</p>
       <div class="waitlist-container">
-        <input type="email" class="email-input" placeholder="Enter your email" />
-        <button class="btn-waitlist">Request Early Access</button>
-        <button class="btn-disabled" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+        <form>
+          <input type="email" class="email-input" placeholder="Enter your email" required>
+          <button type="submit" class="btn-waitlist" disabled>Request Early Access</button>
+          <p class="success-message">Thanks! <span class="highlight">You're on the list!</span></p>
+          <button class="btn-disabled" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+        </form>
       </div>
     </div>
 
+    <!-- Product 3 -->
     <div class="product">
       <h3>📂 Smart File Organizer</h3>
       <p>Automate and simplify your file management.</p>
       <div class="waitlist-container">
-        <input type="email" class="email-input" placeholder="Enter your email" />
-        <button class="btn-waitlist">Request Early Access</button>
-        <button class="btn-disabled" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+        <form>
+          <input type="email" class="email-input" placeholder="Enter your email" required>
+          <button type="submit" class="btn-waitlist" disabled>Request Early Access</button>
+          <p class="success-message">Thanks! <span class="highlight">You're on the list!</span></p>
+          <button class="btn-disabled" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+        </form>
       </div>
     </div>
   </section>
@@ -95,4 +107,3 @@
   </script>
 </body>
 </html>
- 
