@@ -128,7 +128,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border-radius: 999px;
   background-color: #ccc;
   color: #666;
-  padding: 10px 16px;
+  padding: 10px 20px;
   border: none;
   font-size: 15px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
