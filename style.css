@@ -107,7 +107,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Placeholder Color */
-.email-input:placeholder {
+.email-input::placeholder {
   color: #999;
 }
 
