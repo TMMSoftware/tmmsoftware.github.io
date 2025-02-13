@@ -95,7 +95,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Default Email Input Field */
-.email-input {
+.email-input::placeholder {
   border-radius: 999px;
   background-color: white;
   padding: 10px 20px;
@@ -105,10 +105,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   text-align: center;
   margin-bottom: 10px;
   transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-/* Placeholder Color */
-.email-input::placeholder {
   color: #5A4A33;
 }
 
