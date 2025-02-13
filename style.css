@@ -98,7 +98,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .email-input {
   border-radius: 999px;
   padding: 10px 20px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   width: 100%;
   max-width: 250px;
   text-align: center;
@@ -133,7 +133,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   font-size: 15px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
   cursor: not-allowed;
-  margin-top: 10px;
 }
 
 /* Enable button only when the email input is valid */
