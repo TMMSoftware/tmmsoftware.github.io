@@ -212,8 +212,9 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   color: currentColor;
   padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer;
+  cursor: not-allowed;
   transition: background-color 0.5s ease;
+  
 }
 
 .btn-signin:hover, .btn-login:hover {
