@@ -166,7 +166,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 
 /* Custom Buttons */
 
-/* Disable button by default */
+/* Disabled buttons by default */
 .btn-waitlist {
   border-radius: 999px;
   background-color: #ccc;
@@ -187,8 +187,10 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border: none;
   cursor: not-allowed;
   opacity: 0.4;
+  font-size: 15px;
 }
 
+/* Light Dark Switch Button */
 .btn-switch {
   border: 1px solid #ccc;
   border-radius: 999px;
