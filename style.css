@@ -109,11 +109,12 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Placeholder Color */
 .email-input::placeholder {
   color: #999;
+  border-color: #C89B3C;
 }
 
 /* Invalid Input */
 .email-input:invalid {
-  border-color: #daa520;
+  border-color: red;
   background-color: none;
 }
 
