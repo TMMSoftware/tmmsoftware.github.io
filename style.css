@@ -94,11 +94,12 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border-color: #777; 
 }
 
-/* Email Input Field */
+/* Default Email Input Field */
 .email-input {
   border-radius: 999px;
+  background-color: white;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #C89B3C;
   width: 100%;
   max-width: 250px;
   text-align: center;
@@ -112,9 +113,9 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Invalid Input */
-.email-input:invalid {
-  border-color: #C89B3C;
-  background-color: none;
+.email-input:invalid:focus {
+  border-color: red;
+  background-color: #ffe6e6;
 }
 
 /* Valid Input */
