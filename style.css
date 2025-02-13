@@ -133,6 +133,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   font-size: 15px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
   cursor: not-allowed;
+  margin:10px;
 }
 
 /* Enable button only when the email input is valid */
