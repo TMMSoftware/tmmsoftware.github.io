@@ -121,7 +121,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Valid Input */
 .email-input:valid {
   border-color: green;
-  background-color: #e6ffe6;
+  background-color: white;
 }
 
 /* Disable button by default */
