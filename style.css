@@ -173,6 +173,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 .btn-waitlist {
+  background-color: #ccc;
   cursor: not-allowed;
   margin: 10px;
 }
