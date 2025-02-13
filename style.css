@@ -137,8 +137,8 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 
 /* 5️⃣ Ivalid Email */
 .email-input:invalid:not(:placeholder-shown) {
-  border-color: #e74c3c;
-  background-color: #ffe6e6;
+  border-color: #FAFAFA;
+  background-color: white;
 }
 
 /* Hover effect when active */
