@@ -123,9 +123,9 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   outline: none;
 }
 
-/* 4️⃣ Email is Correctly Entered */
+/* 4️⃣ Valid Email */
 .email-input:valid {
-  border-color: green;
+  border-color: #2ecc71;
   background-color: #e6ffe6;
 }
 
