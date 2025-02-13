@@ -94,7 +94,8 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border-color: #777; 
 }
 
-/* email input styles */
+/* Email Input Styles */
+
 /* 1️⃣ Default Input Field */
 .email-input {
   border-radius: 999px; /* Fully rounded */
