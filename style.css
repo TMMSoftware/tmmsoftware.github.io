@@ -106,6 +106,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   margin-bottom: 10px;
   transition: border-color 0.3s ease, background-color 0.3s ease;
   color: #5A4A33;
+  text-align: center;
 }
 
 /* Valid Input */
@@ -113,6 +114,8 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border-radius: 999px;
   border-color: #C89B3C;
   background-color: white;
+  text-align: center;
+  
 }
 
 /* Enable button only when the email input is valid */
@@ -122,6 +125,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   color: white;
   cursor: pointer;
   border-color: green;
+  text-align: center;
 }
 
 /* Hover effect when active */
