@@ -100,7 +100,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .email-input {
   border-radius: 999px;
   padding: 8px 16px;
-  border: 1px solid #C89B3C;
+  border: 2px solid #C89B3C;
   width: 100%;
   max-width: 250px;
   text-align: center;
