@@ -129,9 +129,9 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   background-color: #e6ffe6;
 }
 
-/* 5️⃣ Email is Incorrect (or Empty) */
-.email-input:invalid {
-  border-color: red;
+/* 5️⃣ Ivalid Email */
+.email-input:invalid:not(:placeholder-shown) {
+  border-color: #e74c3c;
   background-color: #ffe6e6;
 }
 
