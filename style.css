@@ -95,6 +95,10 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Default Email Input Field */
+.email-input: {
+  text-align: center;
+}
+
 .email-input:focus {
   border-radius: 999px;
   background-color: white;
