@@ -205,6 +205,8 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   background-color: #777;
 }
 
+
+/* Sign In & Log In Buttons */
 .btn-signin, .btn-login {
   border: 1px solid #ccc;
   border-radius: 999px;
@@ -214,11 +216,11 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   font-size: 16px;
   cursor: not-allowed;
   transition: background-color 0.5s ease;
-  
 }
 
 .btn-signin:hover, .btn-login:hover {
   background-color: #777;
+  cursor: not-allowed;
 }
 
 /* Footer */
