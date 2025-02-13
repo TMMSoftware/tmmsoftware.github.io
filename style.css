@@ -1,27 +1,27 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #121212;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   justify-content: space-between;
+  min-height: 100vh;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #121212;
+  background-color: #f9f9f9;
   margin: 0;
 }
 
 /* Dark Mode */
 body.dark-mode {
-  background-color: #121212;
   color: white;
+  background-color: #121212;
 }
 
 /* Dark Mode Buttons */
 body.dark-mode .btn-switch .btn-signin .btn-login {
+  color: white;
   background-color: #121212;
   border: 1px solid transparent;
-  color: white;
 }
 
 /* Navigation Bar */
@@ -29,11 +29,11 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 24px;
-  background-color: inherit;
   position: sticky;
   top: 0;
   width: 100%;
+  padding: 14px 24px;
+  background-color: inherit;
   z-index: 50;
 }
 
@@ -63,15 +63,13 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   font-weight: normal;
 }
 
-.subtitle-1 {
+.subtitle-1, .subtitle-2 {
   font-size: 18px;
   color: #666;
-  padding-top: 10px;
 }
 
-.subtitle-2 {
-  font-size: 18px;
-  color: #666;
+.subtitle-1 {
+  padding-top: 10px;
 }
 
 /* Products Section */
@@ -79,9 +77,9 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 40px;
   max-width: 900px;
   margin: auto;
+  gap: 40px;
 }
 
 .product {
@@ -97,46 +95,41 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 
 /* Visible border on hover */
 .product:hover {
-  border-color: #777; 
+  border-color: #777;
 }
 
 /* Email Input Styles */
-
-/* 1️⃣ Default Input Field */
 .email-input {
-  border-radius: 999px;
-  padding: 8px 16px;
-  border: 2px solid #C89B3C;
+  display: block;
   width: 100%;
   max-width: 250px;
   text-align: center;
+  padding: 8px 16px;
   margin-bottom: 10px;
+  border: 2px solid #C89B3C;
+  border-radius: 999px;
   background-color: white;
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-/* 2️⃣ Placeholder Text */
 .email-input::placeholder {
   color: #999;
   font-size: 14px;
   opacity: 1;
 }
 
-/* 3️⃣ User Clicks/Focused State */
 .email-input:focus {
   border-color: #b38a2e;
   background-color: #faf3e0;
   outline: none;
 }
 
-/* 4️⃣ Valid Email */
 .email-input:valid {
   border-color: #2ecc71;
   background-color: #e6ffe6;
-  pointer: cursor;
+  cursor: pointer;
 }
 
-/* 5️⃣ Ivalid Email */
 .email-input:invalid:not(:placeholder-shown) {
   border-color: #e74c3c;
   background-color: #FAFAFA;
@@ -149,10 +142,10 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 
 /* Button Press Animation */
 .email-input:valid + .btn-waitlist:active {
-  transform: scale(0.90), 0.5s ease;
+  transform: scale(0.90) 0.5s ease;
 }
 
-/* Hide success message by default */
+/* Success Message */
 .success-message {
   display: none;
   font-size: 16px;
@@ -160,63 +153,48 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   margin-top: 10px;
 }
 
-/* Show success message when button is focused (after click) */
 .email-input:valid + .btn-waitlist:focus + .success-message {
   display: block;
 }
 
 /* Custom Buttons */
-
-/* Disabled buttons by default */
-.btn-waitlist {
+.btn-waitlist, .btn-disabled, .btn-switch, .btn-signin, .btn-login {
   border-radius: 999px;
-  background-color: #ccc;
-  color: #555;
+  font-size: 15px;
   padding: 10px 20px;
   border: none;
-  font-size: 15px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.btn-waitlist {
+  background-color: #ccc;
+  color: #555;
   cursor: not-allowed;
-  margin:10px;
+  margin: 10px;
 }
 
 .btn-disabled {
-  border-radius: 999px;
   background-color: #ccc;
   color: #666;
-  padding: 10px 20px;
-  border: none;
   cursor: not-allowed;
   opacity: 0.4;
-  font-size: 15px;
 }
 
-/* Light Dark Switch Button */
 .btn-switch {
   border: 1px solid #ccc;
-  border-radius: 999px;
   background-color: transparent;
   color: currentColor;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
 }
 
 .btn-switch:hover {
   background-color: #777;
-  transition: background-color 0.5s ease;
 }
 
-
-/* Sign In & Log In Buttons */
 .btn-signin, .btn-login {
   border: 1px solid #ccc;
-  border-radius: 999px;
   background-color: transparent;
   color: currentColor;
-  padding: 10px 20px;
-  font-size: 16px;
-  transition: background-color 0.5s ease;
 }
 
 .btn-signin:hover, .btn-login:hover {
@@ -229,10 +207,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: inherit;
   padding: 10px 20px;
   font-size: 14px;
   color: #888;
+  background-color: inherit;
 }
 
 .footer-links {
