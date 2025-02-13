@@ -124,9 +124,12 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   outline: none;
 }
 
-.email-input:valid {
+
+/* Change cursor to pointer when the email is valid */
+.email-input:valid + .btn-waitlist {
   border-color: #2ecc71;
   background-color: #e6ffe6;
+  cursor: pointer;
 }
 
 .email-input:invalid:not(:placeholder-shown) {
