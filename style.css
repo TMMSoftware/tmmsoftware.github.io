@@ -116,10 +116,10 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   opacity: 1;
 }
 
-/* 3️⃣ User Clicks/Focuses the Input */
+/* 3️⃣ User Clicks/Focused State */
 .email-input:focus {
-  border-color: blue;
-  background-color: #f0f8ff;
+  border-color: #b38a2e;
+  background-color: #faf3e0;
   outline: none;
 }
 
