@@ -99,6 +99,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   text-align: center;
 }
 
+/*
 .email-input:focus {
   border-radius: 999px;
   background-color: white;
@@ -111,16 +112,35 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   transition: border-color 0.3s ease, background-color 0.3s ease;
   color: #5A4A33;
   text-align: center;
-}
+} */
 
 /* Valid Input */
+/*
 .email-input:placeholder {
   border-radius: 999px;
   border-color: #C89B3C;
   background-color: white;
   text-align: center;
-  
+}*/
+
+/* Fully Rounded Input Field */
+.email-input {
+  border-radius: 999px; /* Makes it a pill shape */
+  padding: 8px 16px;
+  border: 2px solid #ccc;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  margin-bottom: 10px;
 }
+
+/* Placeholder Text Styling */
+.email-input::placeholder {
+  color: #999;
+  font-size: 14px;
+  opacity: 1; /* Ensures visibility */
+}
+
 
 /* Enable button only when the email input is valid */
 .email-input:valid + .btn-waitlist {
