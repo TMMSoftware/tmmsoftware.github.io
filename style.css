@@ -50,6 +50,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Hero Section */
 .hero-container {
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: stretch;
   max-width: 900px;
