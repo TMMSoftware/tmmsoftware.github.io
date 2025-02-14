@@ -182,7 +182,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 .btn-waitlist:hover {
-  border: 1px solid #C89B3C;
+  border-color: #C89B3C;
 }
 
 .btn-disabled {
