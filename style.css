@@ -172,7 +172,8 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Button Press Animation */
-.email-input:valid + .btn-waitlist:active {
+.email-input:valid + .btn-waitlist:active + .success-message {
+  display: block;
   transform: scale(0.90) 0.5s ease;
 }
 
@@ -182,10 +183,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   font-size: 16px;
   color: green;
   margin-top: 10px;
-}
-
-.email-input:valid + .btn-waitlist:focus + .success-message {
-  display: block;
 }
 
 /* Custom Buttons */
