@@ -48,24 +48,34 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Hero Section */
-.hero {
-  text-align: center;
-  padding: 10px 20px;
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 900px;
+  margin: auto;
+  gap: 40px;
 }
 
 .hero-letter-t-1 {
   font-size: 48px;
   font-weight: bold;
+  text-align: center;
+  padding: 10px 20px;
 }
 
 .hero-letter-m-1{
   font-size: 48px;
   font-weight: bold;
+  text-align: center;
+  padding: 10px 20px;
 }
 
 .hero-letter-m2 {
   font-size: 48px;
   font-weight: bold;
+  text-align: center;
+  padding: 10px 20px;
 }
 
 
