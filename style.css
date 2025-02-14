@@ -50,7 +50,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Hero Section */
 .hero-container {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: stretch;
   max-width: 900px;
@@ -79,7 +79,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   padding: 1px 15px;
 }
 
-
 .hero-title-2 {
   font-size: 36px;
   font-weight: normal;
@@ -88,14 +87,13 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .subtitle-1, .subtitle-2 {
   font-size: 18px;
   color: #999;
-  text-align: center
+  text-align: center;
 }
 
 .subtitle-1 {
   padding-top: 40px;
   margin-bottom: 0.2em;
 }
-
 
 /* Products Section */
 .product-container {
@@ -152,13 +150,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .email-input:valid {
   border-color: #2ecc71;
   background-color: #e6ffe6;
-  
-}
-/* Change cursor to pointer when the email is valid */
-.email-input:valid + .btn-waitlist {
-  border-color: #e6ffe6;
-  background-color: #2ecc71
-  cursor: pointer;
 }
 
 .email-input:invalid:not(:placeholder-shown) {
@@ -166,23 +157,56 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   background-color: #FAFAFA;
 }
 
-/* Hover effect when active */
+/* CSS-only button “enable” based on input validity */
+.email-input:invalid + .btn-waitlist {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.email-input:valid + .btn-waitlist {
+  pointer-events: auto;
+  opacity: 1;
+  border-color: #e6ffe6;
+  background-color: #2ecc71;
+  cursor: pointer;
+}
+
 .email-input:valid + .btn-waitlist:hover {
   background-color: #27ae60;
 }
 
-/* Button Press Animation */
-.email-input:valid + .btn-waitlist:active + .success-message {
-  display: block;
-  transform: scale(0.90) 5s ease;
-}
-
-/* Success Message */
+/* Success Message - initial state */
 .success-message {
-  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
   font-size: 16px;
   color: green;
   margin-top: 10px;
+}
+
+/* When the success message is the URL target, trigger the animation */
+.success-message:target {
+  animation: fadeInOut 5s ease-in-out forwards;
+}
+
+/* Keyframes: Fade In, Hold, then Fade Out */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
 /* Custom Buttons */
@@ -199,7 +223,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   color: white;
   border: 2px solid;
   margin: 10px;
-  
 }
 
 .btn-waitlist:hover {
