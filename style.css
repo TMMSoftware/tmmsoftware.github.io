@@ -177,8 +177,10 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .btn-waitlist {
   background-color: #ccc;
   color: #666;
+  border: 1px solid #transparent;
   cursor: not-allowed;
   margin: 10px;
+  
 }
 
 .btn-waitlist:hover {
