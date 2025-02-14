@@ -213,7 +213,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .btn-waitlist, .btn-disabled, .btn-switch, .btn-signin, .btn-login {
   border-radius: 999px;
   font-size: 15px;
-  padding: 10px 20px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
@@ -222,6 +221,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   color: white;
   border: 2px solid;
   margin: 10px; 
+  padding: 10px 20px;
 }
 
 .btn-waitlist:hover {
@@ -234,6 +234,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   color: #666;
   cursor: not-allowed;
   opacity: 0.4;
+  padding: 10px 20px;
 }
 
 .btn-switch {
@@ -241,6 +242,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   background-color: currentColor;
   color: currentColor;
   cursor: pointer;
+  padding: 10px 20px;
 }
 
 .btn-switch:hover {
@@ -252,6 +254,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border: 1px solid #ccc;
   background-color: transparent;
   color: currentColor;
+  padding: 10px 20px;
 }
 
 .btn-signin:hover, .btn-login:hover {
