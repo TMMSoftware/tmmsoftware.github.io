@@ -174,7 +174,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Button Press Animation */
 .email-input:valid + .btn-waitlist:active + .success-message {
   display: block;
-  transform: scale(0.90) 0.5s ease;
+  transform: scale(0.90) 5s ease;
 }
 
 /* Success Message */
