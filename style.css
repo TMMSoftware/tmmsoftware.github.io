@@ -88,6 +88,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .subtitle-1, .subtitle-2 {
   font-size: 18px;
   color: #999;
+  text-align: center
 }
 
 .subtitle-1 {
