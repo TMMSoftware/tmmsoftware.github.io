@@ -188,7 +188,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 
 .btn-switch {
   border: 1px solid #ccc;
-  background-color: transparent;
+  background-color: currentColor;
   color: currentColor;
   cursor: pointer;
 }
