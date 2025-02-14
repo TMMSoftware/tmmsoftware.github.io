@@ -1,20 +1,4 @@
 /* General Styles */
-
-.t-1 {
-  font-size: 48px;
-  font-weight: bold;
-}
-
-.m-1 {
-  font-size: 48px;
-  font-weight: bold;
-}
-
-.m-2 {
-  font-size: 48px;
-  font-weight: bold;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -69,10 +53,21 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   padding: 10px 20px;
 }
 
-.hero-title-1 {
+.hero-letter-t-1 {
   font-size: 48px;
   font-weight: bold;
 }
+
+.hero-letter-m-1{
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero-letter-m2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
 
 .hero-title-2 {
   font-size: 36px;
