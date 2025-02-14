@@ -221,7 +221,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .btn-waitlist {
   background-color: black;
   color: white;
-  border: 2px solid;
+  border: 2px solid transparent;
   margin: 10px;
 }
 
