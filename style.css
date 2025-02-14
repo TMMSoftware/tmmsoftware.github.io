@@ -1,6 +1,16 @@
 /* General Styles */
 
-.t {
+.t-1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.m-1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.m-2 {
   font-size: 48px;
   font-weight: bold;
 }
