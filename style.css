@@ -1,4 +1,10 @@
 /* General Styles */
+
+.t {
+  font-size: 48px;
+  font-weight: bold;
+}
+
 body {
   display: flex;
   flex-direction: column;
