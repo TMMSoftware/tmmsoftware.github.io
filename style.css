@@ -150,11 +150,6 @@ body.dark-mode {
   background-color: #FAFAFA;
 }
 
-/* CSS-only button “enable” based on input validity */
-.email-input:invalid + .btn-waitlist {
-  /* pointer-events: none; */
-}
-
 .email-input:valid + .btn-waitlist {
   pointer-events: auto;
   opacity: 1;
