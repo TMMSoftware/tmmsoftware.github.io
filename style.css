@@ -213,7 +213,7 @@ body.dark-mode {
 
 /* Custom Buttons */
 .btn-waitlist {
-  background-color: currentcolor;
+  background-color: transparent;
   border-radius: 999px;
   color: currentcolor;
   font-size: 15px;
