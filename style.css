@@ -208,7 +208,7 @@ body.dark-mode {
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 999px;
-  color: black;
+  color: currentColor;
   font-size: 15px;
   margin: 10px; 
   padding: 10px 20px;
