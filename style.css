@@ -165,7 +165,6 @@ body.dark-mode {
 /* Success Message - initial state */
 .success-message {
   opacity: 0;
-  scale: 1.4;
   font-size: 15px;
   color: #C89B3C;
   margin-top: 10px;
@@ -181,21 +180,22 @@ body.dark-mode {
 @keyframes fadeInOut {
   0% {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.4);
   }
   20% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   80% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(10px) scale(1.4);
   }
 }
+
 
 .highlight {
   color: #27ae60;
