@@ -210,10 +210,6 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 }
 
 /* Custom Buttons */
-.btn-waitlist, .btn-disabled, .btn-switch, .btn-signin, .btn-login {
-  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
-}
-
 .btn-waitlist {
   background-color: black;
   border-radius: 999px;
@@ -222,6 +218,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   border: 2px solid;
   margin: 10px; 
   padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-waitlist:hover {
@@ -237,6 +234,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   cursor: not-allowed;
   opacity: 0.4;
   padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-switch {
@@ -247,6 +245,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   color: currentColor;
   cursor: pointer;
   padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-switch:hover {
@@ -261,6 +260,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   font-size: 15px;
   color: currentColor;
   padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-signin:hover, .btn-login:hover {
