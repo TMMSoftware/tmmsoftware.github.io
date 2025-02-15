@@ -202,6 +202,14 @@ body.dark-mode {
   }
 }
 
+.highlight {
+  font-weight: bold;
+  color: #27ae60;
+  background-color: #d4f8d4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
 /* Custom Buttons */
 .btn-waitlist {
   background-color: black;
