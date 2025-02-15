@@ -153,7 +153,6 @@ body.dark-mode {
 /* CSS-only button “enable” based on input validity */
 .email-input:invalid + .btn-waitlist {
   pointer-events: none;
-  opacity: 0.5;
 }
 
 .email-input:valid + .btn-waitlist {
@@ -215,9 +214,9 @@ body.dark-mode {
 .btn-waitlist {
   background-color: transparent;
   border-radius: 999px;
-  color: currentcolor;
+  color: black;
   font-size: 15px;
-  border-color: 2px solid;
+  border-color: 2px N;
   margin: 10px; 
   padding: 10px 20px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
