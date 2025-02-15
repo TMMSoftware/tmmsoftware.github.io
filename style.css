@@ -238,6 +238,10 @@ body.dark-mode {
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
+.btn-download:hover {
+  background-color: #777;
+}
+
 .btn-switch {
   border: 2px solid #ccc;
   border-radius: 999px;
@@ -281,7 +285,7 @@ footer {
   background-color: inherit;
 }
 
-.footer-links {
+.footer-links {ƒ
   display: flex;
   gap: 20px;
 }
