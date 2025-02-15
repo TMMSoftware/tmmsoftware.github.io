@@ -201,7 +201,7 @@ body.dark-mode {
   color: #27ae60;
   font-size: 15px;
   padding: 0.2em 0.4em;
-  transform: translateY(-10px);
+ /* transform: translateY(-10px); */
 }
 
 /* Custom Buttons */
