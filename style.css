@@ -175,6 +175,7 @@ body.dark-mode {
   font-size: 15px;
   color: #C89B3C;
   margin-top: 10px;
+  font-weight: lighter;
 }
 
 /* When the success message is the URL target, trigger the animation */
