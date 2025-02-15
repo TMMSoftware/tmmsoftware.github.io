@@ -180,7 +180,7 @@ body.dark-mode {
 
 /* When the success message is the URL target, trigger the animation */
 .success-message:target {
-  animation: fadeInOut 5s ease-in-out forwards;
+  animation: fadeInOut 4s ease-in-out forwards;
 }
 
 /* Keyframes: Fade In, Hold, then Fade Out */
