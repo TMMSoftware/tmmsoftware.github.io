@@ -228,9 +228,9 @@ body.dark-mode {
 }
 
 .btn-download {
-  background-color: black;
+  background-color: transparent;
   border-radius: 999px;
-  border: none;
+  border: 1px solid #ccc;
   color: currentcolor;
   font-size: 15px;
   cursor: not-allowed;
