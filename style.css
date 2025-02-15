@@ -213,7 +213,7 @@ body.dark-mode {
 
 /* Custom Buttons */
 .btn-waitlist {
-  background-color: black;
+  background-color: currentcolor;
   border-radius: 999px;
   color: white;
   font-size: 15px;
@@ -240,6 +240,7 @@ body.dark-mode {
 
 .btn-download:hover {
   background-color: #777;
+  border-color: #C89B3C;
 }
 
 .btn-switch {
