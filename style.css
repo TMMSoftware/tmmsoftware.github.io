@@ -227,11 +227,11 @@ body.dark-mode {
   border-color: #C89B3C;
 }
 
-.btn-disabled {
-  background-color: #ccc;
+.btn-download {
+  background-color: black;
   border-radius: 999px;
   border: none;
-  color: #666;
+  color: currentcolor;
   font-size: 15px;
   cursor: not-allowed;
   padding: 10px 20px;
