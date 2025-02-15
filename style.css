@@ -17,12 +17,13 @@ body.dark-mode {
   background-color: #121212;
 }
 
+
 /* Dark Mode Buttons */
-body.dark-mode .btn-switch .btn-signin .btn-login {
+/*body.dark-mode .btn-switch .btn-signin .btn-login {
   color: white;
   background-color: #121212;
   border: 1px solid transparent;
-}
+}*/
 
 /* Navigation Bar */
 .navbar {
