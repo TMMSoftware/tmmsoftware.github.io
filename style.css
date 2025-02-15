@@ -215,7 +215,7 @@ body.dark-mode {
 .btn-waitlist {
   background-color: currentcolor;
   border-radius: 999px;
-  color: white;
+  color: currentcolor;
   font-size: 15px;
   border-color: 2px solid;
   margin: 10px; 
