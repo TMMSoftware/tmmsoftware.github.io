@@ -212,13 +212,13 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 /* Custom Buttons */
 .btn-waitlist, .btn-disabled, .btn-switch, .btn-signin, .btn-login {
   border-radius: 999px;
-  font-size: 15px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-waitlist {
   background-color: black;
   color: white;
+  font-size: 15px;
   border: 2px solid;
   margin: 10px; 
   padding: 10px 20px;
@@ -232,6 +232,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
   background-color: #ccc;
   border: none;
   color: #666;
+  font-size: 15px;
   cursor: not-allowed;
   opacity: 0.4;
   padding: 10px 20px;
@@ -240,6 +241,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .btn-switch {
   border: 2px solid #ccc;
   background-color: currentColor;
+  font-size: 15px;
   color: currentColor;
   cursor: pointer;
   padding: 10px 20px;
@@ -253,6 +255,7 @@ body.dark-mode .btn-switch .btn-signin .btn-login {
 .btn-signin, .btn-login {
   border: 1px solid #ccc;
   background-color: transparent;
+  font-size: 15px;
   color: currentColor;
   padding: 10px 20px;
 }
