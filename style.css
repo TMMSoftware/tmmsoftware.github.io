@@ -112,7 +112,6 @@ body.dark-mode {
 /* Visible border on hover */
 .product:hover {
   border-color: #777;
-  background: darkslategray;
 }
 
 /* Email Input Styles */
