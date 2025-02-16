@@ -273,7 +273,7 @@ body.dark-mode .product:hover {
   margin: 10px;
   padding: 10px 20px;
   /* Animation & Transitions */
-  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
 }
 
 .btn-waitlist:hover {
