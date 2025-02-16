@@ -1,168 +1,212 @@
 /* General Styles */
 body {
+  /* Positioning & Layout */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  color: #121212;
-  background-color: #f9f9f9;
+  /* Box Model */
   margin: 0;
+  min-height: 100vh;
+  /* Border & Background */
+  background-color: #f9f9f9;
+  /* Typography & Text */
+  color: #121212;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 /* Dark Mode */
 body.dark-mode {
-  color: white;
+  /* Border & Background */
   background-color: #121212;
+  /* Typography & Text */
+  color: white;
 }
 
 /* Navigation Bar */
 .navbar {
-  display: flex;
+  /* Positioning & Layout */
   align-items: center;
+  display: flex;
   justify-content: space-between;
   position: sticky;
   top: 0;
-  width: 100%;
-  padding: 14px 24px;
-  background-color: inherit;
   z-index: 50;
+  /* Box Model */
+  padding: 14px 24px;
+  width: 100%;
+  /* Border & Background */
+  background-color: inherit;
 }
 
 .nav-left img {
-  width: 40px;
+  /* Box Model */
   height: auto;
+  width: 40px;
 }
 
 .nav-right {
+  /* Positioning & Layout */
   display: flex;
+  /* Box Model */
   gap: 12px;
 }
 
 /* Hero Section */
 .hero-container {
+  /* Positioning & Layout */
+  align-items: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch;
-  max-width: 900px;
-  margin: auto;
+  /* Box Model */
   gap: 1px;
+  margin: auto;
+  max-width: 900px;
 }
 
 .hero-letter-t-1 {
+  /* Typography & Text */
   font-size: 48px;
   font-weight: bold;
   text-align: center;
+  /* Box Model */
   padding-right: 15px;
 }
 
 .hero-letter-m-1 {
+  /* Typography & Text */
   font-size: 48px;
   font-weight: bold;
   text-align: center;
+  /* Box Model */
   padding: 1px 15px;
 }
 
 .hero-letter-m-2 {
+  /* Typography & Text */
   font-size: 48px;
   font-weight: bold;
   text-align: center;
+  /* Box Model */
   padding: 1px 15px;
 }
 
 .hero-title-2 {
+  /* Typography & Text */
   font-size: 36px;
   font-weight: normal;
 }
 
 .subtitle-1, .subtitle-2 {
-  font-size: 18px;
+  /* Typography & Text */
   color: #999;
+  font-size: 18px;
   text-align: center;
 }
 
 .subtitle-1 {
-  padding-top: 40px;
+  /* Box Model */
   margin-bottom: 0.2em;
+  padding-top: 40px;
 }
 
 /* Products Section */
 .product-container {
+  /* Positioning & Layout */
+  align-items: stretch;
   display: flex;
   justify-content: center;
-  align-items: stretch;
-  max-width: 900px;
-  margin: auto;
+  /* Box Model */
   gap: 40px;
+  margin: auto;
+  max-width: 900px;
 }
 
 .product {
+  /* Positioning & Layout */
   display: flex;
-  flex-direction: column;
-  text-align: center;
   flex: 1;
+  flex-direction: column;
+  /* Box Model */
   padding: 10px;
+  /* Border & Background */
   border: 1px solid transparent;
   border-radius: 8px;
+  /* Typography & Text */
+  text-align: center;
+  /* Animation & Transitions */
   transition: border-color 0.3s ease;
 }
 
-/* Border on light mode hover */
 .product:hover {
+  /* Border & Background */
   border-color: #777;
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* Border on dark mode hover */
 body.dark-mode .product:hover {
+  /* Border & Background */
   border-color: #777;
   box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Email Input Styles */
 .email-input {
+  /* Positioning & Layout */
   display: block;
-  width: 100%;
-  max-width: 250px;
-  text-align: center;
-  padding: 10px 20px;
+  /* Box Model */
   margin-bottom: 10px;
+  max-width: 250px;
+  padding: 10px 20px;
+  width: 100%;
+  /* Border & Background */
+  background-color: white;
   border: 2px solid #C89B3C;
   border-radius: 999px;
-  background-color: white;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  /* Typography & Text */
+  text-align: center;
+  /* Animation & Transitions */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .email-input::placeholder {
+  /* Typography & Text */
   color: #5A4A33;
   font-size: 14px;
+  /* Effects & Interactivity */
   opacity: 1;
 }
 
 .email-input:focus {
-  border-color: #b38a2e;
+  /* Border & Background */
   background-color: #faf3e0;
+  border-color: #b38a2e;
+  /* Miscellaneous */
   outline: none;
 }
 
 .email-input:valid {
-  border-color: #2ecc71;
+  /* Border & Background */
   background-color: #e6ffe6;
+  border-color: #2ecc71;
 }
 
 .email-input:invalid:not(:placeholder-shown) {
-  border-color: #e74c3c;
+  /* Border & Background */
   background-color: #FAFAFA;
+  border-color: #e74c3c;
 }
 
 .email-input:valid + .btn-waitlist {
-  pointer-events: auto;
-  opacity: 1;
-  border: 1px solid #e6ffe6;
-  background-color: #2ecc71;
+  /* Effects & Interactivity */
   cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+  /* Border & Background */
+  background-color: #2ecc71;
+  border: 1px solid #e6ffe6;
+  /* Typography & Text */
   color: black;
 }
 
@@ -170,24 +214,28 @@ body.dark-mode .product:hover {
   background-color: #27ae60;
 }
 
-/* Success Message - initial state */
+/* Success Message */
 .success-message {
+  /* Effects & Interactivity */
   opacity: 0;
-  font-size: 15px;
+  /* Typography & Text */
   color: #C89B3C;
-  margin-top: 10px;
+  font-size: 15px;
   font-weight: lighter;
+  /* Box Model */
+  margin-top: 10px;
 }
 
-/* When the success message is the URL target, trigger the animation */
 .success-message:target {
+  /* Animation & Transitions */
   animation: fadeInOut 3s ease-in-out forwards;
 }
 
-/* Keyframes: Fade In, Hold, then Fade Out */
 @keyframes fadeInOut {
   0% {
+    /* Effects & Interactivity */
     opacity: 0;
+    /* Animation & Transitions */
     transform: translateY(-10px) scale(1.4);
   }
   20% {
@@ -204,22 +252,27 @@ body.dark-mode .product:hover {
   }
 }
 
-
 .highlight {
+  /* Typography & Text */
   color: #27ae60;
   font-size: 15px;
+  /* Box Model */
   padding: 0.2em 0.4em;
 }
 
 /* Custom Buttons */
 .btn-waitlist {
+  /* Border & Background */
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 999px;
+  /* Typography & Text */
   color: currentColor;
   font-size: 15px;
-  margin: 10px; 
+  /* Box Model */
+  margin: 10px;
   padding: 10px 20px;
+  /* Animation & Transitions */
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
@@ -228,15 +281,21 @@ body.dark-mode .product:hover {
 }
 
 .btn-download {
+  /* Positioning & Layout */
+  align-self: center;
+  /* Border & Background */
   background-color: transparent;
-  border-radius: 999px;
   border: 1px solid #ccc;
+  border-radius: 999px;
+  /* Typography & Text */
   color: currentcolor;
   font-size: 15px;
-  cursor: not-allowed;
+  /* Box Model */
   padding: 10px 20px;
+  /* Effects & Interactivity */
+  cursor: not-allowed;
+  /* Animation & Transitions */
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
-  align-self: center;
 }
 
 .btn-download:hover {
@@ -245,13 +304,18 @@ body.dark-mode .product:hover {
 }
 
 .btn-switch {
+  /* Border & Background */
+  background-color: currentColor;
   border: 1px solid #ccc;
   border-radius: 999px;
-  background-color: currentColor;
-  font-size: 15px;
+  /* Typography & Text */
   color: currentColor;
-  cursor: pointer;
+  font-size: 15px;
+  /* Box Model */
   padding: 10px 20px;
+  /* Effects & Interactivity */
+  cursor: pointer;
+  /* Animation & Transitions */
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
@@ -261,13 +325,18 @@ body.dark-mode .product:hover {
 }
 
 .btn-signin, .btn-login {
+  /* Border & Background */
+  background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 999px;
-  background-color: transparent;
-  font-size: 15px;
+  /* Typography & Text */
   color: currentColor;
-  cursor: not-allowed;
+  font-size: 15px;
+  /* Box Model */
   padding: 10px 20px;
+  /* Effects & Interactivity */
+  cursor: not-allowed;
+  /* Animation & Transitions */
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
@@ -278,22 +347,29 @@ body.dark-mode .product:hover {
 
 /* Footer */
 footer {
+  /* Positioning & Layout */
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  /* Box Model */
   padding: 10px 20px;
-  font-size: 14px;
+  width: 100%;
+  /* Typography & Text */
   color: #999;
+  font-size: 14px;
+  /* Border & Background */
   background-color: inherit;
 }
 
 .footer-links {
+  /* Positioning & Layout */
   display: flex;
+  /* Box Model */
   gap: 20px;
 }
 
 .footer-links a {
+  /* Typography & Text */
   color: inherit;
   text-decoration: none;
 }
