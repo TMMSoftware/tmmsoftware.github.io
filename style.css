@@ -110,9 +110,9 @@ body.dark-mode {
 }
 
 /* Visible border on hover */
-.product:hover {
+body.dark-mode .product:hover {
   border-color: #777;
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.2);
 }
 
 /* Email Input Styles */
