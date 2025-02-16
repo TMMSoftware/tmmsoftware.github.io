@@ -261,6 +261,13 @@ body.dark-mode .product:hover {
 }
 
 /* Custom Buttons */
+.btn-waitlist:hover,
+.btn-download:hover,
+.btn-switch:hover,
+.btn-signin:hover,
+.btn-login:hover {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+}
 .btn-waitlist {
   /* Border & Background */
   background-color: transparent;
