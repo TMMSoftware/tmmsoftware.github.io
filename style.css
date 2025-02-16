@@ -335,7 +335,7 @@ body.dark-mode .product:hover {
   /* Effects & Interactivity */
   cursor: not-allowed;
   /* Animation & Transitions */
-  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
 }
 
 .btn-signin:hover, .btn-login:hover {
