@@ -109,10 +109,16 @@ body.dark-mode {
   transition: border-color 0.3s ease;
 }
 
-/* Visible border on hover */
+/* Border on light mode hover */
+product:hover {
+  border-color: #777;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Border on dark mode hover */
 body.dark-mode .product:hover {
   border-color: #777;
-  box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 20px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Email Input Styles */
