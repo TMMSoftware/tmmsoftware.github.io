@@ -229,6 +229,7 @@ body.dark-mode {
   cursor: not-allowed;
   padding: 10px 20px;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+  align-self: center;
 }
 
 .btn-download:hover {
