@@ -136,7 +136,7 @@ body.dark-mode {
   /* Typography & Text */
   text-align: center;
   /* Animation & Transitions */
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
 }
 
 .product:hover {
