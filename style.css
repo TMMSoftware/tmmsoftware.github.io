@@ -41,8 +41,8 @@ body.dark-mode {
 
 .nav-left img {
   /* Box Model */
-  height: auto;
   width: 40px;
+  height: auto;
 }
 
 .nav-right {
@@ -107,8 +107,8 @@ body.dark-mode {
 
 .subtitle-1 {
   /* Box Model */
-  margin-bottom: 0.2em;
   padding-top: 40px;
+  margin-bottom: 0.2em;
 }
 
 /* Products Section */
@@ -136,19 +136,21 @@ body.dark-mode {
   /* Typography & Text */
   text-align: center;
   /* Animation & Transitions */
-  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
+  transition: border-color 0.3s ease;
 }
 
+/* Border on light mode hover */
 .product:hover {
   /* Border & Background */
   border-color: #777;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }
 
-body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switch:hover .btn-signin:hover .btn-login:hover {
+/* Border on dark mode hover */
+body.dark-mode .product:hover {
   /* Border & Background */
   border-color: #777;
-  box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 /* Email Input Styles */
@@ -214,7 +216,7 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
   background-color: #27ae60;
 }
 
-/* Success Message */
+/* Success Message - initial state */
 .success-message {
   /* Effects & Interactivity */
   opacity: 0;
@@ -226,11 +228,13 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
   margin-top: 10px;
 }
 
+/* When the success message is the URL target, trigger the animation */
 .success-message:target {
   /* Animation & Transitions */
   animation: fadeInOut 3s ease-in-out forwards;
 }
 
+/* Keyframes: Fade In, Hold, then Fade Out */
 @keyframes fadeInOut {
   0% {
     /* Effects & Interactivity */
@@ -261,13 +265,6 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
 }
 
 /* Custom Buttons */
-.btn-waitlist:hover,
-.btn-download:hover,
-.btn-switch:hover,
-.btn-signin:hover,
-.btn-login:hover {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);  
-}
 .btn-waitlist {
   /* Border & Background */
   background-color: transparent;
@@ -280,11 +277,17 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
   margin: 10px;
   padding: 10px 20px;
   /* Animation & Transitions */
-  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-waitlist:hover {
   border-color: #C89B3C;
+  /* Effects & Interactivity */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-waitlist:hover {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn-download {
@@ -302,11 +305,18 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
   /* Effects & Interactivity */
   cursor: not-allowed;
   /* Animation & Transitions */
-  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-download:hover {
+  background-color: #777;
   border-color: #C89B3C;
+  /* Effects & Interactivity */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-download:hover {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn-switch {
@@ -322,11 +332,18 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
   /* Effects & Interactivity */
   cursor: pointer;
   /* Animation & Transitions */
-  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-switch:hover {
+  background-color: #777;
   border-color: #C89B3C;
+  /* Effects & Interactivity */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-switch:hover {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn-signin, .btn-login {
@@ -342,11 +359,19 @@ body.dark-mode .product:hover .btn-waitlist:hover .btn-download:hover .btn-switc
   /* Effects & Interactivity */
   cursor: not-allowed;
   /* Animation & Transitions */
-  transition: border-color 0.3s cubic-bezier(0.77, 0.46, 1, 0.98);
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-signin:hover, .btn-login:hover {
+  background-color: #777;
   border-color: #C89B3C;
+  /* Effects & Interactivity */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-signin:hover, 
+body.dark-mode .btn-login:hover {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 /* Footer */
