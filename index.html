@@ -55,43 +55,55 @@
     <div class="product">
       <h3>📚 WebQuiz DevNet</h3>
       <p>Master new concepts with interactive quizzes</p>
-        <!-- Form action points to the success message's ID -->
-        <form action="#success1">
-          <input type="email" class="email-input" placeholder="Enter your email" required>
-          <button type="submit" class="btn-waitlist">Request Early Access</button>
-          <p id="success1" class="success-message">
-            Thanks! <span class="highlight">You're on the list!</span>
-          </p>
-        </form>
-        <button class="btn-download" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+      <!-- Using fake submission: prevent actual submission with onsubmit="return false;" -->
+      <form onsubmit="return false;">
+        <input type="email" class="email-input" placeholder="Enter your email" required>
+        <!-- Hidden checkbox to toggle success message -->
+        <input type="checkbox" id="toggle-success1" hidden>
+        <!-- Label styled as a button toggles the checkbox -->
+        <label for="toggle-success1" class="btn-waitlist">Request Early Access</label>
+        <!-- Success message that animates when the checkbox is checked -->
+        <p class="success-message">
+          Thanks! <span class="highlight">You're on the list!</span>
+        </p>
+      </form>
+      <button class="btn-download" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
     </div>
 
     <!-- Product 2 -->
     <div class="product">
       <h3>🖐️ Gesture Recognition System</h3>
       <p>Revolutionize your Mac operations with gestures</p>
-        <form action="#success2">
-          <input type="email" class="email-input" placeholder="Enter your email" required>
-          <button type="submit" class="btn-waitlist">Request Early Access</button>
-          <p id="success2" class="success-message">
-            Thanks! <span class="highlight">You're on the list!</span>
-          </p>
-        </form>
-        <button class="btn-download" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+      <form onsubmit="return false;">
+        <input type="email" class="email-input" placeholder="Enter your email" required>
+        <!-- Hidden checkbox to toggle success message -->
+        <input type="checkbox" id="toggle-success2" hidden>
+        <!-- Label styled as a button toggles the checkbox -->
+        <label for="toggle-success2" class="btn-waitlist">Request Early Access</label>
+        <!-- Success message that animates when the checkbox is checked -->
+        <p class="success-message">
+          Thanks! <span class="highlight">You're on the list!</span>
+        </p>
+      </form>
+      <button class="btn-download" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
     </div>
 
     <!-- Product 3 -->
     <div class="product">
       <h3>📂 Smart File Organizer</h3>
       <p>Automate and simplify your file management</p>
-        <form action="#success3">
-          <input type="email" class="email-input" placeholder="Enter your email" required>
-          <button type="submit" class="btn-waitlist">Request Early Access</button>
-          <p id="success3" class="success-message">
-            Thanks! <span class="highlight">You're on the list!</span>
-          </p>
-        </form>
-        <button class="btn-download" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
+      <form onsubmit="return false;">
+        <input type="email" class="email-input" placeholder="Enter your email" required>
+        <!-- Hidden checkbox to toggle success message -->
+        <input type="checkbox" id="toggle-success3" hidden>
+        <!-- Label styled as a button toggles the checkbox -->
+        <label for="toggle-success3" class="btn-waitlist">Request Early Access</label>
+        <!-- Success message that animates when the checkbox is checked -->
+        <p class="success-message">
+          Thanks! <span class="highlight">You're on the list!</span>
+        </p>
+      </form>
+      <button class="btn-download" disabled aria-label="Disabled Download Button"> &#x2193; Download </button>
     </div>
   </section>
 
