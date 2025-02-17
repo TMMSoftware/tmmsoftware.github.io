@@ -1,3 +1,8 @@
+// Function to toggle dark mode
+function toggleTheme() {
+  document.body.classList.toggle("dark-mode");
+}
+
 // When the success message animation ends, reset the form.
 document.querySelectorAll('.success-message').forEach(successMessage => {
   successMessage.addEventListener('animationend', function() {
