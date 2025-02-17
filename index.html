@@ -112,11 +112,22 @@
     </div>
   </footer>
 
-  <!-- Minimal Script for Dark Mode Toggle -->
+  <!-- Script for Dark Mode Toggle -->
   <script>
     function toggleTheme() {
       document.body.classList.toggle("dark-mode");
     }
+  </script>
+
+  <!-- Script to Reset Form After Success Animation -->
+  <script>
+    document.querySelectorAll('.success-message').forEach(successMessage => {
+      successMessage.addEventListener('animationend', function() {
+        const form = successMessage.closest('form');
+        // Reset the form to clear the email field and uncheck the hidden checkbox.
+        form.reset();
+      });
+    });
   </script>
 </body>
 </html>
