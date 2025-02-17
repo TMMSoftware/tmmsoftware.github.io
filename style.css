@@ -150,6 +150,11 @@ body.dark-mode {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }
 
+.product h3 {
+  min-height: 4.5em;
+  line-height: 1.2:
+}
+
 /* Border on dark mode hover */
 body.dark-mode .product:hover {
   /* Border & Background */
