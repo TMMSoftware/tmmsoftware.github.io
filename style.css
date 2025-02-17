@@ -235,6 +235,7 @@ body.dark-mode .product:hover {
 .success-message {
   /* Effects & Interactivity */
   opacity: 0;
+  visibility: hidden;
   /* Typography & Text */
   color: #C89B3C;
   font-size: 15px;
