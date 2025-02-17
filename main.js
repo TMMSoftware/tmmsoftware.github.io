@@ -13,18 +13,28 @@ document.querySelectorAll('.success-message').forEach(successMessage => {
 
 // Run when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-  // Dynamic datalist attachment for email inputs
-  const emailInputs = document.querySelectorAll('.email-input');
-  emailInputs.forEach(input => {
-    input.addEventListener('input', function () {
-      // Attach the datalist if the input value contains "@"
-      if (this.value.includes('@')) {
-        this.setAttribute('list', 'domain-suggestions');
+  // Attach a click listener to each "Request Early Access" label.
+  document.querySelectorAll('.btn-waitlist').forEach(label => {
+    label.addEventListener('click', function(e) {
+      // Stop the label from automatically toggling the checkbox.
+      e.preventDefault();
+
+      const form = label.closest('form');
+      const emailInput = form.querySelector('.email-input');
+      const successCheckbox = form.querySelector('input[type="checkbox"]');
+
+      // Check validity of the email field
+      if (!emailInput.checkValidity()) {
+        // Show the built-in browser error
+        emailInput.reportValidity();
       } else {
-        this.removeAttribute('list');
+        // Valid: manually check the box to trigger the success animation
+        successCheckbox.checked = true;
       }
     });
   });
+});
+
 
   // Validate email only when the "Request Early Access" label is clicked
   const waitlistLabels = document.querySelectorAll('.btn-waitlist');
