@@ -75,7 +75,7 @@ body.dark-mode {
   font-weight: bold;
   text-align: center;
   /* Box Model */
-  padding-right: 15px;
+  padding-right: 18px;
 }
 
 .hero-letter-m-1 {
@@ -84,7 +84,7 @@ body.dark-mode {
   font-weight: bold;
   text-align: center;
   /* Box Model */
-  padding: 1px 15px;
+  padding: 1px 18px;
 }
 
 .hero-letter-m-2 {
@@ -93,7 +93,7 @@ body.dark-mode {
   font-weight: bold;
   text-align: center;
   /* Box Model */
-  padding: 1px 15px;
+  padding-left: 18px;
 }
 
 .hero-title-2 {
