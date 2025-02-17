@@ -3,37 +3,39 @@ function toggleTheme() {
   document.body.classList.toggle("dark-mode");
 }
 
-// Event listener to reset form when the success message animation ends
+// Reset the form when the success message animation ends
 document.querySelectorAll('.success-message').forEach(successMessage => {
   successMessage.addEventListener('animationend', function() {
-    // Find the closest form element and reset it.
     const form = successMessage.closest('form');
     form.reset();
   });
 });
 
-
-// Event listener to manually check the inputs validity with Constraint Validation API
-document.querySelectorAll('.email-input').forEach(input => {
-  input.addEventListener('blur', function() {
-    if (!this.checkValidity()) {
-      // Show custom error message or use reportValidity() to let the browser show its message.
-      this.reportValidity();
-    }
-  });
-});
-
-
-// Add or remove the list attribute based on whether the input contains an "@"
+// Run when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
+  // Dynamic datalist attachment for email inputs
   const emailInputs = document.querySelectorAll('.email-input');
   emailInputs.forEach(input => {
     input.addEventListener('input', function () {
-      // Only attach the datalist if the input value contains an "@"
+      // Attach the datalist if the input value contains an "@"
       if (this.value.includes('@')) {
         this.setAttribute('list', 'domain-suggestions');
       } else {
         this.removeAttribute('list');
+      }
+    });
+  });
+
+  // Validate email only when the "Request Early Access" label is clicked
+  const waitlistLabels = document.querySelectorAll('.btn-waitlist');
+  waitlistLabels.forEach(label => {
+    label.addEventListener('click', function(e) {
+      const form = label.closest('form');
+      const emailInput = form.querySelector('.email-input');
+      // If the email is invalid, prevent further action and show validation message.
+      if (!emailInput.checkValidity()) {
+        e.preventDefault();
+        emailInput.reportValidity();
       }
     });
   });
