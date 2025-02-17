@@ -49,3 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Ensure typed characters be converted to lowercase inputs value.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.email-input').forEach(input => {
+    input.addEventListener('input', function() {
+      // Convert the input value to lowercase in real-time.
+      this.value = this.value.toLowerCase();
+    });
+  });
+});
+
