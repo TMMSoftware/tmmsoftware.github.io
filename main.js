@@ -3,7 +3,7 @@ function toggleTheme() {
   document.body.classList.toggle("dark-mode");
 }
 
-// Event listener to reset form when the success message animation ends.
+// Event listener to reset form when the success message animation ends
 document.querySelectorAll('.success-message').forEach(successMessage => {
   successMessage.addEventListener('animationend', function() {
     // Find the closest form element and reset it.
@@ -12,7 +12,7 @@ document.querySelectorAll('.success-message').forEach(successMessage => {
   });
 });
 
-// Add or remove the list attribute based on whether the input contains an "@".
+// Add or remove the list attribute based on whether the input contains an "@"
 document.addEventListener('DOMContentLoaded', function () {
   const emailInputs = document.querySelectorAll('.email-input');
   emailInputs.forEach(input => {
