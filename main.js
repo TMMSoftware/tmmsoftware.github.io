@@ -1,4 +1,4 @@
-// Dark Mode toogle function
+// Dark Mode toggle function
 function toggleTheme() {
   document.body.classList.toggle("dark-mode");
 }
