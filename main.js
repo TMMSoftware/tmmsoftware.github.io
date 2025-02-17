@@ -12,6 +12,18 @@ document.querySelectorAll('.success-message').forEach(successMessage => {
   });
 });
 
+
+// Event listener to manually check the inputs validity with Constraint Validation API
+document.querySelectorAll('.email-input').forEach(input => {
+  input.addEventListener('blur', function() {
+    if (!this.checkValidity()) {
+      // Show custom error message or use reportValidity() to let the browser show its message.
+      this.reportValidity();
+    }
+  });
+});
+
+
 // Add or remove the list attribute based on whether the input contains an "@"
 document.addEventListener('DOMContentLoaded', function () {
   const emailInputs = document.querySelectorAll('.email-input');
