@@ -209,7 +209,7 @@ body.dark-mode .product:hover {
   border-color: #e74c3c;
 }
 
-**Prevent Red on Empty** and Only Show for Invalid Inputs */
+/** Prevent Red on Empty and Only Show for Invalid Inputs */
 .email-input:invalid:not(:focus):not(:placeholder-shown) {
   border-color: #e74c3c;
   background-color: #FAFAFA;
@@ -244,9 +244,9 @@ body.dark-mode .product:hover {
   margin-top: 10px;
 }
 
-/* When the success message is the URL target, trigger the animation */
-.success-message:target {
-  /* Animation & Transitions */
+/* When the hidden checkbox is checked, trigger the animation */
+input[type="checkbox"]:checked ~ .success-message {
+  visibility: visible; /* ensure the element becomes visible */
   animation: fadeInOut 3s ease-in-out forwards;
 }
 
