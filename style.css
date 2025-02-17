@@ -209,6 +209,12 @@ body.dark-mode .product:hover {
   border-color: #e74c3c;
 }
 
+**Prevent Red on Empty** and Only Show for Invalid Inputs */
+.email-input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #e74c3c;
+  background-color: #FAFAFA;
+}
+
 .email-input:valid + .btn-waitlist {
   /* Effects & Interactivity */
   cursor: pointer;
