@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInputs = document.querySelectorAll('.email-input');
   emailInputs.forEach(input => {
     input.addEventListener('input', function () {
-      // Attach the datalist if the input value contains an "@"
+      // Attach the datalist if the input value contains "@"
       if (this.value.includes('@')) {
         this.setAttribute('list', 'domain-suggestions');
       } else {
@@ -30,12 +30,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const waitlistLabels = document.querySelectorAll('.btn-waitlist');
   waitlistLabels.forEach(label => {
     label.addEventListener('click', function(e) {
+      // Always prevent the label's default toggle action.
+      e.preventDefault();
+
       const form = label.closest('form');
       const emailInput = form.querySelector('.email-input');
-      // If the email is invalid, prevent further action and show validation message.
+      const successCheckbox = form.querySelector('[type="checkbox"]');
+
+      // Check if the email is valid.
       if (!emailInput.checkValidity()) {
-        e.preventDefault();
+        // Show the native browser validation error
         emailInput.reportValidity();
+      } else {
+        // If valid, manually toggle the checkbox
+        successCheckbox.checked = true;
       }
     });
   });
