@@ -217,7 +217,6 @@ body.dark-mode .product:hover {
 
 /* Disable the Request Early Access button when the email is invalid */
 .email-input:invalid + .btn-waitlist {
-  pointer-events: none;
   opacity: 0.5;
   cursor: not-allowed;
 }
