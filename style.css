@@ -240,8 +240,8 @@ body.dark-mode .product:hover {
 
 .email-suggestions-container {
   position: absolute;
-  background-color: #fff;
-  border: 1px dotted #C89B3C;
+  background-color: #FAFAFA;
+  border: 1px dotted #ccc;
   border-radius: 999px;
   min-width: 250px;
   height: 60px;
@@ -262,6 +262,7 @@ body.dark-mode .product:hover {
 
 .suggestion-item:hover {
   background-color: #f0f0f0;
+  border-color: #ccc;
 }
 
 /* Success Message - initial state */
