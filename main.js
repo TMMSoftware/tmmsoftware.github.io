@@ -12,6 +12,13 @@ document.querySelectorAll('.success-message').forEach(successMessage => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Prevent default submission for all forms to avoid page refresh
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+    });
+  });
+  
   // Define the regex pattern.
   const regexPattern = '^[a-z0-9._%+\\-]+@[a-z0-9.-]+\\.[a-z]{2,}$';
   const regex = new RegExp(regexPattern);
