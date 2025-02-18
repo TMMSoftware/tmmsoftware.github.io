@@ -257,6 +257,8 @@ body.dark-mode .product:hover {
   padding: 10px 20px;
   color: currentColor;
   cursor: pointer;
+  font: inherit;
+  width: 100%;
   transition: background-color 0.2s ease;
 }
 
