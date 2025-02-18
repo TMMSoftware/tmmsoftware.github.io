@@ -21,16 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // For each email input, use the existing suggestion container in the HTML.
   document.querySelectorAll('.email-input').forEach(input => {
-    // Look for an existing container within the same wrapper.
-    let suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
-    
-    // Fallback: if no container exists in HTML, create one.
-    if (!suggestionContainer) {
-      suggestionContainer = document.createElement('div');
-      suggestionContainer.classList.add('email-suggestions-container');
-      suggestionContainer.style.display = 'none';
-      input.parentNode.insertBefore(suggestionContainer, input.nextSibling);
-    }
+    // Assume the suggestion container exists within the input's parent wrapper.
+    const suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
     
     // Input event: convert to lowercase, update custom validity, and update domain suggestions.
     input.addEventListener('input', function() {
