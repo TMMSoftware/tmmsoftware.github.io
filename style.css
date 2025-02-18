@@ -224,7 +224,7 @@ body.dark-mode .product:hover {
 /* When the email is valid, style the button to be clickable */
 .email-input:valid + .btn-waitlist {
   /* Effects & Interactivity */
-  cursor: pointer;
+  cursor: pointer; !important;
   opacity: 1;
   pointer-events: auto;
   /* Border & Background */
