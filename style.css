@@ -242,7 +242,7 @@ body.dark-mode .product:hover {
 .email-suggestions-container {
   position: absolute;
   background-color: #FAFAFA;
-  border: 1px dotted #ccc;
+  border-color: 1px dotted #ccc;
   border-radius: 999px;
   min-width: 250px;
   height: 60px;
@@ -258,8 +258,10 @@ body.dark-mode .product:hover {
   cursor: pointer;
   font: inherit;
   font-weight: lighter;
-  width: 100%;
-  transition: background-color 0.2s ease;
+  width: 50%;
+  transition: all 0.3 ease;
+  text-align: center;
+  font-size: 14px;
 }
 
 .suggestion-item:hover {
