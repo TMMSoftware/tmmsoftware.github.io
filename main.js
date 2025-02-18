@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // If valid, manually toggle the checkbox to trigger the success animation.
       successCheckbox.checked = true;
+      label.style.cursor = 'pointer';
     });
   });
 });
