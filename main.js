@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // For each email input, update custom validity on every keystroke.
   document.querySelectorAll('.email-input').forEach(input => {
     input.addEventListener('input', function() {
+      // Convert input to lowercase in real-time.
+      this.value = this.value.toLowerCase();
+      
       if (regex.test(input.value)) {
         // Clear any custom validity if input is valid.
         input.setCustomValidity("");
@@ -37,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const form = label.closest('form');
       const emailInput = form.querySelector('.email-input');
       const successCheckbox = form.querySelector('input[type="checkbox"]');
+      
+      // Force conversion to lowercase before validation.
+      emailInput.value = emailInput.value.toLowerCase();
 
       // If the email does not match our regex, report validity.
       if (!regex.test(emailInput.value)) {
@@ -49,14 +55,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-
-// Ensure typed characters be converted to lowercase inputs value.
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.email-input').forEach(input => {
-    input.addEventListener('input', function() {
-      // Convert the input value to lowercase in real-time.
-      this.value = this.value.toLowerCase();
-    });
-  });
-});
-
