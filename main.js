@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     input.addEventListener('blur', function() {
       setTimeout(() => {
         suggestionContainer.style.display = "none";
-      }, 200);
+      }, 150);
     });
     
     // Click event on the suggestion container: allow user to pick a suggestion.
