@@ -12,13 +12,6 @@ document.querySelectorAll('.success-message').forEach(successMessage => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Prevent default submission for all forms to avoid page refresh
-  document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-    });
-  });
-  
   // Define the regex pattern.
   const regexPattern = '^[a-z0-9._%+\\-]+@[a-z0-9.-]+\\.[a-z]{2,}$';
   const regex = new RegExp(regexPattern);
@@ -39,26 +32,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Helper function to process submission for a form.
+  function processSubmission(form) {
+    const emailInput = form.querySelector('.email-input');
+    const successCheckbox = form.querySelector('input[type="checkbox"]');
+
+    // Force conversion to lowercase before validation.
+    emailInput.value = emailInput.value.toLowerCase();
+
+    // If the email does not match our regex, report validity.
+    if (!regex.test(emailInput.value)) {
+      emailInput.reportValidity();
+      return false;
+    }
+    // If valid, manually toggle the checkbox to trigger the success animation.
+    successCheckbox.checked = true;
+    return true;
+  }
+
+  // Prevent default submission for all forms and handle submission via Enter key.
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent page refresh.
+      processSubmission(form);
+    });
+  });
+
   // Attach a click listener to each "Request Early Access" label.
   document.querySelectorAll('.btn-waitlist').forEach(label => {
     label.addEventListener('click', function(e) {
-      e.preventDefault(); // Prevent default behavior
-
+      e.preventDefault(); // Prevent default label behavior
       const form = label.closest('form');
-      const emailInput = form.querySelector('.email-input');
-      const successCheckbox = form.querySelector('input[type="checkbox"]');
-      
-      // Force conversion to lowercase before validation.
-      emailInput.value = emailInput.value.toLowerCase();
-
-      // If the email does not match our regex, report validity.
-      if (!regex.test(emailInput.value)) {
-        emailInput.reportValidity();
-        return;
-      }
-      
-      // If valid, manually toggle the checkbox to trigger the success animation.
-      successCheckbox.checked = true;
+      processSubmission(form);
     });
   });
 });
