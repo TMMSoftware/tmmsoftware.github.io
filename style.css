@@ -241,7 +241,7 @@ body.dark-mode .product:hover {
 .email-suggestions-container {
   position: absolute;
   background-color: #fff;
-  border: 1px solid #C89B3C;
+  border: 1px dotted #C89B3C;
   border-radius: 999px;
   width: 20%;
   height: 60px;
