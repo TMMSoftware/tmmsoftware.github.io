@@ -226,7 +226,7 @@ body.dark-mode .product:hover {
   /* Effects & Interactivity */
   cursor: pointer !important;
   opacity: 1;
-  pointer-events: auto;
+  /*pointer-events: auto;*/
   /* Border & Background */
   background-color: #2ecc71;
   border: 1px solid #e6ffe6;
