@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     label.classList.add('active');
     setTimeout(() => {
       label.classList.remove('active');
-    }, 200);
+    }, 150);
     
     // Manually toggle the checkbox to trigger the success animation.
     successCheckbox.checked = true;
