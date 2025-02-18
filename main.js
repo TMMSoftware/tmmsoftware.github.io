@@ -76,3 +76,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+document.querySelectorAll('.email-input').forEach(input => {
+  // Create the suggestion container
+  let suggestionContainer = document.createElement('div');
+  suggestionContainer.classList.add('email-suggestions-container');
+  // Initially hide it
+  suggestionContainer.style.display = 'none';
+  // Insert it immediately after the input element
+  input.parentNode.insertBefore(suggestionContainer, input.nextSibling);
+});
+
