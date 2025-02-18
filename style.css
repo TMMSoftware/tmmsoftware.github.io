@@ -243,7 +243,7 @@ body.dark-mode .product:hover {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 999px;
-  width: 100%;
+  width: 50%;
   max-height: 150px;
   overflow-y: auto;
   z-index: 1000;
