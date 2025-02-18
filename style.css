@@ -300,13 +300,15 @@ input[type="checkbox"]:checked ~ .success-message {
   margin: 10px;
   padding: 10px 20px;
   /* Animation & Transitions */
-  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-waitlist:hover {
   border-color: #C89B3C;
   /* Effects & Interactivity */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #2ecc71;
 }
 
 .btn-waitlist.active {
