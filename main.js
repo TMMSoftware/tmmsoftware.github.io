@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function processSubmission(form) {
     const emailInput = form.querySelector('.email-input');
     const successCheckbox = form.querySelector('input[type="checkbox"]');
+    const label = form.querySelector('.btn-waitlist');
 
     // Force conversion to lowercase before validation.
     emailInput.value = emailInput.value.toLowerCase();
@@ -45,7 +46,14 @@ document.addEventListener('DOMContentLoaded', function () {
       emailInput.reportValidity();
       return false;
     }
-    // If valid, manually toggle the checkbox to trigger the success animation.
+
+    // If valid, add a temporary class to the label for visual feedback.
+    label.classList.add('active');
+    setTimeout(() => {
+      label.classList.remove('active');
+    }, 200);
+    
+    // If valid, then manually toggle the checkbox to trigger the success animation.
     successCheckbox.checked = true;
     return true;
   }
@@ -62,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.btn-waitlist').forEach(label => {
     label.addEventListener('click', function(e) {
       e.preventDefault(); // Prevent default label behavior
+      
       const form = label.closest('form');
       processSubmission(form);
     });
