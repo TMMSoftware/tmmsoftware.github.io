@@ -239,26 +239,31 @@ body.dark-mode .product:hover {
   cursor: pointer !important;
 }
 
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .email-suggestions-container {
   position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
   background-color: #FAFAFA;
-  border-color: 1px dotted #ccc;
-  border-radius: 999px;
+  border: 1px dotted #ccc;
+  border-radius: 8px;
   min-width: 250px;
-  height: 60px;
+  max-height: 120px;
   overflow-y: auto;
   z-index: 1000;
-  left: 50px;
-  transform: translateY(-50%);
+  display: none;
 }
 
 .suggestion-item {
-  padding: 10px 20px;
+  padding: 8px 16px;
   color: #333;
   cursor: pointer;
   font: inherit;
   font-weight: lighter;
-  width: 50%;
   transition: all 0.3 ease;
   text-align: center;
   font-size: 14px;
