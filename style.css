@@ -242,6 +242,7 @@ body.dark-mode .product:hover {
   position: absolute;
   background-color: #fff;
   border: 1px inset #C89B3C;
+  border-top-color: #ccc;
   border-radius: 999px;
   width: 20%;
   height: 60px;
