@@ -309,6 +309,11 @@ input[type="checkbox"]:checked ~ .success-message {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.btn-waitlist.active {
+  transform: scale(0.97);
+  background-color: #2ecc71; 
+}
+
 body.dark-mode .btn-waitlist:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
