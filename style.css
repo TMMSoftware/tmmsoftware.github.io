@@ -261,8 +261,8 @@ body.dark-mode .product:hover {
 }
 
 .suggestion-item:hover {
-  background-color: #f0f0f0;
-  border-color: #ccc;
+  background-color: #FAFAFA;
+  border-color: #C89B3C;
 }
 
 /* Success Message - initial state */
