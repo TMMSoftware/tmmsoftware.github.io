@@ -254,6 +254,7 @@ body.dark-mode .product:hover {
 
 .suggestion-item {
   padding: 8px 10px;
+  color: currentColor;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
