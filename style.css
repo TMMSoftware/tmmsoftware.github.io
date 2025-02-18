@@ -247,7 +247,7 @@ body.dark-mode .product:hover {
   height: 50px;
   overflow-y: auto;
   z-index: 1000;
-  margin-top: 1px;
+  /* margin-top: 1px; */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-left: 150px;
   margin-bottom: 10px;
