@@ -31,18 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
       // Convert the input value to lowercase.
       this.value = this.value.toLowerCase();
       
-      // Check validity and update custom validity.
-      if (regex.test(this.value < 12)) {
-        this.setCustomValidity("Email must be at least 12 characters long");
-        label.classList.add('valid');  // Add valid class when email is valid
-
-        // Hide suggestion container if a valid email is detected.
+      // If the email is valid according to the regex, clear any error and hide suggestions.
+      if (regex.test(this.value)) {
+        this.setCustomValidity("");
+        label.classList.add('valid');
         suggestionContainer.innerHTML = "";
         suggestionContainer.style.display = "none";
-        return; // No need to show suggestions if the email is valid.
+        return; // Exit early—no need to show suggestions if valid.
       } else {
         this.setCustomValidity("Please enter a valid email address (e.g., user@example.com)");
-        label.classList.remove('valid'); // Remove valid class when email is invalid
+        label.classList.remove('valid');
       }
       
       // Domain suggestions logic (only for incomplete or invalid emails)
@@ -108,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Explicit email length check:
     if (emailInput.value.length < 12) {
+      emailInput.setCustomValidity("Email must be at least 12 characters long");
       emailInput.reportValidity();
       return false;
     }
