@@ -517,15 +517,6 @@ footer {
 }
 
 /* ----------------------------- */
-/* Additional Specific Rule      */
-/* ----------------------------- */
-/* Ensure suggestion items get the intended highlight style */
-.suggestion-item.highlight {
-  background-color: #efefef;
-  border-color: #C89B3C;
-}
-
-/* ----------------------------- */
 /* New Hover Rule for Suggestions*/
 /* ----------------------------- */
 .suggestion-item:hover {
