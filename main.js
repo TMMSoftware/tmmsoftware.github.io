@@ -1,7 +1,15 @@
 // Dark Mode toggle function
 function toggleTheme() {
   document.body.classList.toggle("dark-mode");
+  localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+});
 
 // Reset the form when the success message animation ends
 document.querySelectorAll('.success-message').forEach(successMessage => {
@@ -15,31 +23,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // Predefined list of common email providers
   const providers = ["gmail.com", "hotmail.com", "yahoo.com", "outlook.com", "icloud.com"];
   
-  // Define the regex pattern.
+  // Define the regex pattern
   const regexPattern = '^[a-z0-9._%+\\-]+@[a-z0-9.-]+\\.[a-z]{2,}$';
   const regex = new RegExp(regexPattern);
   
-  // For each email input, create a suggestion container and attach event listeners.
+  // For each email input, set up domain suggestions and real-time validation
   document.querySelectorAll('.email-input').forEach(input => {
-    // Create suggestion container and insert it right after the input.
-    let suggestionContainer = document.createElement('div');
-    suggestionContainer.classList.add('email-suggestions-container');
-    suggestionContainer.style.display = 'none';
-    input.parentNode.insertBefore(suggestionContainer, input.nextSibling);
+    const suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
+    const label = input.closest('form').querySelector('.btn-waitlist');
     
-    // Input event: convert to lowercase, update custom validity, and update domain suggestions.
+    // Track which suggestion is highlighted by keyboard
+    let selectedIndex = -1;
+
+    // Real-time validation & suggestions
     input.addEventListener('input', function() {
-      // Convert the input value to lowercase.
+      // Convert input to lowercase
       this.value = this.value.toLowerCase();
       
-      // Update custom validity based on our regex.
-      if (regex.test(this.value)) {
+      // Reset the highlighted suggestion whenever suggestions update
+      selectedIndex = -1;
+
+      // 12-char + regex check
+      if (this.value.length >= 12 && regex.test(this.value)) {
         this.setCustomValidity("");
+        label.classList.add('valid');
+        suggestionContainer.innerHTML = "";
+        suggestionContainer.style.display = "none";
+        return;
       } else {
         this.setCustomValidity("Please enter a valid email address (e.g., user@example.com)");
+        label.classList.remove('valid');
       }
       
-      // Domain suggestions logic.
+      // Domain suggestions logic for incomplete/invalid emails
       if (this.value.includes('@')) {
         const parts = this.value.split('@');
         const domainPart = parts[1] || "";
@@ -60,67 +76,109 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     
-    // Blur event: hide the suggestion dropdown after a short delay.
+    // Keyboard navigation for suggestions
+    input.addEventListener('keydown', function(e) {
+      if (suggestionContainer.style.display === 'block') {
+        const items = suggestionContainer.querySelectorAll('.suggestion-item');
+        if (!items.length) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex + 1) % items.length;
+          highlightSuggestion(items, selectedIndex);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+          highlightSuggestion(items, selectedIndex);
+        } else if (e.key === 'Enter') {
+          if (selectedIndex >= 0) {
+            e.preventDefault();
+            const selectedDomain = items[selectedIndex].textContent;
+            applySuggestion(input, suggestionContainer, selectedDomain);
+          }
+        }
+      }
+    });
+    
+    // Hide suggestions on blur
     input.addEventListener('blur', function() {
       setTimeout(() => {
         suggestionContainer.style.display = "none";
       }, 150);
     });
     
-    // Click event on the suggestion container: allow user to pick a suggestion.
+    // Click event on suggestion container: allow user to pick a suggestion with an animation
     suggestionContainer.addEventListener('click', function(e) {
       if (e.target && e.target.matches('.suggestion-item')) {
-        const selectedDomain = e.target.textContent;
-        const parts = input.value.split('@');
-        input.value = parts[0] + "@" + selectedDomain;
-        suggestionContainer.innerHTML = "";
-        suggestionContainer.style.display = "none";
-        // Trigger input event to update validation.
-        input.dispatchEvent(new Event('input'));
+        // Add highlight animation on click
+        e.target.classList.add('highlight');
+        setTimeout(() => {
+          e.target.classList.remove('highlight');
+          const selectedDomain = e.target.textContent;
+          applySuggestion(input, suggestionContainer, selectedDomain);
+        }, 300); // Adjust the delay to match your animation timing
       }
     });
   });
   
-  // Prevent default form submission (covers Enter key) and process submission via our custom logic.
+  // Prevent default form submission & process via custom logic
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent page refresh.
+      e.preventDefault();
       processSubmission(form);
     });
   });
   
-  // Helper function to process submission for a form.
+  // Submission logic (final check)
   function processSubmission(form) {
     const emailInput = form.querySelector('.email-input');
     const successCheckbox = form.querySelector('input[type="checkbox"]');
     const label = form.querySelector('.btn-waitlist');
     
-    // Force conversion to lowercase before validation.
     emailInput.value = emailInput.value.toLowerCase();
+
+    if (emailInput.value.length < 12) {
+      emailInput.setCustomValidity("Email must be at least 12 characters long");
+      emailInput.reportValidity();
+      return false;
+    }
     
-    // If the email does not match our regex, report validity.
     if (!regex.test(emailInput.value)) {
       emailInput.reportValidity();
       return false;
     }
     
-    // Provide visual feedback by adding an 'active' class temporarily.
     label.classList.add('active');
     setTimeout(() => {
       label.classList.remove('active');
-    }, 200);
+    }, 150);
     
-    // Manually toggle the checkbox to trigger the success animation.
     successCheckbox.checked = true;
     return true;
   }
   
-  // Attach a click listener to each "Request Early Access" label.
+  // Make the label clickable
   document.querySelectorAll('.btn-waitlist').forEach(label => {
     label.addEventListener('click', function(e) {
-      e.preventDefault(); // Prevent default behavior.
+      e.preventDefault();
       const form = label.closest('form');
       processSubmission(form);
     });
   });
+  
+  // Helper: highlight suggestion (for keyboard navigation)
+  function highlightSuggestion(items, index) {
+    items.forEach(item => item.classList.remove('highlight'));
+    items[index].classList.add('highlight');
+  }
+  
+  // Helper: apply the chosen suggestion to the input
+  function applySuggestion(input, container, domain) {
+    const parts = input.value.split('@');
+    input.value = parts[0] + "@" + domain;
+    container.innerHTML = "";
+    container.style.display = "none";
+    input.focus();
+    input.dispatchEvent(new Event('input'));
+  }
 });
