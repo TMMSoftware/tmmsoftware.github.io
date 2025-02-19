@@ -105,6 +105,12 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Force conversion to lowercase before validation.
     emailInput.value = emailInput.value.toLowerCase();
+
+    // Explicit email length check:
+    if (emailInput.value.length < 12) {
+      emailInput.reportValidity();
+      return false;
+    }
     
     // If the email does not match our regex, report validity.
     if (!regex.test(emailInput.value)) {
