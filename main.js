@@ -35,12 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
       if (regex.test(this.value)) {
         this.setCustomValidity("");
         label.classList.add('valid');  // Add valid class when email is valid
+
+        // Hide suggestion container if a valid email is detected.
+        suggestionContainer.innerHTML = "";
+        suggestionContainer.style.display = "none";
+        return; // No need to show suggestions if the email is valid.
       } else {
         this.setCustomValidity("Please enter a valid email address (e.g., user@example.com)");
         label.classList.remove('valid'); // Remove valid class when email is invalid
       }
       
-      // Domain suggestions logic.
+      // Domain suggestions logic (only for incomplete or invalid emails)
       if (this.value.includes('@')) {
         const parts = this.value.split('@');
         const domainPart = parts[1] || "";
@@ -76,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = parts[0] + "@" + selectedDomain;
         suggestionContainer.innerHTML = "";
         suggestionContainer.style.display = "none";
-        // Set focus back to the input so that the Enter key works for submission.
+        // Return focus to the input so that Enter works.
         input.focus();
         // Trigger input event to update validation.
         input.dispatchEvent(new Event('input'));
