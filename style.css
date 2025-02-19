@@ -278,11 +278,21 @@ body.dark-mode .product:hover {
   transition: all 0.3s ease;
 }
 
+.suggestion-item:hover {
+  background-color: #efefef; /* gray */
+  border-color: #C89B3C; /* warm gold */
+  color: #27ae60; /* green */
+  transform: scale(0.97);
+  transform-origin: center;
+}
+
+/*
 .suggestion-item.highlight {
-  /* Border & Background */
+  /* Border & Background 
   background-color: #efefef;
   border-color: #C89B3C;
-}
+} 
+*/
 
 /* ----------------------------- */
 /* Success Message               */
@@ -516,13 +526,3 @@ footer {
   text-decoration: underline;
 }
 
-/* ----------------------------- */
-/* New Hover Rule for Suggestions*/
-/* ----------------------------- */
-.suggestion-item:hover {
-  background-color: #efefef; /* gray */
-  border-color: #C89B3C; /* warm gold */
-  color: #27ae60; /* green */
-  transform: scale(0.97);
-  transform-origin: center;
-}
