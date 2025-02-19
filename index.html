@@ -20,9 +20,9 @@
   
   <!-- Navigation Bar -->
   <header>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
       <div class="nav-left">
-        <a href="/">
+        <a href="/" aria-label="Homepage">
           <img src="logo.png" alt="TMM Logo" class="nav-logo" />
         </a>
       </div>
@@ -74,23 +74,27 @@
             required 
             minlength="12" 
             maxlength="254"
+            aria-required="true"
+            aria-label="Email address"
+            aria-autocomplete="list"
+            aria-describedby="emailHelp1"
           >
-          <!-- Suggestions Container (example suggestions) -->
-          <div class="email-suggestions-container">
-            <div class="suggestion-item">[email protected]</div>
-            <div class="suggestion-item">[email protected]</div>
-            <div class="suggestion-item">[email protected]</div>
+          <!-- Suggestions Container -->
+          <div class="email-suggestions-container" role="listbox" aria-label="Email domain suggestions">
+            <div class="suggestion-item" role="option">[email protected]</div>
+            <div class="suggestion-item" role="option">[email protected]</div>
+            <div class="suggestion-item" role="option">[email protected]</div>
           </div>
         </div>
 
         <!-- Request Button -->
-        <label class="btn-waitlist">Request Early Access</label>
+        <label class="btn-waitlist" role="button" tabindex="0" aria-label="Request Early Access">Request Early Access</label>
 
         <!-- Hidden checkbox to toggle success message -->
         <input type="checkbox" id="toggle-success1" hidden>
 
-        <!-- Success message that animates when checkbox is checked -->
-        <p class="success-message">
+        <!-- Success message -->
+        <p class="success-message" aria-live="assertive">
           Thanks! <span class="highlight">You're on the list!</span>
         </p>
 
@@ -117,17 +121,21 @@
             required 
             minlength="12" 
             maxlength="254"
+            aria-required="true"
+            aria-label="Email address"
+            aria-autocomplete="list"
+            aria-describedby="emailHelp2"
           >
-          <div class="email-suggestions-container">
-            <div class="suggestion-item">[email protected]</div>
-            <div class="suggestion-item">[email protected]</div>
-            <div class="suggestion-item">[email protected]</div>
+          <div class="email-suggestions-container" role="listbox" aria-label="Email domain suggestions">
+            <div class="suggestion-item" role="option">[email protected]</div>
+            <div class="suggestion-item" role="option">[email protected]</div>
+            <div class="suggestion-item" role="option">[email protected]</div>
           </div>
         </div>
 
-        <label class="btn-waitlist">Request Early Access</label>
+        <label class="btn-waitlist" role="button" tabindex="0" aria-label="Request Early Access">Request Early Access</label>
         <input type="checkbox" id="toggle-success2" hidden>
-        <p class="success-message">
+        <p class="success-message" aria-live="assertive">
           Thanks! <span class="highlight">You're on the list!</span>
         </p>
         <button type="submit" style="display: none;"></button>
@@ -152,17 +160,21 @@
             required 
             minlength="12" 
             maxlength="254"
+            aria-required="true"
+            aria-label="Email address"
+            aria-autocomplete="list"
+            aria-describedby="emailHelp3"
           >
-          <div class="email-suggestions-container">
-            <div class="suggestion-item">[email protected]</div>
-            <div class="suggestion-item">[email protected]</div>
-            <div class="suggestion-item">[email protected]</div>
+          <div class="email-suggestions-container" role="listbox" aria-label="Email domain suggestions">
+            <div class="suggestion-item" role="option">[email protected]</div>
+            <div class="suggestion-item" role="option">[email protected]</div>
+            <div class="suggestion-item" role="option">[email protected]</div>
           </div>
         </div>
 
-        <label class="btn-waitlist">Request Early Access</label>
+        <label class="btn-waitlist" role="button" tabindex="0" aria-label="Request Early Access">Request Early Access</label>
         <input type="checkbox" id="toggle-success3" hidden>
-        <p class="success-message">
+        <p class="success-message" aria-live="assertive">
           Thanks! <span class="highlight">You're on the list!</span>
         </p>
         <button type="submit" style="display: none;"></button>
