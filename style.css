@@ -405,7 +405,6 @@ body.dark-mode .btn-waitlist:hover {
 .btn-download:hover {
   /* Border & Background */
   border-color: #C89B3C;
-  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -434,10 +433,93 @@ body.dark-mode .btn-download:hover {
   /* Border & Background */
   background-color: #777;
   border-color: #C89B3C;
-  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .btn-switch:hover {
   /* Effects & Interactivity */
-  box-shadow: 0 3px 10px 
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
+}
+
+.btn-signin,
+.btn-login {
+  /* Box Model */
+  padding: 10px 20px;
+  /* Border & Background */
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  /* Typography & Text */
+  color: currentColor;
+  font-size: 15px;
+  /* Effects & Interactivity */
+  cursor: not-allowed;
+  /* Animation & Transitions */
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.btn-signin:hover,
+.btn-login:hover {
+  /* Border & Background */
+  border-color: #C89B3C;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .btn-signin:hover,
+body.dark-mode .btn-login:hover {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
+}
+
+/* New: Explicit styles for disabled Sign In and Log In buttons */
+.btn-signin:disabled,
+.btn-login:disabled {
+  /* Box Model */
+  padding: 10px 20px;
+  /* Border & Background */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  /* Typography & Text */
+  color: #666;
+  font-size: 15px;
+  /* Effects & Interactivity */
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* ----------------------------- */
+/* Footer                        */
+/* ----------------------------- */
+footer {
+  /* Positioning & Layout */
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  /* Box Model */
+  padding: 10px 20px;
+  width: 100%;
+  /* Border & Background */
+  background-color: inherit;
+  /* Typography & Text */
+  color: #999;
+  font-size: 14px;
+}
+
+.footer-links {
+  /* Positioning & Layout */
+  display: flex;
+  /* Box Model */
+  gap: 20px;
+}
+
+.footer-links a {
+  /* Typography & Text */
+  color: inherit;
+  /* Effects & Interactivity */
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  /* Effects & Interactivity */
+  text-decoration: underline;
+}
