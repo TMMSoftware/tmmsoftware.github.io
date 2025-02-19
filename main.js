@@ -1,7 +1,15 @@
 // Dark Mode toggle function
 function toggleTheme() {
   document.body.classList.toggle("dark-mode");
+  localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+});
 
 // Reset the form when the success message animation ends
 document.querySelectorAll('.success-message').forEach(successMessage => {
