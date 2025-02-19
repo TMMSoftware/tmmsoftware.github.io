@@ -254,6 +254,7 @@ body.dark-mode .product:hover {
   z-index: 1000;
   overflow-y: auto;
   display: none;
+  transform-origin: center;
 }
 
 .email-suggestions-container:hover {
