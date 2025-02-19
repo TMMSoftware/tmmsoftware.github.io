@@ -250,7 +250,7 @@ body.dark-mode .product:hover {
   left: 0;
   background-color: #FAFAFA;
   border: 1px dotted #ccc;
-  border-radius: 8px;
+  border-radius: 999px;
   max-width: 250px;
   max-height: 120px;
   overflow-y: auto;
