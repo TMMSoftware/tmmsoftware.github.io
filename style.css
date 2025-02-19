@@ -467,6 +467,7 @@ body.dark-mode .btn-switch:hover {
 
 body.dark-mode .btn-signin:hover,
 body.dark-mode .btn-login:hover {
+  border-color: #C89B3C;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
