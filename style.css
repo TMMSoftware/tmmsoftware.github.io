@@ -277,7 +277,9 @@ body.dark-mode .product:hover {
 }
 
 .suggestion-item.highlight {
+  /* Border & Background */
   background-color: #efefef;
+  border-color: #C89B3C;
 }
 
 /* ----------------------------- */
