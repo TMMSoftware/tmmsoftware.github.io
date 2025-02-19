@@ -276,6 +276,10 @@ body.dark-mode .product:hover {
   transition: all 0.3s ease;
 }
 
+.suggestion-item.highlight {
+  background-color: #efefef;
+}
+
 /* ----------------------------- */
 /* Success Message               */
 /* ----------------------------- */
