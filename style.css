@@ -267,6 +267,7 @@ body.dark-mode .product:hover {
   transition: all 0.3 ease;
   text-align: center;
   font-size: 14px;
+  border: 1px solid transparent;
 }
 
 .suggestion-item:hover {
