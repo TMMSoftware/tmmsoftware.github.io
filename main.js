@@ -24,11 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
     const label = input.closest('form').querySelector('.btn-waitlist');
     
+    // Track which suggestion is highlighted by keyboard
+    let selectedIndex = -1;
+
     // Real-time validation & suggestions
     input.addEventListener('input', function() {
       // Convert input to lowercase
       this.value = this.value.toLowerCase();
       
+      // Reset the highlighted suggestion whenever suggestions update
+      selectedIndex = -1;
+
       // 12-char + regex check
       if (this.value.length >= 12 && regex.test(this.value)) {
         this.setCustomValidity("");
@@ -64,25 +70,46 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     
-    // Hide suggestions on blur
+    // Keyboard navigation for suggestions
+    input.addEventListener('keydown', function(e) {
+      // Only handle arrow keys/enter if suggestions are visible
+      if (suggestionContainer.style.display === 'block') {
+        const items = suggestionContainer.querySelectorAll('.suggestion-item');
+        if (!items.length) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          // Move selection down
+          selectedIndex = (selectedIndex + 1) % items.length;
+          highlightSuggestion(items, selectedIndex);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          // Move selection up
+          selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+          highlightSuggestion(items, selectedIndex);
+        } else if (e.key === 'Enter') {
+          // Press Enter to pick the highlighted suggestion
+          if (selectedIndex >= 0) {
+            e.preventDefault(); // prevent form submission
+            const selectedDomain = items[selectedIndex].textContent;
+            applySuggestion(input, suggestionContainer, selectedDomain);
+          }
+        }
+      }
+    });
+    
+    // Blur event: hide the suggestion dropdown after a short delay.
     input.addEventListener('blur', function() {
       setTimeout(() => {
         suggestionContainer.style.display = "none";
       }, 150);
     });
     
-    // Allow user to click a suggestion
+    // Click event on the suggestion container: allow user to pick a suggestion.
     suggestionContainer.addEventListener('click', function(e) {
       if (e.target && e.target.matches('.suggestion-item')) {
         const selectedDomain = e.target.textContent;
-        const parts = input.value.split('@');
-        input.value = parts[0] + "@" + selectedDomain;
-        suggestionContainer.innerHTML = "";
-        suggestionContainer.style.display = "none";
-        
-        // Refocus the input and re-check validity
-        input.focus();
-        input.dispatchEvent(new Event('input'));
+        applySuggestion(input, suggestionContainer, selectedDomain);
       }
     });
   });
@@ -136,4 +163,25 @@ document.addEventListener('DOMContentLoaded', function () {
       processSubmission(form);
     });
   });
+  
+  /**
+   * Helper to highlight the currently selected suggestion
+   */
+  function highlightSuggestion(items, index) {
+    items.forEach(item => item.classList.remove('highlight'));
+    items[index].classList.add('highlight');
+  }
+  
+  /**
+   * Helper to apply a chosen suggestion to the input
+   */
+  function applySuggestion(input, container, domain) {
+    const parts = input.value.split('@');
+    input.value = parts[0] + "@" + domain;
+    container.innerHTML = "";
+    container.style.display = "none";
+    // Refocus the input and re-check validity
+    input.focus();
+    input.dispatchEvent(new Event('input'));
+  }
 });
