@@ -513,3 +513,12 @@ footer {
   /* Effects & Interactivity */
   text-decoration: underline;
 }
+
+/* ----------------------------- */
+/* Additional Specific Rule      */
+/* ----------------------------- */
+/* Ensure suggestion items get the intended highlight style */
+.email-suggestions-container .suggestion-item.highlight {
+  background-color: #efefef;
+  border-color: #C89B3C;
+}
