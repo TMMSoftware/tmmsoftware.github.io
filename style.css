@@ -259,7 +259,7 @@ body.dark-mode .product:hover {
 .email-suggestions-container:hover {
   /* Border & Background */
   border-color: #C89B3C;
-  border: 2px;
+  border: 2px dotted #ccc;
 }
 
 .suggestion-item {
