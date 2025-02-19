@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
       this.value = this.value.toLowerCase();
       
       // Check validity and update custom validity.
-      if (regex.test(this.value)) {
-        this.setCustomValidity("");
+      if (regex.test(this.value < 12)) {
+        this.setCustomValidity("Email must be at least 12 characters long");
         label.classList.add('valid');  // Add valid class when email is valid
 
         // Hide suggestion container if a valid email is detected.
