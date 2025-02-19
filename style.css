@@ -471,23 +471,6 @@ body.dark-mode .btn-login:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
-/* New: Explicit styles for disabled Sign In and Log In buttons */
-.btn-signin:disabled,
-.btn-login:disabled {
-  /* Box Model */
-  padding: 10px 20px;
-  /* Border & Background */
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 999px;
-  /* Typography & Text */
-  color: #666;
-  font-size: 15px;
-  /* Effects & Interactivity */
-  cursor: not-allowed;
-  opacity: 0.8;
-}
-
 /* ----------------------------- */
 /* Footer                        */
 /* ----------------------------- */
