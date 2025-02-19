@@ -254,6 +254,7 @@ body.dark-mode .product:hover {
   z-index: 1000;
   overflow-y: auto;
   display: none;
+  transform: scale(0.97);
   transform-origin: center;
 }
 
