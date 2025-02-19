@@ -23,17 +23,21 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.email-input').forEach(input => {
     // Assume the suggestion container exists within the input's parent wrapper.
     const suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
+    // Find the corresponding "Request Early Access" label in the form.
+    const label = input.closest('form').querySelector('.btn-waitlist');
     
-    // Input event: convert to lowercase, update custom validity, and update domain suggestions.
+    // Input event: convert to lowercase, update custom validity, update suggestions, and toggle valid class.
     input.addEventListener('input', function() {
       // Convert the input value to lowercase.
       this.value = this.value.toLowerCase();
       
-      // Update custom validity based on our regex.
+      // Check validity and update custom validity.
       if (regex.test(this.value)) {
         this.setCustomValidity("");
+        label.classList.add('valid');  // Add valid class when email is valid
       } else {
         this.setCustomValidity("Please enter a valid email address (e.g., user@example.com)");
+        label.classList.remove('valid'); // Remove valid class when email is invalid
       }
       
       // Domain suggestions logic.
