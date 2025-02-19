@@ -1,4 +1,6 @@
-/* General Styles */
+/* ----------------------------- */
+/* General Styles                */
+/* ----------------------------- */
 body {
   /* Positioning & Layout */
   display: flex;
@@ -16,6 +18,7 @@ body {
 }
 
 .hero-brand .hero-title-2 .h2 .h3 {
+  /* Typography & Text */
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -27,7 +30,9 @@ body.dark-mode {
   color: white;
 }
 
-/* Navigation Bar */
+/* ----------------------------- */
+/* Navigation Bar                */
+/* ----------------------------- */
 .navbar {
   /* Positioning & Layout */
   align-items: center;
@@ -56,7 +61,9 @@ body.dark-mode {
   gap: 12px;
 }
 
-/* Hero Section */
+/* ----------------------------- */
+/* Hero Section                  */
+/* ----------------------------- */
 .hero-container {
   /* Positioning & Layout */
   align-items: stretch;
@@ -64,36 +71,36 @@ body.dark-mode {
   flex-direction: column;
   justify-content: center;
   /* Box Model */
-  gap: 1px;
   margin: auto;
   max-width: 900px;
+  gap: 1px;
 }
 
 .hero-letter-t-1 {
+  /* Box Model */
+  padding-right: 18px;
   /* Typography & Text */
   font-size: 48px;
   font-weight: bold;
   text-align: center;
-  /* Box Model */
-  padding-right: 18px;
 }
 
 .hero-letter-m-1 {
+  /* Box Model */
+  padding: 1px 18px;
   /* Typography & Text */
   font-size: 48px;
   font-weight: bold;
   text-align: center;
-  /* Box Model */
-  padding: 1px 18px;
 }
 
 .hero-letter-m-2 {
+  /* Box Model */
+  padding-left: 18px;
   /* Typography & Text */
   font-size: 48px;
   font-weight: bold;
   text-align: center;
-  /* Box Model */
-  padding-left: 18px;
 }
 
 .hero-title-2 {
@@ -102,7 +109,8 @@ body.dark-mode {
   font-weight: normal;
 }
 
-.subtitle-1, .subtitle-2 {
+.subtitle-1,
+.subtitle-2 {
   /* Typography & Text */
   color: #999;
   font-size: 18px;
@@ -115,16 +123,18 @@ body.dark-mode {
   margin-bottom: 0.2em;
 }
 
-/* Products Section */
+/* ----------------------------- */
+/* Products Section              */
+/* ----------------------------- */
 .product-container {
   /* Positioning & Layout */
   align-items: stretch;
   display: flex;
   justify-content: center;
   /* Box Model */
-  gap: 40px;
   margin: auto;
   max-width: 900px;
+  gap: 40px;
 }
 
 .product {
@@ -143,7 +153,6 @@ body.dark-mode {
   transition: border-color 0.3s ease;
 }
 
-/* Border on light mode hover */
 .product:hover {
   /* Border & Background */
   border-color: #777;
@@ -151,18 +160,21 @@ body.dark-mode {
 }
 
 .product h3 {
+  /* Box Model */
   min-height: 4.5em;
+  /* Typography & Text */
   line-height: 1.2;
 }
 
-/* Border on dark mode hover */
 body.dark-mode .product:hover {
   /* Border & Background */
   border-color: #777;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
-/* Email Input Styles */
+/* ----------------------------- */
+/* Email Input Styles            */
+/* ----------------------------- */
 .email-input {
   /* Positioning & Layout */
   display: block;
@@ -193,7 +205,7 @@ body.dark-mode .product:hover {
   /* Border & Background */
   background-color: #faf3e0;
   border-color: #b38a2e;
-  /* Miscellaneous */
+  /* Effects & Interactivity */
   outline: none;
 }
 
@@ -209,83 +221,102 @@ body.dark-mode .product:hover {
   border-color: #e74c3c;
 }
 
-/** Prevent Red on Empty and Only Show for Invalid Inputs */
 .email-input:invalid:not(:focus):not(:placeholder-shown) {
+  /* Border & Background */
   border-color: #e74c3c;
   background-color: #FAFAFA;
 }
 
-/* Disable the Request Early Access button when the email is invalid */
-.email-input:invalid + .btn-waitlist {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* When the email is valid, style the button to be clickable */
-.email-input:valid + .btn-waitlist {
-  /* Effects & Interactivity */
-  cursor: pointer !important;
-  opacity: 1;
-  /*pointer-events: auto;*/
-  /* Border & Background */
-  background-color: #2ecc71;
-  border: 1px solid #e6ffe6;
-  /* Typography & Text */
-  color: black;
-}
-
-.email-input:valid + .btn-waitlist:hover {
-  background-color: #27ae60;
+/* ----------------------------- */
+/* Input Wrapper & Suggestions   */
+/* ----------------------------- */
+.input-wrapper {
+  /* Positioning & Layout */
+  position: relative;
+  /* Box Model */
+  display: inline-block;
 }
 
 .email-suggestions-container {
+  /* Positioning & Layout */
   position: absolute;
-  background-color: #fff;
-  border: 1px dotted #C89B3C;
+  top: 80%;
+  left: 0;
+  /* Box Model */
+  max-width: 250px;
+  width: 100%;
+  max-height: 120px;
+  /* Border & Background */
+  background-color: #FAFAFA;
+  border: 2px dotted #ccc;
   border-radius: 999px;
-  width: 20%;
-  height: 60px;
-  overflow-y: auto;
+  /* Effects & Interactivity */
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-left: 100px;
-  margin-bottom: 10px;
-  right: 50;
+  overflow-y: auto;
+  display: none;
+  transform: scale(0.97);
+  transform-origin: center;
+}
+
+.email-suggestions-container:hover {
+  /* Border & Background */
+  border-color: #C89B3C;
+  background-color: #efefef; /* gray */
 }
 
 .suggestion-item {
+  /* Box Model */
   padding: 10px 20px;
-  color: black;
-  cursor: pointer;
+  /* Typography & Text */
   font: inherit;
-  width: 100%;
-  transition: background-color 0.2s ease;
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: right;
+  color: #333;
+  /* Effects & Interactivity */
+  cursor: pointer;
+  /* Animation & Transitions */
+  transition: all 0.3s ease;
 }
 
 .suggestion-item:hover {
-  background-color: #f0f0f0;
+  background-color: #efefef; /* gray */
+  border-color: #C89B3C; /* warm gold */
+  color: #27ae60; /* green */
+  transform: scale(0.97);
+  transform-origin: center;
 }
 
-/* Success Message - initial state */
+
+.suggestion-item.highlight {
+  /* Border & Background */
+  background-color: #efefef;
+  border-color: #C89B3C;
+} 
+
+
+/* ----------------------------- */
+/* Success Message               */
+/* ----------------------------- */
 .success-message {
   /* Effects & Interactivity */
   opacity: 0;
   visibility: hidden;
+  /* Box Model */
+  margin-top: 10px;
   /* Typography & Text */
   color: #C89B3C;
   font-size: 15px;
   font-weight: lighter;
-  /* Box Model */
-  margin-top: 10px;
 }
 
-/* When the hidden checkbox is checked, trigger the animation */
 input[type="checkbox"]:checked ~ .success-message {
-  visibility: visible; /* ensure the element becomes visible */
+  /* Effects & Interactivity */
+  visibility: visible;
+  /* Animation & Transitions */
   animation: fadeInOut 3s ease-in-out forwards;
 }
 
-/* Keyframes: Fade In, Hold, then Fade Out */
 @keyframes fadeInOut {
   0% {
     /* Effects & Interactivity */
@@ -315,42 +346,68 @@ input[type="checkbox"]:checked ~ .success-message {
   padding: 0.2em 0.4em;
 }
 
-/* Custom Buttons */
+/* ----------------------------- */
+/* Custom Buttons                */
+/* ----------------------------- */
 .btn-waitlist {
+  /* Box Model */
+  margin: 10px;
+  padding: 10px 20px;
   /* Border & Background */
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 999px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   /* Typography & Text */
   color: currentColor;
   font-size: 15px;
-  /* Box Model */
-  margin: 10px;
-  padding: 10px 20px;
+  /* Effects & Interactivity */
+  cursor: not-allowed;
+  opacity: 0.5;
   /* Animation & Transitions */
   transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-waitlist.valid {
+  /* Border & Background */
+  background-color: #2ecc71;
+  border: 1px solid #e6ffe6;
+  /* Typography & Text */
+  color: black;
+  /* Effects & Interactivity */
+  cursor: pointer !important;
+  opacity: 1;
+}
+
+.btn-waitlist.valid:hover {
+  /* Border & Background */
+  background-color: #27ae60;
 }
 
 .btn-waitlist:hover {
+  /* Border & Background */
   border-color: #C89B3C;
-  /* Effects & Interactivity */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   background-color: #2ecc71;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-waitlist.active {
+  /* Animation & Transitions */
   transform: scale(0.97);
-  background-color: #2ecc71; 
+  /* Border & Background */
+  background-color: #2ecc71;
 }
 
 body.dark-mode .btn-waitlist:hover {
+  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn-download {
   /* Positioning & Layout */
   align-self: center;
+  /* Box Model */
+  padding: 10px 20px;
   /* Border & Background */
   background-color: transparent;
   border: 1px solid #ccc;
@@ -358,8 +415,6 @@ body.dark-mode .btn-waitlist:hover {
   /* Typography & Text */
   color: currentcolor;
   font-size: 15px;
-  /* Box Model */
-  padding: 10px 20px;
   /* Effects & Interactivity */
   cursor: not-allowed;
   /* Animation & Transitions */
@@ -367,16 +422,19 @@ body.dark-mode .btn-waitlist:hover {
 }
 
 .btn-download:hover {
+  /* Border & Background */
   border-color: #C89B3C;
-  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .btn-download:hover {
+  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn-switch {
+  /* Box Model */
+  padding: 10px 20px;
   /* Border & Background */
   background-color: currentColor;
   border: 1px solid #ccc;
@@ -384,8 +442,6 @@ body.dark-mode .btn-download:hover {
   /* Typography & Text */
   color: currentColor;
   font-size: 15px;
-  /* Box Model */
-  padding: 10px 20px;
   /* Effects & Interactivity */
   cursor: pointer;
   /* Animation & Transitions */
@@ -393,17 +449,21 @@ body.dark-mode .btn-download:hover {
 }
 
 .btn-switch:hover {
+  /* Border & Background */
   background-color: #777;
   border-color: #C89B3C;
-  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .btn-switch:hover {
+  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
-.btn-signin, .btn-login {
+.btn-signin,
+.btn-login {
+  /* Box Model */
+  padding: 10px 20px;
   /* Border & Background */
   background-color: transparent;
   border: 1px solid #ccc;
@@ -411,26 +471,28 @@ body.dark-mode .btn-switch:hover {
   /* Typography & Text */
   color: currentColor;
   font-size: 15px;
-  /* Box Model */
-  padding: 10px 20px;
   /* Effects & Interactivity */
   cursor: not-allowed;
   /* Animation & Transitions */
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
-.btn-signin:hover, .btn-login:hover {
+.btn-signin:hover,
+.btn-login:hover {
+  /* Border & Background */
   border-color: #C89B3C;
-  /* Effects & Interactivity */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-signin:hover, 
+body.dark-mode .btn-signin:hover,
 body.dark-mode .btn-login:hover {
+  border-color: #C89B3C;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
-/* Footer */
+/* ----------------------------- */
+/* Footer                        */
+/* ----------------------------- */
 footer {
   /* Positioning & Layout */
   align-items: center;
@@ -439,11 +501,11 @@ footer {
   /* Box Model */
   padding: 10px 20px;
   width: 100%;
+  /* Border & Background */
+  background-color: inherit;
   /* Typography & Text */
   color: #999;
   font-size: 14px;
-  /* Border & Background */
-  background-color: inherit;
 }
 
 .footer-links {
@@ -456,9 +518,11 @@ footer {
 .footer-links a {
   /* Typography & Text */
   color: inherit;
+  /* Effects & Interactivity */
   text-decoration: none;
 }
 
 .footer-links a:hover {
+  /* Effects & Interactivity */
   text-decoration: underline;
 }
