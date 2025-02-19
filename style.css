@@ -240,7 +240,7 @@ body.dark-mode .product:hover {
 .email-suggestions-container {
   /* Positioning & Layout */
   position: absolute;
-  top: 100%;
+  top: 95%;
   left: 0;
   /* Box Model */
   max-width: 250px;
