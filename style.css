@@ -522,3 +522,13 @@ footer {
   background-color: #efefef;
   border-color: #C89B3C;
 }
+
+/* ----------------------------- */
+/* New Hover Rule for Suggestions*/
+/* ----------------------------- */
+.email-suggestions-container .suggestion-item:hover {
+  background-color: #efefef;
+  border-color: #C89B3C;
+  color: #27ae60;
+  transform: scale(0.97);
+}
