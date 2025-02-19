@@ -76,6 +76,8 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = parts[0] + "@" + selectedDomain;
         suggestionContainer.innerHTML = "";
         suggestionContainer.style.display = "none";
+        // Set focus back to the input so that the Enter key works for submission.
+        input.focus();
         // Trigger input event to update validation.
         input.dispatchEvent(new Event('input'));
       }
