@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
       if (this.value.length >= 12 && regex.test(this.value)) {
         this.setCustomValidity("");
         label.classList.add('valid');
-        
-        // Hide suggestions if fully valid
         suggestionContainer.innerHTML = "";
         suggestionContainer.style.display = "none";
         return;
@@ -49,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         label.classList.remove('valid');
       }
       
-      // Domain suggestions for incomplete/invalid emails
+      // Domain suggestions logic for incomplete/invalid emails
       if (this.value.includes('@')) {
         const parts = this.value.split('@');
         const domainPart = parts[1] || "";
@@ -72,25 +70,21 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Keyboard navigation for suggestions
     input.addEventListener('keydown', function(e) {
-      // Only handle arrow keys/enter if suggestions are visible
       if (suggestionContainer.style.display === 'block') {
         const items = suggestionContainer.querySelectorAll('.suggestion-item');
         if (!items.length) return;
 
         if (e.key === 'ArrowDown') {
           e.preventDefault();
-          // Move selection down
           selectedIndex = (selectedIndex + 1) % items.length;
           highlightSuggestion(items, selectedIndex);
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          // Move selection up
           selectedIndex = (selectedIndex - 1 + items.length) % items.length;
           highlightSuggestion(items, selectedIndex);
         } else if (e.key === 'Enter') {
-          // Press Enter to pick the highlighted suggestion
           if (selectedIndex >= 0) {
-            e.preventDefault(); // prevent form submission
+            e.preventDefault();
             const selectedDomain = items[selectedIndex].textContent;
             applySuggestion(input, suggestionContainer, selectedDomain);
           }
@@ -98,18 +92,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     
-    // Blur event: hide the suggestion dropdown after a short delay.
+    // Hide suggestions on blur
     input.addEventListener('blur', function() {
       setTimeout(() => {
         suggestionContainer.style.display = "none";
       }, 150);
     });
     
-    // Click event on the suggestion container: allow user to pick a suggestion.
+    // Click event on suggestion container: allow user to pick a suggestion with an animation
     suggestionContainer.addEventListener('click', function(e) {
       if (e.target && e.target.matches('.suggestion-item')) {
-        const selectedDomain = e.target.textContent;
-        applySuggestion(input, suggestionContainer, selectedDomain);
+        // Add highlight animation on click
+        e.target.classList.add('highlight');
+        setTimeout(() => {
+          e.target.classList.remove('highlight');
+          const selectedDomain = e.target.textContent;
+          applySuggestion(input, suggestionContainer, selectedDomain);
+        }, 300); // Adjust the delay to match your animation timing
       }
     });
   });
@@ -128,29 +127,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const successCheckbox = form.querySelector('input[type="checkbox"]');
     const label = form.querySelector('.btn-waitlist');
     
-    // Lowercase before checks
     emailInput.value = emailInput.value.toLowerCase();
 
-    // 12-char check
     if (emailInput.value.length < 12) {
       emailInput.setCustomValidity("Email must be at least 12 characters long");
       emailInput.reportValidity();
       return false;
     }
     
-    // Regex check
     if (!regex.test(emailInput.value)) {
       emailInput.reportValidity();
       return false;
     }
     
-    // Provide visual feedback
     label.classList.add('active');
     setTimeout(() => {
       label.classList.remove('active');
     }, 150);
     
-    // Trigger success animation
     successCheckbox.checked = true;
     return true;
   }
@@ -164,23 +158,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
-  /**
-   * Helper to highlight the currently selected suggestion
-   */
+  // Helper: highlight suggestion (for keyboard navigation)
   function highlightSuggestion(items, index) {
     items.forEach(item => item.classList.remove('highlight'));
     items[index].classList.add('highlight');
   }
   
-  /**
-   * Helper to apply a chosen suggestion to the input
-   */
+  // Helper: apply the chosen suggestion to the input
   function applySuggestion(input, container, domain) {
     const parts = input.value.split('@');
     input.value = parts[0] + "@" + domain;
     container.innerHTML = "";
     container.style.display = "none";
-    // Refocus the input and re-check validity
     input.focus();
     input.dispatchEvent(new Event('input'));
   }
