@@ -247,7 +247,7 @@ body.dark-mode .product:hover {
   width: 100%;
   max-height: 120px;
   /* Border & Background */
-  background-color: #efefef;
+  background-color: #FAFAFA;
   border: 2px dotted #ccc;
   border-radius: 999px;
   /* Effects & Interactivity */
@@ -520,8 +520,9 @@ footer {
 /* New Hover Rule for Suggestions*/
 /* ----------------------------- */
 .suggestion-item:hover {
-  border-color: #C89B3C;
-  color: #27ae60;
+  background-color: #efefef; /* gray */
+  border-color: #C89B3C; /* warm gold */
+  color: #27ae60; /* green */
   transform: scale(0.97);
   transform-origin: center;
 }
