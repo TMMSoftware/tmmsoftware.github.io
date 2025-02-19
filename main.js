@@ -15,35 +15,35 @@ document.addEventListener('DOMContentLoaded', function () {
   // Predefined list of common email providers
   const providers = ["gmail.com", "hotmail.com", "yahoo.com", "outlook.com", "icloud.com"];
   
-  // Define the regex pattern.
+  // Define the regex pattern
   const regexPattern = '^[a-z0-9._%+\\-]+@[a-z0-9.-]+\\.[a-z]{2,}$';
   const regex = new RegExp(regexPattern);
   
-  // For each email input, use the existing suggestion container in the HTML.
+  // For each email input, set up domain suggestions and real-time validation
   document.querySelectorAll('.email-input').forEach(input => {
-    // Assume the suggestion container exists within the input's parent wrapper.
     const suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
-    // Find the corresponding "Request Early Access" label in the form.
     const label = input.closest('form').querySelector('.btn-waitlist');
     
-    // Input event: convert to lowercase, update custom validity, update suggestions, and toggle valid class.
+    // Real-time validation & suggestions
     input.addEventListener('input', function() {
-      // Convert the input value to lowercase.
+      // Convert input to lowercase
       this.value = this.value.toLowerCase();
       
-      // If the email is valid according to the regex, clear any error and hide suggestions.
-      if (regex.test(this.value)) {
+      // 12-char + regex check
+      if (this.value.length >= 12 && regex.test(this.value)) {
         this.setCustomValidity("");
         label.classList.add('valid');
+        
+        // Hide suggestions if fully valid
         suggestionContainer.innerHTML = "";
         suggestionContainer.style.display = "none";
-        return; // Exit early—no need to show suggestions if valid.
+        return;
       } else {
         this.setCustomValidity("Please enter a valid email address (e.g., user@example.com)");
         label.classList.remove('valid');
       }
       
-      // Domain suggestions logic (only for incomplete or invalid emails)
+      // Domain suggestions for incomplete/invalid emails
       if (this.value.includes('@')) {
         const parts = this.value.split('@');
         const domainPart = parts[1] || "";
@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     
-    // Blur event: hide the suggestion dropdown after a short delay.
+    // Hide suggestions on blur
     input.addEventListener('blur', function() {
       setTimeout(() => {
         suggestionContainer.style.display = "none";
       }, 150);
     });
     
-    // Click event on the suggestion container: allow user to pick a suggestion.
+    // Allow user to click a suggestion
     suggestionContainer.addEventListener('click', function(e) {
       if (e.target && e.target.matches('.suggestion-item')) {
         const selectedDomain = e.target.textContent;
@@ -79,59 +79,59 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = parts[0] + "@" + selectedDomain;
         suggestionContainer.innerHTML = "";
         suggestionContainer.style.display = "none";
-        // Return focus to the input so that Enter works.
+        
+        // Refocus the input and re-check validity
         input.focus();
-        // Trigger input event to update validation.
         input.dispatchEvent(new Event('input'));
       }
     });
   });
   
-  // Prevent default form submission (covers Enter key) and process submission via our custom logic.
+  // Prevent default form submission & process via custom logic
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent page refresh.
+      e.preventDefault();
       processSubmission(form);
     });
   });
   
-  // Helper function to process submission for a form.
+  // Submission logic (final check)
   function processSubmission(form) {
     const emailInput = form.querySelector('.email-input');
     const successCheckbox = form.querySelector('input[type="checkbox"]');
     const label = form.querySelector('.btn-waitlist');
     
-    // Force conversion to lowercase before validation.
+    // Lowercase before checks
     emailInput.value = emailInput.value.toLowerCase();
 
-    // Explicit email length check:
+    // 12-char check
     if (emailInput.value.length < 12) {
       emailInput.setCustomValidity("Email must be at least 12 characters long");
       emailInput.reportValidity();
       return false;
     }
     
-    // If the email does not match our regex, report validity.
+    // Regex check
     if (!regex.test(emailInput.value)) {
       emailInput.reportValidity();
       return false;
     }
     
-    // Provide visual feedback by adding an 'active' class temporarily.
+    // Provide visual feedback
     label.classList.add('active');
     setTimeout(() => {
       label.classList.remove('active');
     }, 150);
     
-    // Manually toggle the checkbox to trigger the success animation.
+    // Trigger success animation
     successCheckbox.checked = true;
     return true;
   }
   
-  // Attach a click listener to each "Request Early Access" label.
+  // Make the label clickable
   document.querySelectorAll('.btn-waitlist').forEach(label => {
     label.addEventListener('click', function(e) {
-      e.preventDefault(); // Prevent default behavior.
+      e.preventDefault();
       const form = label.closest('form');
       processSubmission(form);
     });
