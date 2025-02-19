@@ -264,7 +264,7 @@ body.dark-mode .product:hover {
   cursor: pointer;
   font: inherit;
   font-weight: lighter;
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
   text-align: center;
   font-size: 14px;
   border: 1px solid transparent;
