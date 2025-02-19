@@ -531,4 +531,5 @@ footer {
   border-color: #C89B3C;
   color: #27ae60;
   transform: scale(0.97);
+  transform-origin: center;
 }
