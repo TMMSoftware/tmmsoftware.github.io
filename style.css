@@ -248,7 +248,7 @@ body.dark-mode .product:hover {
   max-height: 120px;
   /* Border & Background */
   background-color: #FAFAFA;
-  border: 1px dotted #ccc;
+  border: 2px dotted #ccc;
   border-radius: 999px;
   /* Effects & Interactivity */
   z-index: 1000;
@@ -259,7 +259,6 @@ body.dark-mode .product:hover {
 .email-suggestions-container:hover {
   /* Border & Background */
   border-color: #C89B3C;
-  border: 2px dotted #ccc;
 }
 
 .suggestion-item {
