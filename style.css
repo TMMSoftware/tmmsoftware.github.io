@@ -262,7 +262,6 @@ body.dark-mode .product:hover {
   /* Border & Background */
   border-color: #C89B3C;
   background-color: #efefef; /* gray */
-  text-align: right;
 }
 
 .suggestion-item {
