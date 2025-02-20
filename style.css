@@ -200,11 +200,10 @@ body.dark-mode .product:hover {
   color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px dotted #C89B3C;
 }
 
 .suggestion-item:hover {
-  background-color: #FAFAFA;
+  background-color: #B4D5FE;
   border-color: #C89B3C;
   font-size: 14px;
   color: #27ae60;
@@ -216,7 +215,7 @@ body.dark-mode .product:hover {
 }
 
 .highlight {
-  background-color: #FAFAFA;
+  background-color: #B4D5FE;
   border-color: #C89B3C;
   color: #27ae60;
   font-size: 14px;
