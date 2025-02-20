@@ -254,12 +254,15 @@ body.dark-mode .product:hover {
   z-index: 1000;
   overflow-y: auto;
   display: none;
-  transform-origin: center;
 }
 
 .email-suggestions-container:hover {
   /* Border & Background */
   border-color: #C89B3C;
+  background-color: #efefef;
+  border-color: #C89B3C;
+  color: #27ae60;
+  transform: scale(0.97);
 }
 
 .suggestion-item {
@@ -274,7 +277,6 @@ body.dark-mode .product:hover {
   /* Effects & Interactivity */
   cursor: pointer;
   /* Animation & Transitions */
-  transition: all 0.3s ease;
 }
 
 .suggestion-item.highlight {
