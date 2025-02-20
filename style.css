@@ -137,7 +137,6 @@ body.dark-mode .product:hover {
   padding: 10px 20px;
   width: 100%;
   background-color: white;
-  color: #333;
   border: 2px solid #C89B3C;
   border-radius: 999px;
   text-align: center;
@@ -164,6 +163,7 @@ body.dark-mode .product:hover {
 .email-input:invalid:not(:placeholder-shown) {
   background-color: #FAFAFA;
   border-color: #e74c3c;
+  color: darkslategray;
 }
 
 .email-input:invalid:not(:focus):not(:placeholder-shown) {
