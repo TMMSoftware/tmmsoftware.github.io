@@ -254,6 +254,14 @@ body.dark-mode .product:hover {
   z-index: 1000;
   overflow-y: auto;
   display: none;
+  transform: scale(0.97);
+  transform-origin: center;
+}
+
+.email-suggestions-container:hover {
+  /* Border & Background */
+  border-color: #C89B3C;
+  background-color: #efefef; /* gray */
 }
 
 .suggestion-item {
@@ -264,19 +272,27 @@ body.dark-mode .product:hover {
   font-weight: lighter;
   font-size: 14px;
   text-align: right;
-  color: #333; /* charcoal */
+  color: #333;
   /* Effects & Interactivity */
   cursor: pointer;
   /* Animation & Transitions */
   transition: all 0.3s ease;
 }
 
-.suggestion-item:hover .email-suggestions-container:hover {
+.suggestion-item:hover {
   background-color: #efefef; /* gray */
   border-color: #C89B3C; /* warm gold */
   color: #27ae60; /* green */
+  transform: scale(0.97);
+  transform-origin: center;
 }
 
+
+.suggestion-item.highlight {
+  /* Border & Background */
+  background-color: #efefef;
+  border-color: #C89B3C;
+} 
 /* ----------------------------- */
 /* Success Message               */
 /* ----------------------------- */
