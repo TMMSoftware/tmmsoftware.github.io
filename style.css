@@ -261,7 +261,7 @@ body.dark-mode .product:hover {
   border-color: #C89B3C;
   background-color: #efefef;
   border-color: #C89B3C;
-  transform: scale(0.1);
+  transform: scale(0.97);
   border: 2px dotted #ccc;
 }
 
@@ -286,6 +286,15 @@ body.dark-mode .product:hover {
   border-color: #C89B3C;
   color: #27ae60; /* green */
 }
+
+.highlight {
+  /* Typography & Text */
+  color: #27ae60;
+  font-size: 14px;
+  /* Box Model */
+  padding: 0.2em 0.4em;
+}
+
 
 /* ----------------------------- */
 /* Success Message               */
@@ -330,13 +339,6 @@ input[type="checkbox"]:checked ~ .success-message {
   }
 }
 
-.highlight {
-  /* Typography & Text */
-  color: #27ae60;
-  font-size: 50px;
-  /* Box Model */
-  padding: 0.2em 0.4em;
-}
 
 .you-are-on-the-list {
   /* Typography & Text */
