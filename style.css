@@ -254,21 +254,8 @@ body.dark-mode .product:hover {
   z-index: 1000;
   overflow-y: auto;
   display: none;
-}
-
-.email-suggestions-container:hover {
-  /* Box Model */
-  padding: 10px 20px;
-  /* Typography & Text */
-  font: inherit;
-  font-weight: lighter;
-  font-size: 14px;
-  text-align: right;
-  color: #333; /* charcoal */
-  /* Effects & Interactivity */
-  cursor: pointer;
-  /* Animation & Transitions */
-  transition: all 0.3s ease;
+  transform: scale(0.97);
+  transform-origin: center;
 }
 
 .suggestion-item {
