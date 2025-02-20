@@ -271,7 +271,7 @@ body.dark-mode .product:hover {
   transition: all 0.3s ease;
 }
 
-.suggestion-item:hover {
+.suggestion-item:hover .email-suggestions-container:hover {
   background-color: #efefef; /* gray */
   border-color: #C89B3C; /* warm gold */
   color: #27ae60; /* green */
