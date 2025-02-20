@@ -256,17 +256,6 @@ body.dark-mode .product:hover {
   display: none;
 }
 
-/*
-.email-suggestions-container:hover {
-  background-color: #ccc;
-  color: #27ae60; /* green */
-  /*
-  background-color: #efefef;
-  border-color: #C89B3C;
-  transform: scale(0.97);
-  border: 2px dotted #ccc; 
-*/
-
 .suggestion-item {
   /* Box Model */
   padding: 10px 20px;
@@ -286,6 +275,7 @@ body.dark-mode .product:hover {
   /* Border & Background */
   background-color: #ccc;
   border-color: #C89B3C;
+  font-size: 14px;
   color: #27ae60; /* green */
   /* Box Model */
   padding: 0.2em 0.4em;
