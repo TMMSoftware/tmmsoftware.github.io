@@ -258,7 +258,7 @@ body.dark-mode .product:hover {
   transform-origin: center;
 }
 
-.email-suggestions-container:hover {
+.email-suggestions-container:hover .suggestion-item.highlight:hover {
   /* Border & Background */
   border-color: #C89B3C;
   background-color: #efefef; /* gray */
@@ -286,14 +286,6 @@ body.dark-mode .product:hover {
   transform: scale(0.97);
   transform-origin: center;
 }
-
-
-.suggestion-item.highlight {
-  /* Border & Background */
-  background-color: #efefef;
-  border-color: #C89B3C;
-} 
-
 
 /* ----------------------------- */
 /* Success Message               */
