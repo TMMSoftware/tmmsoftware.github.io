@@ -258,12 +258,16 @@ body.dark-mode .product:hover {
 
 .email-suggestions-container:hover {
   /* Border & Background */
+  background-color: #ccc;
+  border-color: #C89B3C;
+  color: #27ae60; /* green */
+}
+  /*
   border-color: #C89B3C;
   background-color: #efefef;
   border-color: #C89B3C;
   transform: scale(0.97);
-  border: 2px dotted #ccc;
-}
+  border: 2px dotted #ccc; */
 
 .suggestion-item {
   /* Box Model */
@@ -280,7 +284,7 @@ body.dark-mode .product:hover {
   transition: all 0.3s ease;
 }
 
-.suggestion-item.highlight .email-suggestions-container:hover.highlight {
+.suggestion-item.highlight {
   /* Border & Background */
   background-color: #ccc;
   border-color: #C89B3C;
