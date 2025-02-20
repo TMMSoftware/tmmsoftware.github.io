@@ -330,7 +330,7 @@ input[type="checkbox"]:checked ~ .success-message {
   }
 }
 
-.highlight {
+.success-highlight {
   /* Typography & Text */
   color: #27ae60;
   font-size: 15px;
