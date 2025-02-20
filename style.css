@@ -261,8 +261,7 @@ body.dark-mode .product:hover {
   border-color: #C89B3C;
   background-color: #efefef;
   border-color: #C89B3C;
-  color: #27ae60;
-  transform: scale(-0.97);
+  transform: scale(0.1);
   border: 2px dotted #ccc;
 }
 
@@ -282,8 +281,9 @@ body.dark-mode .product:hover {
 
 .suggestion-item.highlight {
   /* Border & Background */
-  background-color: #efefef;
+  background-color: #ccc;
   border-color: #C89B3C;
+  color: #27ae60; /* green */
 }
 
 /* ----------------------------- */
