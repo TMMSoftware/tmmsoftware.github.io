@@ -280,7 +280,7 @@ body.dark-mode .product:hover {
   transition: all 0.3s ease;
 }
 
-.suggestion-item.highlight {
+.suggestion-item.highlight .email-suggestions-container:hover.highlight {
   /* Border & Background */
   background-color: #ccc;
   border-color: #C89B3C;
