@@ -284,6 +284,14 @@ body.dark-mode .product:hover {
   transition: all 0.3s ease;
 }
 
+.suggestion-item:hover{
+  /* Border & Background */
+  background-color: #ccc;
+  border-color: #C89B3C;
+  color: #27ae60; /* green */
+}
+  
+}
 .suggestion-item.highlight {
   /* Border & Background */
   background-color: #ccc;
