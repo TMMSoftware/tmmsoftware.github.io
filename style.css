@@ -200,13 +200,15 @@ body.dark-mode .product:hover {
   color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 2px dotted #C89B3C;
 }
 
 .suggestion-item:hover {
   background-color: #FAFAFA;
+  border-color: #C89B3C;
   font-size: 14px;
   color: #27ae60;
-  padding: 0.5em 0.9em;
+  padding: 0.2em 0.4em;
 }
 
 .suggestion-item.highlight { /* with arrow keys */
@@ -218,7 +220,7 @@ body.dark-mode .product:hover {
   border-color: #C89B3C;
   color: #27ae60;
   font-size: 14px;
-  padding: 0.5em 0.9em;
+  padding: 0.2em 0.4em;
 }
 
 /* Success Message */
