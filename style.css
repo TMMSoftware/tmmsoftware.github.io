@@ -338,6 +338,14 @@ input[type="checkbox"]:checked ~ .success-message {
   padding: 0.2em 0.4em;
 }
 
+.you-are-on-the-list {
+  /* Typography & Text */
+  color: #27ae60;
+  font-size: 15px;
+  /* Box Model */
+  padding: 0.2em 0.4em;
+}
+
 /* ----------------------------- */
 /* Custom Buttons                */
 /* ----------------------------- */
