@@ -261,7 +261,7 @@ body.dark-mode .product:hover {
   border-color: #C89B3C; /* warm gold */
   background-color: #efefef; /* gray */
   transform: scale(0.97);
-  ransition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .suggestion-item {
