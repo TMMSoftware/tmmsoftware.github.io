@@ -287,6 +287,8 @@ body.dark-mode .product:hover {
   background-color: #ccc;
   border-color: #C89B3C;
   color: #27ae60; /* green */
+  /* Box Model */
+  padding: 0.2em 0.4em;
 }
   
 }
