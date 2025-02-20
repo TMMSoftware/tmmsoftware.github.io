@@ -261,7 +261,6 @@ body.dark-mode .product:hover {
   border-color: #C89B3C; /* warm gold */
   background-color: #efefef; /* gray */
   transform: scale(0.97);
-  transform-origin: center;
 }
 
 .suggestion-item {
@@ -272,7 +271,7 @@ body.dark-mode .product:hover {
   font-weight: lighter;
   font-size: 14px;
   text-align: right;
-  color: #333;
+  color: #333; /* charcoal */
   /* Effects & Interactivity */
   cursor: pointer;
   /* Animation & Transitions */
@@ -284,7 +283,6 @@ body.dark-mode .product:hover {
   border-color: #C89B3C; /* warm gold */
   color: #27ae60; /* green */
   transform: scale(0.97);
-  transform-origin: center;
 }
 
 /* ----------------------------- */
