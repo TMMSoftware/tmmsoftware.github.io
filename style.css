@@ -203,8 +203,7 @@ body.dark-mode .product:hover {
 }
 
 .suggestion-item:hover {
-  background-color: #B4D5FE;
-  border-color: #C89B3C;
+  background-color: #40E0D0;
   font-size: 14px;
   color: #27ae60;
   padding: 0.2em 0.4em;
@@ -215,8 +214,7 @@ body.dark-mode .product:hover {
 }
 
 .highlight {
-  background-color: #B4D5FE;
-  border-color: #C89B3C;
+  background-color: #40E0D0;
   color: #27ae60;
   font-size: 14px;
   padding: 0.2em 0.4em;
