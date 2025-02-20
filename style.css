@@ -209,13 +209,13 @@ body.dark-mode .product:hover {
   padding: 0.3em 0.6em;
 }
 
-.suggestion-item.highlight {
-  background-color: #ccc;
+.suggestion-item.highlight { /* with arrow keys */
+  background-color: #cccccc;
   color: #27ae60;
 }
 
 .highlight {
-  background-color: #ccc;
+  background-color: #cccccc;
   border-color: #C89B3C;
   color: #27ae60;
   font-size: 14px;
