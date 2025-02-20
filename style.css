@@ -259,11 +259,9 @@ body.dark-mode .product:hover {
 .email-suggestions-container:hover {
   /* Border & Background */
   background-color: #ccc;
-  border-color: #C89B3C;
   color: #27ae60; /* green */
 }
   /*
-  border-color: #C89B3C;
   background-color: #efefef;
   border-color: #C89B3C;
   transform: scale(0.97);
