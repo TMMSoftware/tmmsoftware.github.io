@@ -274,7 +274,6 @@ body.dark-mode .product:hover {
 .suggestion-item:hover{
   /* Border & Background */
   background-color: #ccc;
-  border-color: #C89B3C;
   font-size: 14px;
   color: #27ae60; /* green */
   /* Box Model */
@@ -285,12 +284,12 @@ body.dark-mode .product:hover {
 .suggestion-item.highlight {
   /* Border & Background */
   background-color: #ccc;
-  border-color: #C89B3C;
   color: #27ae60; /* green */
 }
 
 .highlight {
   background-color: #ccc;
+  border-color: #C89B3C;
   /* Typography & Text */
   color: #27ae60;
   font-size: 14px;
