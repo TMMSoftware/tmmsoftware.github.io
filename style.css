@@ -277,7 +277,6 @@ body.dark-mode .product:hover {
   background-color: #efefef; /* gray */
   border-color: #C89B3C; /* warm gold */
   color: #27ae60; /* green */
-  transform: scale(0.97);
 }
 
 /* ----------------------------- */
