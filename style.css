@@ -290,6 +290,7 @@ body.dark-mode .product:hover {
 }
 
 .highlight {
+  background-color: #ccc;
   /* Typography & Text */
   color: #27ae60;
   font-size: 14px;
