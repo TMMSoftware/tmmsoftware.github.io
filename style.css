@@ -161,7 +161,7 @@ body.dark-mode .product:hover {
 }
 
 .email-input:invalid:not(:placeholder-shown) {
-  background-color: #FAFAFA;
+  background-color: white;
   border-color: #e74c3c;
   color: darkslategray;
 }
