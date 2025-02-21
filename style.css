@@ -1,3 +1,49 @@
+/* Navbar to Include "TMM SOFTWARE" in the Top Left Corner */
+
+/* Styles for TMM SOFTWARE in Navbar */
+.nav-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.nav-tmm {
+  font-size: 24px; /* Smaller than hero section */
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  color: inherit; /* Matches light/dark mode */
+  text-transform: uppercase;
+}
+
+.nav-software {
+  font-size: 12px; /* Smaller than hero section */
+  font-weight: normal;
+  font-family: 'Montserrat', sans-serif;
+  color: inherit; /* Matches light/dark mode */
+  text-transform: uppercase;
+}
+
+/* Ensure Dark Mode Compatibility */
+body.dark-mode .nav-tmm,
+body.dark-mode .nav-software {
+  color: white;
+}
+
+/* Adjust spacing inside the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+}
+
+
+
+
 /* General Styles */
 body {
   display: flex;
