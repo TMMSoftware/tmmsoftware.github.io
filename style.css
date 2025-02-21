@@ -164,6 +164,7 @@ body.dark-mode .product:hover {
   background-color: white;
   border-color: #e74c3c;
   color: darkslategray;
+  font-weight: lighter;
 }
 
 .email-input:invalid:not(:focus):not(:placeholder-shown) {
