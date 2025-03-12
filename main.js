@@ -183,3 +183,30 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+async function submitEmail(email) {
+  try {
+    const response = await fetch('/api/requestEarlyAccess', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const result = await response.json();
+    if (response.ok) {
+      // Display success message
+      console.log(result.message);
+    } else {
+      // Handle error (e.g., show error message to user)
+      console.error(result.error);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Bind above async function to waitlist button click event
+document.querySelector('.btn-waitlist').addEventListener('click', (e) => {
+  e.preventDefault();
+  const email = document.querySelector('.email-input').value;
+  submitEmail(email);
+});
+
