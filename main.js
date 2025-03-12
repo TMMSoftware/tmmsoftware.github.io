@@ -126,42 +126,54 @@ function setupFormSubmission() {
 // Form submission logic
 function processSubmission(form) {
   const emailInput = form.querySelector('.email-input');
-  const successCheckbox = form.querySelector('input[type="checkbox"]');
-  const label = form.querySelector('.btn-waitlist');
-  
+  const successMessage = form.querySelector('.success-message');
+  const errorMessage = form.querySelector('.error-message');
+  const submitButton = form.querySelector('.btn-waitlist');
 
+  const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
   emailInput.value = emailInput.value.toLowerCase();
 
-  if (emailInput.value.length < 12 || !regex.test(emailInput.value)) {
+  if (!regex.test(emailInput.value)) {
     emailInput.setCustomValidity("Enter a valid email (min 12 chars)");
     emailInput.reportValidity();
     return false;
   }
 
-  label.classList.add('active');
-  setTimeout(() => label.classList.remove('active'), 150);
+  // Disable button & show loading state
+  submitButton.textContent = "Sending...";
+  submitButton.disabled = true;
 
-  successCheckbox.checked = true;
-  submitEmail(emailInput.value);
+  // Call function to send email
+  submitEmail(emailInput.value, successMessage, errorMessage, submitButton);
   return true;
 }
 
 // Submit email to API
-async function submitEmail(email) {
+async function submitEmail(email, successMessage, errorMessage, submitButton) {
   try {
-    const response = await fetch('/api/requestEarlyAccess', {
+    const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     });
+
     const result = await response.json();
-    
+
     if (response.ok) {
-      console.log(result.message);
+      // Show success message
+      successMessage.textContent = "Success! Check your inbox 📩";
+      successMessage.style.display = "block";
+      errorMessage.style.display = "none";
+      emailInput.value = ""; // Clear input field
     } else {
-      console.error(result.error);
+      throw new Error(result.error || "Something went wrong.");
     }
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
+    errorMessage.textContent = "Failed to send email. Try again.";
+    errorMessage.style.display = "block";
+  } finally {
+    submitButton.textContent = "Request Early Access";
+    submitButton.disabled = false;
   }
 }
