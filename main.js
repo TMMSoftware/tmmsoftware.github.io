@@ -128,7 +128,7 @@ function processSubmission(form) {
   const emailInput = form.querySelector('.email-input');
   const successCheckbox = form.querySelector('input[type="checkbox"]');
   const label = form.querySelector('.btn-waitlist');
-  const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+  
 
   emailInput.value = emailInput.value.toLowerCase();
 
