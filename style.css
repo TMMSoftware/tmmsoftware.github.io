@@ -1,24 +1,105 @@
+/* Define theme variables for light and dark modes */
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #f5f5f5;
+}
+
 /* General Styles */
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
   min-height: 100vh;
-  background-color: #f9f9f9;
-  color: #121212;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
-.hero-brand .hero-title-2 .h2 .h3 {
-  font-family: 'Montserrat', sans-serif;
+/* Container for the switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  background-color: #121212;
-  color: white;
+/* Hide the default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+/* Rounded slider */
+.slider.round {
+  border-radius: 34px;
+}
+
+/* The slider's handle */
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Move the handle when checked */
+input:checked + .slider.round:before {
+  transform: translateX(26px);
+}
+
+/* Icon styles inside the slider */
+.slider .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Position sun icon on the left */
+.slider .icon.sun {
+  left: 8px;
+}
+
+/* Position moon icon on the right, initially hidden */
+.slider .icon.moon {
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* When checked, hide the sun icon and show the moon icon */
+input:checked + .slider .icon.sun {
+  opacity: 0;
+}
+input:checked + .slider .icon.moon {
+  opacity: 1;
 }
 
 /* Navigation Bar */
@@ -43,6 +124,11 @@ body.dark-mode {
   line-height: 1.2;
 }
 
+.nav-right {
+  display: flex;
+  gap: 12px;
+}
+
 .nav-tmm {
   font-size: 24px;
   font-weight: bold;
@@ -56,25 +142,13 @@ body.dark-mode {
   font-size: 12px;
   font-weight: normal;
   font-family: 'Montserrat', sans-serif;
-  color: inherit
+  color: inherit;
   text-transform: uppercase;
 }
 
-body.dark-mode .nav-tmm,
-body.dark-mode .nav-software {
+[data-theme="dark"] .nav-tmm,
+[data-theme="dark"] .nav-software {
   color: white;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 24px;
-}
-
-.nav-right {
-  display: flex;
-  gap: 12px;
 }
 
 /* Hero Section */
@@ -148,8 +222,8 @@ body.dark-mode .nav-software {
 }
 
 .product:hover {
-  border-color: #777;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  border-color: #C89B3C;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product h3 {
@@ -157,8 +231,8 @@ body.dark-mode .nav-software {
   line-height: 1.2;
 }
 
-body.dark-mode .product:hover {
-  border-color: #777;
+[data-theme="dark"] .product:hover {
+  border-color: #C89B3C;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -191,6 +265,7 @@ body.dark-mode .product:hover {
 .email-input:valid {
   background-color: #e6ffe6;
   border-color: #2ecc71;
+  color: darkslategray;
 }
 
 .email-input:invalid:not(:placeholder-shown) {
@@ -255,46 +330,6 @@ body.dark-mode .product:hover {
   padding: 0.2em 0.4em;
 }
 
-/* Success Message */
-.success-message {
-  opacity: 0;
-  visibility: hidden;
-  margin-top: 10px;
-  color: #C89B3C;
-  font-size: 15px;
-  font-weight: lighter;
-}
-
-input[type="checkbox"]:checked ~ .success-message {
-  visibility: visible;
-  animation: fadeInOut 3s ease-in-out forwards;
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px) scale(1.4);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10px) scale(1.4);
-  }
-}
-
-.you-are-on-the-list {
-  color: #27ae60;
-  font-size: 15px;
-  padding: 0.2em 0.4em;
-}
-
 /* Custom Buttons */
 .btn-waitlist {
   margin: 10px;
@@ -333,7 +368,62 @@ input[type="checkbox"]:checked ~ .success-message {
   background-color: #2ecc71;
 }
 
-body.dark-mode .btn-waitlist:hover {
+/* Button Behavior During Submission */
+.btn-waitlist.sending {
+  background-color: #f0ad4e; /* Orange */
+  cursor: wait;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Success State: Button Text Changes to Confirmation */
+.btn-waitlist.success {
+  background-color: #4CAF50 !important; /* Dark Green */
+  color: white !important;
+  cursor: default;
+  transition: background-color 0.3s ease;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.btn-waitlist.error {
+  background-color: #FF5733 !important; /* Red */
+  color: white !important;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+[data-theme="dark"] .btn-waitlist:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -354,7 +444,7 @@ body.dark-mode .btn-waitlist:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-download:hover {
+[data-theme="dark"] .btn-download:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -375,7 +465,7 @@ body.dark-mode .btn-download:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-switch:hover {
+[data-theme="dark"] .btn-switch:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -397,8 +487,8 @@ body.dark-mode .btn-switch:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-signin:hover,
-body.dark-mode .btn-login:hover {
+[data-theme="dark"] .btn-signin:hover,
+[data-theme="dark"] .btn-login:hover {
   border-color: #C89B3C;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
