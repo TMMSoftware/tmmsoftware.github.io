@@ -29,7 +29,6 @@ function setupEmailValidation() {
     const label = input.closest('form').querySelector('.btn-waitlist');
     let selectedIndex = -1;
 
-    // Input event listener
     input.addEventListener('input', function () {
       this.value = this.value.toLowerCase();
       selectedIndex = -1;
@@ -75,10 +74,8 @@ function setupEmailValidation() {
       }
     });
 
-    // Hide suggestions on blur
     input.addEventListener('blur', () => setTimeout(() => hideSuggestions(suggestionContainer), 150));
 
-    // Click event for suggestions
     suggestionContainer.addEventListener('click', function (e) {
       if (e.target && e.target.matches('.suggestion-item')) {
         e.target.classList.add('highlight');
@@ -91,20 +88,6 @@ function setupEmailValidation() {
   });
 }
 
-// Helper: Highlight selected suggestion
-function highlightSuggestion(items, index) {
-  items.forEach(item => item.classList.remove('highlight'));
-  items[index].classList.add('highlight');
-}
-
-// Helper: Apply domain suggestion
-function applySuggestion(input, container, domain) {
-  input.value = input.value.split('@')[0] + "@" + domain;
-  hideSuggestions(container);
-  input.focus();
-  input.dispatchEvent(new Event('input'));
-}
-
 // Setup form submission logic
 function setupFormSubmission() {
   document.querySelectorAll('form').forEach(form => {
@@ -114,11 +97,10 @@ function setupFormSubmission() {
     });
   });
 
-  // Make labels clickable
-  document.querySelectorAll('.btn-waitlist').forEach(label => {
-    label.addEventListener('click', function (e) {
+  document.querySelectorAll('.btn-waitlist').forEach(button => {
+    button.addEventListener('click', function (e) {
       e.preventDefault();
-      processSubmission(label.closest('form'));
+      processSubmission(button.closest('form'));
     });
   });
 }
@@ -126,10 +108,9 @@ function setupFormSubmission() {
 // Form submission logic
 function processSubmission(form) {
   const emailInput = form.querySelector('.email-input');
-  const successMessage = form.querySelector('.success-message');
-  const submitButton = form.querySelector('.btn-waitlist'); // Fix: Correctly fetch the button
-
+  const submitButton = form.querySelector('.btn-waitlist');
   const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
   emailInput.value = emailInput.value.toLowerCase();
 
   if (!regex.test(emailInput.value)) {
@@ -138,27 +119,17 @@ function processSubmission(form) {
     return false;
   }
 
-  // Disable button & show loading state
   submitButton.textContent = "Sending...";
   submitButton.disabled = true;
+  submitButton.classList.add("sending");
 
-  // Call function to send email
-  submitEmail(emailInput.value, form, submitButton); // Fix: Correctly pass the button reference
+  submitEmail(emailInput.value, form, submitButton);
   return true;
 }
 
 // Submit email to API
 async function submitEmail(email, form, button) {
   try {
-    if (!button) {
-      console.error("❌ Button element not found!");
-      return;
-    }
-
-    // Set button to loading state
-    button.textContent = "Sending...";
-    button.disabled = true;
-
     const response = await fetch('https://tmmsoftware-resend.vercel.app/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -168,49 +139,37 @@ async function submitEmail(email, form, button) {
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
-      console.log("✅ Email sent successfully!");
+      setTimeout(() => {
+        button.textContent = "Thanks! You're on the list!";
+        button.classList.remove("sending");
+        button.classList.add("success");
+      }, 1000);
 
-      // Reset button state
-      button.textContent = "Request Early Access";
-      button.disabled = false;
-
-      // Display success message
-      const successMessage = form.querySelector('.success-message');
-      if (successMessage) {
-        successMessage.textContent = "Thanks! You're on the list!";
-        successMessage.style.color = "green";
-        successMessage.style.display = "block";  // Ensure it's visible
-      } else {
-        console.warn("⚠️ Success message element not found.");
-      }
+      setTimeout(() => {
+        button.textContent = "Request Early Access";
+        button.classList.remove("success");
+        button.disabled = false;
+      }, 4000);
     } else {
-      console.error("❌ Error sending email:", result.error || "Unknown error");
+      button.textContent = "Failed. Try again.";
+      button.classList.remove("sending");
+      button.classList.add("error");
 
-      // Reset button state
-      button.textContent = "Request Early Access";
-      button.disabled = false;
-
-      // Display failure message
-      const failureMessage = form.querySelector('.success-message');
-      if (failureMessage) {
-        failureMessage.textContent = "Failed to send email. Try again.";
-        failureMessage.style.color = "red";
-        failureMessage.style.display = "block";  // Ensure it's visible
-      }
+      setTimeout(() => {
+        button.textContent = "Request Early Access";
+        button.classList.remove("error");
+        button.disabled = false;
+      }, 3000);
     }
   } catch (error) {
-    console.error('❌ Network or server error:', error);
+    button.textContent = "Failed. Try again.";
+    button.classList.remove("sending");
+    button.classList.add("error");
 
-    // Reset button state
-    button.textContent = "Request Early Access";
-    button.disabled = false;
-
-    // Display error message
-    const errorMessage = form.querySelector('.success-message');
-    if (errorMessage) {
-      errorMessage.textContent = "Failed to send email. Try again.";
-      errorMessage.style.color = "red";
-      errorMessage.style.display = "block";  // Ensure it's visible
-    }
+    setTimeout(() => {
+      button.textContent = "Request Early Access";
+      button.classList.remove("error");
+      button.disabled = false;
+    }, 3000);
   }
 }
