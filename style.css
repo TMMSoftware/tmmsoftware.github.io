@@ -222,8 +222,8 @@ input:checked + .slider .icon.moon {
 }
 
 .product:hover {
-  border-color: #777;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  border-color: #C89B3C;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product h3 {
@@ -232,7 +232,7 @@ input:checked + .slider .icon.moon {
 }
 
 [data-theme="dark"] .product:hover {
-  border-color: #777;
+  border-color: #C89B3C;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
