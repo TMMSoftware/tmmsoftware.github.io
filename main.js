@@ -12,14 +12,31 @@ function toggleTheme() {
 /**
  * Runs when the DOM is fully loaded.
  * - Applies the saved theme from localStorage.
+ * - Sets up the dark mode switch behavior.
  * - Initializes email validation and form submission logic.
  */
 document.addEventListener('DOMContentLoaded', function () {
-  // Retrieve the stored theme from localStorage.
-  const storedTheme = localStorage.getItem("theme");
-  // If the stored theme is "dark", add the dark-mode class to the body.
-  if (storedTheme === "dark") document.body.classList.add("dark-mode");
+  // Dark mode switch setup using the checkbox with id "mode-switch"
+  const modeSwitch = document.getElementById("mode-switch");
+  const root = document.documentElement; // Use the root element for theme changes
 
+  if (modeSwitch) {
+    // When the switch is toggled, update the data-theme attribute and save preference.
+    modeSwitch.addEventListener("change", () => {
+      if (modeSwitch.checked) {
+        root.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        root.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+      }
+    });
+
+    // On page load, check for a saved theme (default to light)
+    const savedTheme = localStorage.getItem("theme") || "light";
+    root.setAttribute("data-theme", savedTheme);
+    modeSwitch.checked = savedTheme === "dark";
+  }
   // Initialize email validation (includes real-time checks and suggestions).
   setupEmailValidation();
   // Set up form submission event listeners.
