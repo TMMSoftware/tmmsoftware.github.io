@@ -255,46 +255,6 @@ body.dark-mode .product:hover {
   padding: 0.2em 0.4em;
 }
 
-/* Success Message */
-.success-message {
-  opacity: 0;
-  visibility: hidden;
-  margin-top: 10px;
-  color: #C89B3C;
-  font-size: 15px;
-  font-weight: lighter;
-}
-
-input[type="checkbox"]:checked ~ .success-message {
-  visibility: visible;
-  animation: fadeInOut 3s ease-in-out forwards;
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px) scale(1.4);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10px) scale(1.4);
-  }
-}
-
-.you-are-on-the-list {
-  color: #27ae60;
-  font-size: 15px;
-  padding: 0.2em 0.4em;
-}
-
 /* Custom Buttons */
 .btn-waitlist {
   margin: 10px;
@@ -331,6 +291,61 @@ input[type="checkbox"]:checked ~ .success-message {
 .btn-waitlist.active {
   transform: scale(0.97);
   background-color: #2ecc71;
+}
+
+/* Button Behavior During Submission */
+.btn-waitlist.sending {
+  background-color: #f0ad4e; /* Orange */
+  cursor: wait;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Success State: Button Text Changes to Confirmation */
+.btn-waitlist.success {
+  background-color: #4CAF50 !important; /* Dark Green */
+  color: white !important;
+  cursor: default;
+  transition: background-color 0.3s ease;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.btn-waitlist.error {
+  background-color: #FF5733 !important; /* Red */
+  color: white !important;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
 }
 
 body.dark-mode .btn-waitlist:hover {
