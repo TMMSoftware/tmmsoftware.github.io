@@ -265,6 +265,7 @@ input:checked + .slider .icon.moon {
 .email-input:valid {
   background-color: #e6ffe6;
   border-color: #2ecc71;
+  color: darkslategray;
 }
 
 .email-input:invalid:not(:placeholder-shown) {
