@@ -237,7 +237,7 @@ async function submitEmail(email, form, button) {
         button.textContent = "Thanks! You're on the list!";
         button.classList.remove("sending");
         button.classList.add("success");
-      }, 1000);
+      }, 3000);
 
       // Reset the button text and state after a few seconds.
       setTimeout(() => {
