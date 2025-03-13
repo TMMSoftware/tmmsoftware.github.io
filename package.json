@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "main": "api/send-email.js",
   "dependencies": {
-    "resend": "^0.6.6"
+    "resend": "^4.1.2"
   }
 }
