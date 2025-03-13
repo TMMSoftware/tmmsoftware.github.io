@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Let the browser know that both light and dark schemes are supported -->
+  <meta name="color-scheme" content="light dark">
   <title>TMM Software</title>
   
   <!-- Bootstrap CSS -->
@@ -30,7 +32,14 @@
       <div class="nav-right">
         <button class="btn-signin" disabled>Sign In</button>
         <button class="btn-login" disabled>Log In</button>
-        <button onclick="toggleTheme()" class="btn-switch"> 🌙&nbsp;/&nbsp;☀️</button>
+        <!-- Dark/Light Mode Switch -->
+        <label class="switch">
+          <input type="checkbox" id="mode-switch" />
+          <span class="slider round">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
       </div>
     </nav>
   </header>
