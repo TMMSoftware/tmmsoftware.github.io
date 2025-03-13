@@ -171,44 +171,45 @@ async function submitEmail(email, form, button) {
     if (response.ok && result.message === "Email sent successfully!") {
       console.log("✅ Email sent successfully!");
 
-      // Check if form and success message exist before modifying
+      // Reset button state
+      button.textContent = "Request Early Access";
+      button.disabled = false;
+
+      // Display success message
       const successMessage = form?.querySelector('.success-message');
       if (successMessage) {
         successMessage.textContent = "You're on the list!";
         successMessage.style.color = "green";
+        successMessage.style.display = "block";  // Ensure it's visible
       }
+    } else {
+      console.error("❌ Error sending email:", result.error || "Unknown error");
 
       // Reset button state
       button.textContent = "Request Early Access";
       button.disabled = false;
-    } else {
-      console.error("❌ Error sending email:", result.error || "Unknown error");
 
-      // Check if form and success message exist before modifying
+      // Display failure message
       const failureMessage = form?.querySelector('.success-message');
       if (failureMessage) {
         failureMessage.textContent = "Failed to send email. Try again.";
         failureMessage.style.color = "red";
+        failureMessage.style.display = "block";  // Ensure it's visible
       }
-
-      // Reset button state
-      button.textContent = "Request Early Access";
-      button.disabled = false;
     }
   } catch (error) {
     console.error('❌ Network or server error:', error);
 
-    // Check if form and success message exist before modifying
+    // Reset button state
+    button.textContent = "Request Early Access";
+    button.disabled = false;
+
+    // Display error message
     const errorMessage = form?.querySelector('.success-message');
     if (errorMessage) {
       errorMessage.textContent = "Failed to send email. Try again.";
       errorMessage.style.color = "red";
-    }
-
-    // Reset button state
-    if (button) {
-      button.textContent = "Request Early Access";
-      button.disabled = false;
+      errorMessage.style.display = "block";  // Ensure it's visible
     }
   }
 }
