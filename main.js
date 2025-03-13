@@ -151,6 +151,11 @@ function processSubmission(form) {
 // Submit email to API
 async function submitEmail(email, form, button) {
   try {
+    if (!button) {
+      console.error("❌ Button element not found!");
+      return;
+    }
+
     // Set button to loading state
     button.textContent = "Sending...";
     button.disabled = true;
@@ -162,13 +167,16 @@ async function submitEmail(email, form, button) {
     });
 
     const result = await response.json();
-    
+
     if (response.ok && result.message === "Email sent successfully!") {
       console.log("✅ Email sent successfully!");
 
-      // Success message
-      form.querySelector('.success-message').textContent = "You're on the list!";
-      form.querySelector('.success-message').style.color = "green";
+      // Check if form and success message exist before modifying
+      const successMessage = form?.querySelector('.success-message');
+      if (successMessage) {
+        successMessage.textContent = "You're on the list!";
+        successMessage.style.color = "green";
+      }
 
       // Reset button state
       button.textContent = "Request Early Access";
@@ -176,9 +184,12 @@ async function submitEmail(email, form, button) {
     } else {
       console.error("❌ Error sending email:", result.error || "Unknown error");
 
-      // Failure message
-      form.querySelector('.success-message').textContent = "Failed to send email. Try again.";
-      form.querySelector('.success-message').style.color = "red";
+      // Check if form and success message exist before modifying
+      const failureMessage = form?.querySelector('.success-message');
+      if (failureMessage) {
+        failureMessage.textContent = "Failed to send email. Try again.";
+        failureMessage.style.color = "red";
+      }
 
       // Reset button state
       button.textContent = "Request Early Access";
@@ -187,12 +198,17 @@ async function submitEmail(email, form, button) {
   } catch (error) {
     console.error('❌ Network or server error:', error);
 
-    // Failure message
-    form.querySelector('.success-message').textContent = "Failed to send email. Try again.";
-    form.querySelector('.success-message').style.color = "red";
+    // Check if form and success message exist before modifying
+    const errorMessage = form?.querySelector('.success-message');
+    if (errorMessage) {
+      errorMessage.textContent = "Failed to send email. Try again.";
+      errorMessage.style.color = "red";
+    }
 
     // Reset button state
-    button.textContent = "Request Early Access";
-    button.disabled = false;
+    if (button) {
+      button.textContent = "Request Early Access";
+      button.disabled = false;
+    }
   }
 }
