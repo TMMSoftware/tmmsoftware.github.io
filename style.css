@@ -22,10 +22,6 @@ body {
   text-align: center;
 }
 
-.hero-brand .hero-title-2 .h2 .h3 {
-  font-family: 'Montserrat', sans-serif;
-}
-
 /* Container for the switch */
 .switch {
   position: relative;
@@ -106,12 +102,6 @@ input:checked + .slider .icon.moon {
   opacity: 1;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
 /* Navigation Bar */
 .navbar {
   align-items: center;
@@ -134,6 +124,11 @@ body.dark-mode {
   line-height: 1.2;
 }
 
+.nav-right {
+  display: flex;
+  gap: 12px;
+}
+
 .nav-tmm {
   font-size: 24px;
   font-weight: bold;
@@ -154,18 +149,6 @@ body.dark-mode {
 [data-theme="dark"] .nav-tmm,
 [data-theme="dark"] .nav-software {
   color: white;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 24px;
-}
-
-.nav-right {
-  display: flex;
-  gap: 12px;
 }
 
 /* Hero Section */
