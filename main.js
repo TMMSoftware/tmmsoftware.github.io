@@ -254,7 +254,7 @@ async function submitEmail(email, form, button) {
         button.textContent = "Thanks! You're on the list!";
         button.classList.remove("sending");
         button.classList.add("success");
-      }, 3000);
+      }, 5000);
 
       // Reset the button text and state after a few seconds.
       setTimeout(() => {
@@ -273,7 +273,7 @@ async function submitEmail(email, form, button) {
         button.textContent = "Request Early Access";
         button.classList.remove("error");
         button.disabled = false;
-      }, 3000);
+      }, 4000);
     }
   } catch (error) {
     // In case of network or other errors, notify the user and reset the button.
@@ -285,7 +285,7 @@ async function submitEmail(email, form, button) {
       button.textContent = "Request Early Access";
       button.classList.remove("error");
       button.disabled = false;
-    }, 3000);
+    }, 4000);
   }
 }
 
