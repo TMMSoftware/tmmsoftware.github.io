@@ -422,7 +422,7 @@ input:checked + .slider .icon.moon {
   }
 }
 
-body.dark-mode .btn-waitlist:hover {
+[data-theme="dark"] .btn-waitlist:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -443,7 +443,7 @@ body.dark-mode .btn-waitlist:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-download:hover {
+[data-theme="dark"] .btn-download:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -464,7 +464,7 @@ body.dark-mode .btn-download:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-switch:hover {
+[data-theme="dark"] .btn-switch:hover {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
 
@@ -486,8 +486,8 @@ body.dark-mode .btn-switch:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .btn-signin:hover,
-body.dark-mode .btn-login:hover {
+[data-theme="dark"] .btn-signin:hover,
+[data-theme="dark"] .btn-login:hover {
   border-color: #C89B3C;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
