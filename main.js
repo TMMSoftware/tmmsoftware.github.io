@@ -33,7 +33,8 @@ function setupEmailValidation() {
       this.value = this.value.toLowerCase();
       selectedIndex = -1;
 
-      if (this.value.length >= 12 && regex.test(this.value)) {
+      // Remove the 12-char check; rely solely on the regex
+      if (regex.test(this.value)) {
         this.setCustomValidity("");
         label.classList.add('valid');
         hideSuggestions(suggestionContainer);
@@ -43,14 +44,17 @@ function setupEmailValidation() {
       this.setCustomValidity("Please enter a valid email address");
       label.classList.remove('valid');
 
+      // Show suggestions if user typed something after "@"
       if (this.value.includes('@')) {
         const domainPart = this.value.split('@')[1] || "";
         const filtered = providers.filter(provider => provider.startsWith(domainPart));
 
-        filtered.length > 0 && domainPart.length > 0
-          ? (suggestionContainer.innerHTML = filtered.map(p => `<div class="suggestion-item">${p}</div>`).join(""),
-             suggestionContainer.style.display = "block")
-          : hideSuggestions(suggestionContainer);
+        if (filtered.length > 0 && domainPart.length > 0) {
+          suggestionContainer.innerHTML = filtered.map(p => `<div class="suggestion-item">${p}</div>`).join("");
+          suggestionContainer.style.display = "block";
+        } else {
+          hideSuggestions(suggestionContainer);
+        }
       } else {
         hideSuggestions(suggestionContainer);
       }
@@ -114,7 +118,7 @@ function processSubmission(form) {
   emailInput.value = emailInput.value.toLowerCase();
 
   if (!regex.test(emailInput.value)) {
-    emailInput.setCustomValidity("Enter a valid email (min 12 chars)");
+    emailInput.setCustomValidity("Please enter a valid email address");
     emailInput.reportValidity();
     return false;
   }
@@ -172,4 +176,19 @@ async function submitEmail(email, form, button) {
       button.disabled = false;
     }, 3000);
   }
+}
+
+// Highlight a suggestion
+function highlightSuggestion(items, index) {
+  items.forEach(item => item.classList.remove('highlight'));
+  items[index].classList.add('highlight');
+}
+
+// Apply a suggestion
+function applySuggestion(input, suggestionContainer, suggestionText) {
+  const [localPart] = input.value.split('@');
+  input.value = `${localPart}@${suggestionText}`;
+  input.setCustomValidity("");
+  input.closest('form').querySelector('.btn-waitlist').classList.add('valid');
+  hideSuggestions(suggestionContainer);
 }
