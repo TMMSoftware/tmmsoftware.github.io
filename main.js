@@ -47,7 +47,7 @@ function setupEmailValidation() {
       if (this.value.includes('@')) {
         const domainPart = this.value.split('@')[1] || "";
         const filtered = providers.filter(provider => provider.startsWith(domainPart));
-        
+
         filtered.length > 0 && domainPart.length > 0
           ? (suggestionContainer.innerHTML = filtered.map(p => `<div class="suggestion-item">${p}</div>`).join(""),
              suggestionContainer.style.display = "block")
@@ -127,8 +127,7 @@ function setupFormSubmission() {
 function processSubmission(form) {
   const emailInput = form.querySelector('.email-input');
   const successMessage = form.querySelector('.success-message');
-  const errorMessage = form.querySelector('.error-message');
-  const submitButton = form.querySelector('.btn-waitlist');
+  const submitButton = form.querySelector('.btn-waitlist'); // Fix: Correctly fetch the button
 
   const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
   emailInput.value = emailInput.value.toLowerCase();
@@ -144,7 +143,7 @@ function processSubmission(form) {
   submitButton.disabled = true;
 
   // Call function to send email
-  submitEmail(emailInput.value, successMessage, errorMessage, submitButton);
+  submitEmail(emailInput.value, form, submitButton); // Fix: Correctly pass the button reference
   return true;
 }
 
@@ -176,11 +175,13 @@ async function submitEmail(email, form, button) {
       button.disabled = false;
 
       // Display success message
-      const successMessage = form?.querySelector('.success-message');
-      if (successMessage) {
-        successMessage.textContent = "You're on the list!";
-        successMessage.style.color = "green";
-        successMessage.style.display = "block";  // Ensure it's visible
+      if (form) {
+        const successMessage = form.querySelector('.success-message');
+        if (successMessage) {
+          successMessage.textContent = "You're on the list!";
+          successMessage.style.color = "green";
+          successMessage.style.display = "block";  // Ensure it's visible
+        }
       }
     } else {
       console.error("❌ Error sending email:", result.error || "Unknown error");
@@ -190,11 +191,13 @@ async function submitEmail(email, form, button) {
       button.disabled = false;
 
       // Display failure message
-      const failureMessage = form?.querySelector('.success-message');
-      if (failureMessage) {
-        failureMessage.textContent = "Failed to send email. Try again.";
-        failureMessage.style.color = "red";
-        failureMessage.style.display = "block";  // Ensure it's visible
+      if (form) {
+        const failureMessage = form.querySelector('.success-message');
+        if (failureMessage) {
+          failureMessage.textContent = "Failed to send email. Try again.";
+          failureMessage.style.color = "red";
+          failureMessage.style.display = "block";  // Ensure it's visible
+        }
       }
     }
   } catch (error) {
@@ -205,11 +208,13 @@ async function submitEmail(email, form, button) {
     button.disabled = false;
 
     // Display error message
-    const errorMessage = form?.querySelector('.success-message');
-    if (errorMessage) {
-      errorMessage.textContent = "Failed to send email. Try again.";
-      errorMessage.style.color = "red";
-      errorMessage.style.display = "block";  // Ensure it's visible
+    if (form) {
+      const errorMessage = form.querySelector('.success-message');
+      if (errorMessage) {
+        errorMessage.textContent = "Failed to send email. Try again.";
+        errorMessage.style.color = "red";
+        errorMessage.style.display = "block";  // Ensure it's visible
+      }
     }
   }
 }
