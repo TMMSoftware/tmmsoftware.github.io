@@ -175,13 +175,13 @@ async function submitEmail(email, form, button) {
       button.disabled = false;
 
       // Display success message
-      if (form) {
-        const successMessage = form.querySelector('.success-message');
-        if (successMessage) {
-          successMessage.textContent = "You're on the list!";
-          successMessage.style.color = "green";
-          successMessage.style.display = "block";  // Ensure it's visible
-        }
+      const successMessage = form.querySelector('.success-message');
+      if (successMessage) {
+        successMessage.textContent = "Thanks! You're on the list!";
+        successMessage.style.color = "green";
+        successMessage.style.display = "block";  // Ensure it's visible
+      } else {
+        console.warn("⚠️ Success message element not found.");
       }
     } else {
       console.error("❌ Error sending email:", result.error || "Unknown error");
@@ -191,13 +191,11 @@ async function submitEmail(email, form, button) {
       button.disabled = false;
 
       // Display failure message
-      if (form) {
-        const failureMessage = form.querySelector('.success-message');
-        if (failureMessage) {
-          failureMessage.textContent = "Failed to send email. Try again.";
-          failureMessage.style.color = "red";
-          failureMessage.style.display = "block";  // Ensure it's visible
-        }
+      const failureMessage = form.querySelector('.success-message');
+      if (failureMessage) {
+        failureMessage.textContent = "Failed to send email. Try again.";
+        failureMessage.style.color = "red";
+        failureMessage.style.display = "block";  // Ensure it's visible
       }
     }
   } catch (error) {
@@ -208,13 +206,11 @@ async function submitEmail(email, form, button) {
     button.disabled = false;
 
     // Display error message
-    if (form) {
-      const errorMessage = form.querySelector('.success-message');
-      if (errorMessage) {
-        errorMessage.textContent = "Failed to send email. Try again.";
-        errorMessage.style.color = "red";
-        errorMessage.style.display = "block";  // Ensure it's visible
-      }
+    const errorMessage = form.querySelector('.success-message');
+    if (errorMessage) {
+      errorMessage.textContent = "Failed to send email. Try again.";
+      errorMessage.style.color = "red";
+      errorMessage.style.display = "block";  // Ensure it's visible
     }
   }
 }
