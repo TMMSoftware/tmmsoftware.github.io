@@ -258,9 +258,8 @@ input:checked + .slider .icon.moon {
 
 .email-input:focus {
   background-color: #faf3e0;
-  border-color: #C89B3C;
+  border-color: #b38a2e;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.3);
 }
 
 .email-input:valid {
