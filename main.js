@@ -149,7 +149,7 @@ function processSubmission(form) {
 }
 
 // Submit email to API
-async function submitEmail(email, successMessage, errorMessage, submitButton) {
+async function submitEmail(email, form) {
   try {
     const response = await fetch('https://tmmsoftware-resend.vercel.app/api/send-email', {
       method: 'POST',
@@ -158,22 +158,25 @@ async function submitEmail(email, successMessage, errorMessage, submitButton) {
     });
 
     const result = await response.json();
-
-    if (response.ok) {
-      // Show success message
-      successMessage.textContent = "Success! Check your inbox 📩";
-      successMessage.style.display = "block";
-      errorMessage.style.display = "none";
-      emailInput.value = ""; // Clear input field
+    
+    if (response.ok && result.message === "Email sent successfully!") {
+      console.log("✅ Email sent successfully!");
+      
+      // Display success message
+      form.querySelector('.success-message').textContent = "You're on the list!";
+      form.querySelector('.success-message').style.color = "green";
     } else {
-      throw new Error(result.error || "Something went wrong.");
+      console.error("❌ Error sending email:", result.error || "Unknown error");
+      
+      // Display failure message
+      form.querySelector('.success-message').textContent = "Failed to send email. Try again.";
+      form.querySelector('.success-message').style.color = "red";
     }
   } catch (error) {
-    console.error("Error:", error);
-    errorMessage.textContent = "Failed to send email. Try again.";
-    errorMessage.style.display = "block";
-  } finally {
-    submitButton.textContent = "Request Early Access";
-    submitButton.disabled = false;
+    console.error('❌ Network or server error:', error);
+    
+    // Display network failure message
+    form.querySelector('.success-message').textContent = "Failed to send email. Try again.";
+    form.querySelector('.success-message').style.color = "red";
   }
 }
