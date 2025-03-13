@@ -231,7 +231,7 @@ input:checked + .slider .icon.moon {
   line-height: 1.2;
 }
 
-body.dark-mode .product:hover {
+[data-theme="dark"] .product:hover {
   border-color: #777;
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
 }
