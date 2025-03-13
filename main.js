@@ -151,7 +151,7 @@ function processSubmission(form) {
 // Submit email to API
 async function submitEmail(email, successMessage, errorMessage, submitButton) {
   try {
-    const response = await fetch('/api/send-email', {
+    const response = await fetch('https://tmmsoftware-resend.vercel.app/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
