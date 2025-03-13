@@ -237,46 +237,44 @@ function processSubmission(form) {
  */
 async function submitEmail(email, form, button) {
   try {
-    // Send a POST request to the API with the email address in JSON format.
     const response = await fetch('https://tmmsoftware-resend.vercel.app/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     });
 
-    // Parse the JSON response from the API.
     const result = await response.json();
 
-    // Check if the response was successful and the API confirmed the email was sent.
     if (response.ok && result.message === "Email sent successfully!") {
-      // Show a success message on the button after a short delay.
-      setTimeout(() => {
-        button.textContent = "Thanks! You're on the list!";
-        button.classList.remove("sending");
-        button.classList.add("success");
-      }, 5000);
+      // Immediately show the success message and remove the sending animation.
+      button.textContent = "Thanks! You're on the list!";
+      button.classList.remove("sending");
+      button.classList.add("success");
 
-      // Reset the button text and state after a few seconds.
+      // Clear the email input field.
+      form.querySelector('.email-input').value = "";
+
+      // After 3 seconds, reset the button to its initial state.
       setTimeout(() => {
         button.textContent = "Request Early Access";
         button.classList.remove("success");
         button.disabled = false;
-      }, 4000);
+      }, 3000);
     } else {
-      // If the response indicates failure, update the button to show an error.
+      // Show an error message if the API returns an error.
       button.textContent = "Failed. Try again.";
       button.classList.remove("sending");
       button.classList.add("error");
 
-      // Reset the button after a short delay.
+      // After 3 seconds, reset the button.
       setTimeout(() => {
         button.textContent = "Request Early Access";
         button.classList.remove("error");
         button.disabled = false;
-      }, 4000);
+      }, 3000);
     }
   } catch (error) {
-    // In case of network or other errors, notify the user and reset the button.
+    // Handle network or other errors similarly.
     button.textContent = "Failed. Try again.";
     button.classList.remove("sending");
     button.classList.add("error");
@@ -285,7 +283,7 @@ async function submitEmail(email, form, button) {
       button.textContent = "Request Early Access";
       button.classList.remove("error");
       button.disabled = false;
-    }, 4000);
+    }, 3000);
   }
 }
 
