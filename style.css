@@ -373,7 +373,7 @@ input:checked + .slider .icon.moon {
 .btn-waitlist.sending {
   background-color: #2ecc71; /* bright green */
   cursor: wait;
-  animation: pulse 1s infinite alternate;
+  animation: pulse 0.5s infinite alternate;
 }
 
 @keyframes pulse {
