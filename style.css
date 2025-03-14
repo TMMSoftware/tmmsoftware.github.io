@@ -517,18 +517,57 @@ footer {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.4); /* Semi-transparent overlay */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 /* Modal content container */
 .modal-content {
-  background-color: #fff;
+  background-color: #ffffff;
   margin: 10% auto;
-  padding: 20px;
+  padding: 2rem;
   border: 1px solid #888;
   width: 80%;
   max-width: 600px;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  color: darkslategray;
+  line-height: 1.6;
+}
+
+/* Headings and Text Styling */
+.modal-content h2 {
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 0.5rem;
+}
+
+.modal-content h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.modal-content p,
+.modal-content ul {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+/* Unordered List Styling */
+.modal-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+/* Last Updated Text Styling */
+.last-updated {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
 }
 
 /* Close button */
