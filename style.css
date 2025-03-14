@@ -331,6 +331,14 @@ input:checked + .slider .icon.moon {
   padding: 0.2em 0.4em;
 }
 
+.suggestion-item:focus {
+  background-color: #F2F2F2; /* same as hover */
+  color: #27ae60; /* same as hover */
+  font-size: 14px;
+  padding: 0.2em 0.4em;
+  outline: none; /* remove the default focus outline */
+}
+
 /* Custom Buttons */
 .btn-waitlist {
   margin: 10px;
