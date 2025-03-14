@@ -246,35 +246,33 @@ async function submitEmail(email, form, button) {
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
-      // Wait 2 seconds after the API confirms success, keeping the "Sending..." animation.
-      setTimeout(() => {
-        // Now update the button to show the success message.
-        button.textContent = "Thanks! You're on the list!";
-        button.classList.remove("sending");
-        button.classList.add("success");
+  // Wait 2 seconds after the API confirms success, keeping the "Sending..." state.
+  setTimeout(() => {
+    // Switch to the success state.
+    button.textContent = "Thanks! You're on the list!";
+    button.classList.remove("sending");
+    button.classList.add("success");
 
-        // Clear the email input field.
-        form.querySelector('.email-input').value = "";
+    // Clear the email input field.
+    form.querySelector('.email-input').value = "";
 
-        // After 3 seconds of showing the success message, reset the button.
-        setTimeout(() => {
-          button.textContent = "Request Early Access";
-          button.classList.remove("success");
-          button.disabled = false;
-        }, 3000);
-      }, 2000);
-    } else {
-      // Handle failure response.
-      button.textContent = "Failed. Try again.";
-      button.classList.remove("sending");
-      button.classList.add("error");
+    // After 3 seconds of displaying the success message, begin a smooth fade-out reset.
+    setTimeout(() => {
+      // Apply a CSS transition to fade out the button.
+      button.style.transition = "opacity 0.5s ease";
+      button.style.opacity = "0";
 
+      // After the fade-out (0.5s), update the button's state and fade it back in.
       setTimeout(() => {
         button.textContent = "Request Early Access";
-        button.classList.remove("error");
+        button.classList.remove("success");
         button.disabled = false;
-      }, 3000);
-    }
+        button.style.opacity = "1"; // Fade back in.
+      }, 500);
+    }, 3000);
+  }, 2000);
+}
+
   } catch (error) {
     // Handle network or other errors similarly.
     button.textContent = "Failed. Try again.";
