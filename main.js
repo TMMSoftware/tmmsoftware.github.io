@@ -295,11 +295,11 @@ function loadPolicy(file) {
     })
     .then(html => {
       modalContent.innerHTML = html;
-      modal.style.display = 'block';
+      modal.style.display = 'flex';
     })
     .catch(error => {
       modalContent.innerHTML = '<p>Error loading content.</p>';
-      modal.style.display = 'block';
+      modal.style.display = 'flex';
       console.error('Error:', error);
     });
 }
