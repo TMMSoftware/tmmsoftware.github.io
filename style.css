@@ -311,32 +311,17 @@ input:checked + .slider .icon.moon {
   color: #333; /* dark gray */
   cursor: pointer;
   transition: all 0.3s ease;
+  outline: none;
 }
 
-.suggestion-item:hover {
+/* hover, focus, and keyboard highlight styles */
+.suggestion-item:hover,
+.suggestion-item:focus,
+.suggestion-item.highlight {
   background-color: #F2F2F2; /* very light gray */
-  font-size: 14px;
-  color: #27ae60; /* bright green */
-  padding: 0.2em 0.4em;
-}
-
-.suggestion-item.highlight { /* with arrow keys */
-  color: #27ae60; /* bright green */
-}
-
-.highlight {
-  background-color: #F2F2F2; /* very light gray */
-  color: #27ae60; /* bright green */
+  color: #27ae60;           /* bright green */
   font-size: 14px;
   padding: 0.2em 0.4em;
-}
-
-.suggestion-item:focus {
-  background-color: #F2F2F2; /* same as hover */
-  color: #27ae60; /* same as hover */
-  font-size: 14px;
-  padding: 0.2em 0.4em;
-  outline: none; /* remove the default focus outline */
 }
 
 /* Custom Buttons */
