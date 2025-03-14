@@ -215,7 +215,7 @@ async function submitEmail(email, form, button) {
         // Transition to the success state.
         button.innerHTML = `
           <span style="display:block;">Thanks!</span>
-          <span style="display:block;">You're on the list!</span>
+          <span style="display:block;">You're on the list</span>
         `;
         button.classList.remove("sending");
         button.classList.add("success");
