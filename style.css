@@ -387,15 +387,15 @@ input:checked + .slider .icon.moon {
 
 /* Success State: Button Text Changes to Confirmation */
 .btn-waitlist.success {
-  background-color: #4CAF50 !important; /* dark green */
-  color: white !important; /* white */
+  background-color: #2ecc71 !important; /* bright green */
+  color: black !important; /* black */
   cursor: default;
   transition: background-color 0.3s ease;
 }
 
 .btn-waitlist.error {
   background-color: #FF5733 !important; /* red */
-  color: white !important; /* white */
+  color: black !important; /* black */
   animation: shake 0.3s ease-in-out;
 }
 
