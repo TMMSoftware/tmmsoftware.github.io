@@ -73,7 +73,10 @@ function setupEmailValidation() {
         const domainPart = this.value.split('@')[1] || "";
         const filtered = providers.filter(provider => provider.startsWith(domainPart));
         if (filtered.length > 0 && domainPart.length > 0) {
-          suggestionContainer.innerHTML = filtered.map(p => `<div class="suggestion-item">${p}</div>`).join("");
+          // Each suggestion item is now focusable via tabindex="0"
+          suggestionContainer.innerHTML = filtered
+            .map(p => `<div class="suggestion-item" tabindex="0">${p}</div>`)
+            .join("");
           suggestionContainer.style.display = "block";
         } else {
           hideSuggestions(suggestionContainer);
@@ -112,6 +115,7 @@ function setupEmailValidation() {
     });
   });
 }
+
 
 /**
  * Sets up the form submission logic.
