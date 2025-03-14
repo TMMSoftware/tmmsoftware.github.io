@@ -192,8 +192,8 @@ async function submitEmail(email, form, button) {
         
         // Hold the success state for 5 seconds.
         setTimeout(() => {
-          // Fade out the button over 1 second.
-          button.style.transition = "opacity 1s ease";
+          // Fade out the button over 3 second.
+          button.style.transition = "opacity 3s ease";
           button.style.opacity = "0";
           
           // After fade-out, update the button text and fade back in over 1 second.
