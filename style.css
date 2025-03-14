@@ -1,118 +1,124 @@
-/* Define theme variables for light and dark modes */
+/*================================================
+Theme Variables
+================================================*/
 :root {
   --background-color: #fff; /* white */
   --text-color: #000; /* black */
 }
 
+/*================================================
+Dark Theme Variables
+================================================*/
 [data-theme="dark"] {
   --background-color: #121212; /* very dark gray (almost black) */
   --text-color: #f5f5f5; /* near white */
 }
 
-/* General Styles */
+/*================================================
+General Styles
+================================================*/
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
   min-height: 100vh;
+  background-color: var(--background-color); /* white or very dark gray */
+  color: var(--text-color); /* black or near white */
   font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
-/* Container for the switch */
+/*================================================
+Switch Component Styles
+================================================*/
 .switch {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 60px;
   height: 34px;
 }
 
-/* Hide the default checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
+/*================================================
+Slider Styles
+================================================*/
 .slider {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: #ccc; /* light gray */
+  cursor: pointer;
   transition: 0.4s;
 }
 
-/* Rounded slider */
 .slider.round {
   border-radius: 34px;
 }
 
-/* The slider's handle */
 .slider.round:before {
-  position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  position: absolute;
   left: 4px;
   bottom: 4px;
+  height: 26px;
+  width: 26px;
   background-color: white; /* white */
-  transition: 0.4s;
   border-radius: 50%;
+  transition: 0.4s;
 }
 
-/* Move the handle when checked */
 input:checked + .slider.round:before {
   transform: translateX(26px);
 }
 
-/* Icon styles inside the slider */
 .slider .icon {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
   width: 20px;
+  font-size: 16px;
   text-align: center;
+  transform: translateY(-50%);
 }
 
-/* Position sun icon on the left */
 .slider .icon.sun {
   left: 8px;
 }
 
-/* Position moon icon on the right, initially hidden */
 .slider .icon.moon {
   right: 8px;
   opacity: 0;
   transition: opacity 0.4s;
 }
 
-/* When checked, hide the sun icon and show the moon icon */
 input:checked + .slider .icon.sun {
   opacity: 0;
 }
+
 input:checked + .slider .icon.moon {
   opacity: 1;
 }
 
-/* Navigation Bar */
+/*================================================
+Navigation Bar Styles
+================================================*/
 .navbar {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 14px 24px;
   width: 100%;
-  background-color: inherit;
+  background-color: inherit; /* inherits parent background */
 }
 
 .nav-left {
@@ -130,19 +136,19 @@ input:checked + .slider .icon.moon {
 }
 
 .nav-tmm {
+  color: inherit; /* inherits parent color */
+  font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: bold;
   letter-spacing: 2px;
-  font-family: 'Montserrat', sans-serif;
-  color: inherit;
   text-transform: uppercase;
 }
 
 .nav-software {
+  color: inherit; /* inherits parent color */
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: normal;
-  font-family: 'Montserrat', sans-serif;
-  color: inherit;
   text-transform: uppercase;
 }
 
@@ -151,15 +157,17 @@ input:checked + .slider .icon.moon {
   color: white; /* white */
 }
 
-/* Hero Section */
+/*================================================
+Hero Section Styles
+================================================*/
 .hero-container {
-  align-items: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: stretch;
+  gap: 1px;
   margin: auto;
   max-width: 900px;
-  gap: 1px;
 }
 
 .hero-letter-t-1 {
@@ -200,14 +208,16 @@ input:checked + .slider .icon.moon {
   margin-bottom: 0.2em;
 }
 
-/* Products Section */
+/*================================================
+Product Section Styles
+================================================*/
 .product-container {
-  align-items: stretch;
   display: flex;
+  align-items: stretch;
   justify-content: center;
+  gap: 40px;
   margin: auto;
   max-width: 900px;
-  gap: 40px;
 }
 
 .product {
@@ -215,7 +225,7 @@ input:checked + .slider .icon.moon {
   flex: 1;
   flex-direction: column;
   padding: 10px;
-  border: 1px solid transparent;
+  border: 1px solid transparent; /* transparent border */
   border-radius: 8px;
   text-align: center;
   transition: border-color 0.3s ease;
@@ -236,7 +246,9 @@ input:checked + .slider .icon.moon {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15); /* semi-transparent white */
 }
 
-/* Email Input */
+/*================================================
+Email Input & Suggestions Styles
+================================================*/
 .email-input {
   display: block;
   margin-bottom: 10px;
@@ -265,39 +277,38 @@ input:checked + .slider .icon.moon {
 .email-input:valid {
   background-color: #e6ffe6; /* pale green */
   border-color: #2ecc71; /* bright green */
-  color: darkslategray;
+  color: darkslategray; /* dark slate gray */
   font-weight: lighter;
 }
 
 .email-input:invalid:not(:placeholder-shown) {
   background-color: white; /* white */
   border-color: #e74c3c; /* vivid red */
-  color: darkslategray;
+  color: darkslategray; /* dark slate gray */
   font-weight: lighter;
 }
 
 .email-input:invalid:not(:focus):not(:placeholder-shown) {
-  border-color: #e74c3c; /* vivid red */
   background-color: #FAFAFA; /* very light gray */
+  border-color: #e74c3c; /* vivid red */
 }
 
-/* Input Wrapper & Suggestions */
 .input-wrapper {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .email-suggestions-container {
   position: absolute;
   top: 80%;
   left: 0;
+  z-index: 1000;
+  max-height: 120px;
   max-width: 250px;
   width: 100%;
-  max-height: 120px;
   background-color: #FAFAFA; /* very light gray */
   border: 2px dotted #ccc; /* light gray */
   border-radius: 999px;
-  z-index: 1000;
   overflow-y: auto;
   display: none;
 }
@@ -305,34 +316,35 @@ input:checked + .slider .icon.moon {
 .suggestion-item {
   padding: 10px 20px;
   font: inherit;
-  font-weight: lighter;
   font-size: 14px;
+  font-weight: lighter;
   text-align: right;
   color: #333; /* dark gray */
   cursor: pointer;
-  transition: all 0.3s ease;
   outline: none;
+  transition: all 0.3s ease;
 }
 
-/* hover, focus, and keyboard highlight styles */
 .suggestion-item:hover,
 .suggestion-item:focus,
 .suggestion-item.highlight {
   background-color: #F2F2F2; /* very light gray */
-  color: #27ae60;           /* bright green */
+  color: #27ae60; /* bright green */
   font-size: 14px;
   padding: 0.2em 0.4em;
 }
 
-/* Custom Buttons */
+/*================================================
+Custom Button Styles
+================================================*/
 .btn-waitlist {
   margin: 10px;
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: transparent; /* transparent */
   border: 1px solid #ccc; /* light gray */
   border-radius: 999px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* semi-transparent black */
-  color: currentColor;
+  color: currentColor; /* currentColor (inherited) */
   font-size: 15px;
   cursor: not-allowed;
   opacity: 0.5;
@@ -352,17 +364,16 @@ input:checked + .slider .icon.moon {
 }
 
 .btn-waitlist:hover {
-  border-color: #C89B3C; /* gold-ish color */
   background-color: #2ecc71; /* bright green */
+  border-color: #C89B3C; /* gold-ish color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* semi-transparent black */
 }
 
 .btn-waitlist.active {
-  transform: scale(0.97);
   background-color: #2ecc71; /* bright green */
+  transform: scale(0.97);
 }
 
-/* Button Behavior During Submission */
 .btn-waitlist.sending {
   background-color: #2ecc71; /* bright green */
   cursor: wait;
@@ -378,7 +389,6 @@ input:checked + .slider .icon.moon {
   }
 }
 
-/* Success State: Button Text Changes to Confirmation */
 .btn-waitlist.success {
   background-color: #2ecc71 !important; /* bright green */
   color: black !important; /* black */
@@ -418,16 +428,17 @@ input:checked + .slider .icon.moon {
 .btn-download {
   align-self: center;
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: transparent; /* transparent */
   border: 1px solid #ccc; /* light gray */
   border-radius: 999px;
-  color: currentcolor;
+  color: currentcolor; /* currentColor (inherited) */
   font-size: 15px;
   cursor: not-allowed;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
 
 .btn-download:hover {
+  background-color: #2ecc71; /* bright green */
   border-color: #C89B3C; /* gold-ish color */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* semi-transparent black */
 }
@@ -438,10 +449,10 @@ input:checked + .slider .icon.moon {
 
 .btn-switch {
   padding: 10px 20px;
-  background-color: currentColor;
+  background-color: currentColor; /* currentColor (inherited) */
   border: 1px solid #ccc; /* light gray */
   border-radius: 999px;
-  color: currentColor;
+  color: currentColor; /* currentColor (inherited) */
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
@@ -460,10 +471,10 @@ input:checked + .slider .icon.moon {
 .btn-signin,
 .btn-login {
   padding: 10px 20px;
-  background-color: transparent;
+  background-color: transparent; /* transparent */
   border: 1px solid #ccc; /* light gray */
   border-radius: 999px;
-  color: currentColor;
+  color: currentColor; /* currentColor (inherited) */
   font-size: 15px;
   cursor: not-allowed;
   transition: background-color 0.3s ease, transform 0.1s ease-in-out;
@@ -481,18 +492,23 @@ input:checked + .slider .icon.moon {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15); /* semi-transparent white */
 }
 
-/* Footer */
+/*================================================
+Footer Styles
+================================================*/
 footer {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   width: 100%;
-  background-color: inherit;
+  background-color: inherit; /* inherits parent background */
   color: #999; /* medium gray */
   font-size: 14px;
 }
 
+/*================================================
+Modal Styles
+================================================*/
 .modal {
   display: none;
   position: fixed;
@@ -501,7 +517,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black */
   align-items: center;
   justify-content: center;
   z-index: 1001;
@@ -509,37 +525,36 @@ footer {
 
 .modal-content {
   position: relative;
-  background-color: #FAFAFA;
+  margin: 10% auto;
+  max-width: 600px;
   padding: 2rem;
   padding-top: 50px;
-  margin: 10% auto;
   width: 80%;
-  max-width: 600px;
-  border: 1px solid #888;
+  background-color: #FAFAFA; /* very light gray */
+  border: 1px solid #888; /* gray */
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  color: darkslategray;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* semi-transparent black */
+  color: darkslategray; /* dark slate gray */
   line-height: 1.6;
 }
 
 [data-theme="dark"] .modal-content {
-  background-color: #121212;
-  color: #f5f5f5;
+  background-color: #121212; /* very dark gray (almost black) */
+  color: #f5f5f5; /* near white */
 }
 
-/* Headings and Text Styling */
 .modal-content h2 {
   margin-top: 0;
-  font-weight: 600;
-  font-size: 1.8rem;
-  border-bottom: 1px solid #eaeaea;
   padding-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-bottom: 1px solid #eaeaea; /* light gray */
 }
 
 .modal-content h3 {
-  font-weight: 500;
-  font-size: 1.2rem;
   margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .modal-content p,
@@ -548,24 +563,21 @@ footer {
   font-size: 1rem;
 }
 
-/* Unordered List Styling */
 .modal-content ul {
   list-style: disc;
   padding-left: 1.5rem;
 }
 
-/* Last Updated Text Styling */
 .last-updated {
-  font-size: 0.9rem;
-  color: #777;
   margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #777; /* dark gray */
 }
 
-/* Close button */
 .close {
   position: absolute;
-  top: 10px;
   right: 10px;
+  top: 10px;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -573,29 +585,32 @@ footer {
   z-index: 10;
 }
 
-/* Tabs styling */
 .modal-tabs {
   margin-bottom: 10px;
 }
+
 .tablinks {
-  background: none;
-  border: none;
   padding: 10px 20px;
-  cursor: pointer;
+  background: none; /* none */
+  border: none;
   font-size: 16px;
+  cursor: pointer;
 }
+
 .tablinks.active {
-  border-bottom: 2px solid #2ecc71;
+  border-bottom: 2px solid #2ecc71; /* bright green */
 }
 
-
+/*================================================
+Footer Links Styles
+================================================*/
 .footer-links {
   display: flex;
   gap: 20px;
 }
 
 .footer-links a {
-  color: inherit;
+  color: inherit; /* inherits parent color */
   text-decoration: none;
 }
 
