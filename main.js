@@ -102,7 +102,14 @@ function setupEmailValidation() {
       }
     });
 
-    input.addEventListener('blur', () => setTimeout(() => hideSuggestions(suggestionContainer), 150));
+    input.addEventListener('blur', function(e) {
+      setTimeout(() => {
+        // Only hide suggestions if the newly focused element is NOT inside the suggestion container.
+        if (!suggestionContainer.contains(document.activeElement)) {
+          hideSuggestions(suggestionContainer);
+        }
+      }, 150);
+    });
 
     suggestionContainer.addEventListener('click', function (e) {
       if (e.target && e.target.matches('.suggestion-item')) {
