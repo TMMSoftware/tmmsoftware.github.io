@@ -246,27 +246,29 @@ async function submitEmail(email, form, button) {
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
-      // Immediately show the success message and remove the sending animation.
-      button.textContent = "Thanks! You're on the list!";
-      button.classList.remove("sending");
-      button.classList.add("success");
-
-      // Clear the email input field.
-      form.querySelector('.email-input').value = "";
-
-      // After 3 seconds, reset the button to its initial state.
+      // Wait 2 seconds after the API confirms success, keeping the "Sending..." animation.
       setTimeout(() => {
-        button.textContent = "Request Early Access";
-        button.classList.remove("success");
-        button.disabled = false;
-      }, 3000);
+        // Now update the button to show the success message.
+        button.textContent = "Thanks! You're on the list!";
+        button.classList.remove("sending");
+        button.classList.add("success");
+
+        // Clear the email input field.
+        form.querySelector('.email-input').value = "";
+
+        // After 3 seconds of showing the success message, reset the button.
+        setTimeout(() => {
+          button.textContent = "Request Early Access";
+          button.classList.remove("success");
+          button.disabled = false;
+        }, 3000);
+      }, 2000);
     } else {
-      // Show an error message if the API returns an error.
+      // Handle failure response.
       button.textContent = "Failed. Try again.";
       button.classList.remove("sending");
       button.classList.add("error");
 
-      // After 3 seconds, reset the button.
       setTimeout(() => {
         button.textContent = "Request Early Access";
         button.classList.remove("error");
