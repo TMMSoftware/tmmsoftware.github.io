@@ -493,21 +493,8 @@ footer {
   font-size: 14px;
 }
 
-/* Modal background */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1001;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4); /* Semi-transparent overlay */
-}
-
-.modal {
-  display: none; /* Hidden by default; switch to flex when showing */
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -517,12 +504,11 @@ footer {
   background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Choose one value for consistency */
+  z-index: 1000;
 }
 
-
 .modal-content {
-  background-color: #ffffff;
+  background-color: #FAFAFA;
   padding: 2rem;
   margin: 10% auto;
   width: 80%;
