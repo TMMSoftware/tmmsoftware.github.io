@@ -213,7 +213,10 @@ async function submitEmail(email, form, button) {
       // Wait 2 seconds (keeping the "Sending..." animation)
       setTimeout(() => {
         // Transition to the success state.
-        button.textContent = "Thanks!<br>You're on the list!";
+        button.innerHTML = `
+          <span style="display:block;">Thanks!</span>
+          <span style="display:block;">You're on the list!</span>
+        `;
         button.classList.remove("sending");
         button.classList.add("success");
         // Clear the email input.
