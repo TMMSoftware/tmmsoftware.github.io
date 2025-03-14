@@ -276,3 +276,53 @@ function applySuggestion(input, suggestionContainer, suggestionText) {
   input.closest('form').querySelector('.btn-waitlist').classList.add('valid');
   hideSuggestions(suggestionContainer);
 }
+
+// Get modal elements and policy links
+const modal = document.getElementById('policyModal');
+const modalContent = document.getElementById('modalContent');
+const privacyLink = document.getElementById('openPrivacyPolicy');
+const termsLink = document.getElementById('openTermsOfService');
+const closeBtn = document.querySelector('.modal .close');
+
+// Function to load content from a file and show it in the modal
+function loadPolicy(file) {
+  fetch(file)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(html => {
+      modalContent.innerHTML = html;
+      modal.style.display = 'block';
+    })
+    .catch(error => {
+      modalContent.innerHTML = '<p>Error loading content.</p>';
+      modal.style.display = 'block';
+      console.error('Error:', error);
+    });
+}
+
+// Event listeners for the policy links
+privacyLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  loadPolicy('privacy.html');
+});
+
+termsLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  loadPolicy('terms.html');
+});
+
+// Close the modal when the close button is clicked
+closeBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+// Close the modal when clicking outside of the modal content
+window.addEventListener('click', function(e) {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
