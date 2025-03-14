@@ -57,6 +57,14 @@ function setupEmailValidation() {
     const label = input.closest('form').querySelector('.btn-waitlist');
     let selectedIndex = -1;
 
+    // Event delegation for keydown on suggestion items:
+    suggestionContainer.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && e.target.classList.contains('suggestion-item')) {
+        e.preventDefault();
+        applySuggestion(input, suggestionContainer, e.target.textContent);
+      }
+    });
+
     input.addEventListener('input', function () {
       this.value = this.value.toLowerCase();
       selectedIndex = -1;
@@ -73,7 +81,7 @@ function setupEmailValidation() {
         const domainPart = this.value.split('@')[1] || "";
         const filtered = providers.filter(provider => provider.startsWith(domainPart));
         if (filtered.length > 0 && domainPart.length > 0) {
-          // Each suggestion item is now focusable via tabindex="0"
+          // Each suggestion item is made focusable with tabindex="0"
           suggestionContainer.innerHTML = filtered
             .map(p => `<div class="suggestion-item" tabindex="0">${p}</div>`)
             .join("");
@@ -102,9 +110,9 @@ function setupEmailValidation() {
       }
     });
 
-    input.addEventListener('blur', function(e) {
+    input.addEventListener('blur', function() {
       setTimeout(() => {
-        // Only hide suggestions if the newly focused element is NOT inside the suggestion container.
+        // Only hide suggestions if focus is not inside the suggestion container
         if (!suggestionContainer.contains(document.activeElement)) {
           hideSuggestions(suggestionContainer);
         }
@@ -122,7 +130,6 @@ function setupEmailValidation() {
     });
   });
 }
-
 
 /**
  * Sets up the form submission logic.
