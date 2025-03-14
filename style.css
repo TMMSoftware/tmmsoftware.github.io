@@ -520,6 +520,11 @@ footer {
   line-height: 1.6;
 }
 
+[data-theme="dark"] .modal-content {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
 /* Headings and Text Styling */
 .modal-content h2 {
   margin-top: 0;
