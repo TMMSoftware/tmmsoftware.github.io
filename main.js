@@ -181,7 +181,7 @@ async function submitEmail(email, form, button) {
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
-      // Wait 2 seconds (keep the "Sending..." state) after a successful response.
+      // Wait 2 seconds (keeping the "Sending..." animation) after a successful response.
       setTimeout(() => {
         // Transition to the success state.
         button.textContent = "Thanks! You're on the list!";
@@ -190,24 +190,29 @@ async function submitEmail(email, form, button) {
         // Clear the email input.
         form.querySelector('.email-input').value = "";
         
-        // Hold the success state for 5 seconds.
+        // Hold the success state solidly for 3 seconds.
         setTimeout(() => {
-          // Fade out the button over 3 second.
-          button.style.transition = "opacity 3s ease";
+          // Fade out the button over 1 second.
+          button.style.transition = "opacity 1s ease";
           button.style.opacity = "0";
           
-          // After fade-out, update the button text and fade back in over 1 second.
+          // After fade-out (1s), update the button text and initiate a smooth fade-in.
           setTimeout(() => {
-            // Reset button state and fade back in.
             button.textContent = "Request Early Access";
             button.classList.remove("success");
             button.disabled = false;
-            button.style.opacity = "1";
-          }, 3000);
-        }, 5000); // Hold the success state for 5 seconds.
+            // Prepare for fade-in: ensure opacity is at 0 and transition is set.
+            button.style.opacity = "0";
+            button.style.transition = "opacity 1s ease";
+            // Force a reflow (optional) then set opacity to 1 for smooth fade-in.
+            setTimeout(() => {
+              button.style.opacity = "1";
+            }, 50);
+          }, 1000);
+        }, 3000);
       }, 2000);
     } else {
-      // Handle error responses similarly.
+      // Handle error responses.
       button.textContent = "Failed. Try again.";
       button.classList.remove("sending");
       button.classList.add("error");
@@ -219,6 +224,7 @@ async function submitEmail(email, form, button) {
       }, 3000);
     }
   } catch (error) {
+    // Handle network or other errors similarly.
     button.textContent = "Failed. Try again.";
     button.classList.remove("sending");
     button.classList.add("error");
