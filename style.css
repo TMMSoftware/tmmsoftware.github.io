@@ -418,6 +418,10 @@ input:checked + .slider .icon.moon {
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15); /* semi-transparent white */
 }
 
+.btn-waitlist:disabled {
+  cursor: not-allowed;
+}
+
 .btn-download {
   align-self: center;
   padding: 10px 20px;
