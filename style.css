@@ -391,16 +391,6 @@ input:checked + .slider .icon.moon {
   color: white !important; /* white */
   cursor: default;
   transition: background-color 0.3s ease;
-  animation: fadeOut 3s forwards;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 .btn-waitlist.error {
