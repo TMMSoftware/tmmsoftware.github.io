@@ -198,11 +198,12 @@ async function submitEmail(email, form, button) {
           
           // After fade-out, update the button text and fade back in over 1 second.
           setTimeout(() => {
+            // Reset button state and fade back in.
             button.textContent = "Request Early Access";
             button.classList.remove("success");
             button.disabled = false;
             button.style.opacity = "1";
-          }, 1000);
+          }, 3000);
         }, 5000); // Hold the success state for 5 seconds.
       }, 2000);
     } else {
