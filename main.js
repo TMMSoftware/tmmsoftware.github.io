@@ -181,27 +181,47 @@ async function submitEmail(email, form, button) {
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
+      // Wait 2 seconds (keep the "Sending..." state) after a successful response.
       setTimeout(() => {
+        // Transition to the success state.
         button.textContent = "Thanks! You're on the list!";
         button.classList.remove("sending");
         button.classList.add("success");
+        // Clear the email input.
         form.querySelector('.email-input').value = "";
+        
+        // Hold the success state for 3 seconds.
         setTimeout(() => {
-          button.style.transition = "opacity 0.5s ease";
+          // Fade out the button over 1 second.
+          button.style.transition = "opacity 1s ease";
           button.style.opacity = "0";
+          
+          // After fade-out, update the button text and fade back in over 1 second.
           setTimeout(() => {
             button.textContent = "Request Early Access";
             button.classList.remove("success");
             button.disabled = false;
             button.style.opacity = "1";
-          }, 500);
+          }, 1000);
         }, 3000);
       }, 2000);
+    } else {
+      // Handle error responses similarly.
+      button.textContent = "Failed. Try again.";
+      button.classList.remove("sending");
+      button.classList.add("error");
+
+      setTimeout(() => {
+        button.textContent = "Request Early Access";
+        button.classList.remove("error");
+        button.disabled = false;
+      }, 3000);
     }
   } catch (error) {
     button.textContent = "Failed. Try again.";
     button.classList.remove("sending");
     button.classList.add("error");
+
     setTimeout(() => {
       button.textContent = "Request Early Access";
       button.classList.remove("error");
