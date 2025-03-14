@@ -181,7 +181,7 @@ async function submitEmail(email, form, button) {
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
-      // Wait 2 seconds (keeping the "Sending..." animation) after a successful response.
+      // Wait 2 seconds (keeping the "Sending..." animation)
       setTimeout(() => {
         // Transition to the success state.
         button.textContent = "Thanks! You're on the list!";
@@ -190,26 +190,24 @@ async function submitEmail(email, form, button) {
         // Clear the email input.
         form.querySelector('.email-input').value = "";
         
-        // Hold the success state solidly for 3 seconds.
+        // Hold the success state solidly for 4 seconds.
         setTimeout(() => {
-          // Fade out the button over 1 second.
-          button.style.transition = "opacity 1s ease";
+          // Immediately remove any opacity transition and set opacity to 0 (no fade-out).
+          button.style.transition = "";
           button.style.opacity = "0";
           
-          // After fade-out (1s), update the button text and initiate a smooth fade-in.
+          // Update the button text and state.
+          button.textContent = "Request Early Access";
+          button.classList.remove("success");
+          button.disabled = false;
+          
+          // Then apply a smooth fade-in over 1 second.
+          button.style.transition = "opacity 1s ease";
+          // A slight delay ensures the transition takes effect.
           setTimeout(() => {
-            button.textContent = "Request Early Access";
-            button.classList.remove("success");
-            button.disabled = false;
-            // Prepare for fade-in: ensure opacity is at 0 and transition is set.
-            button.style.opacity = "0";
-            button.style.transition = "opacity 1s ease";
-            // Force a reflow (optional) then set opacity to 1 for smooth fade-in.
-            setTimeout(() => {
-              button.style.opacity = "1";
-            }, 50);
-          }, 1000);
-        }, 3000);
+            button.style.opacity = "1";
+          }, 50);
+        }, 4000);
       }, 2000);
     } else {
       // Handle error responses.
@@ -224,7 +222,6 @@ async function submitEmail(email, form, button) {
       }, 3000);
     }
   } catch (error) {
-    // Handle network or other errors similarly.
     button.textContent = "Failed. Try again.";
     button.classList.remove("sending");
     button.classList.add("error");
