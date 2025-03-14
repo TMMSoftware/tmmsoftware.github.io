@@ -164,12 +164,23 @@ function processSubmission(form) {
 }
 
 /**
- * Submits the email address to the API endpoint.
- * Based on the response, it updates the submit button to reflect success or failure.
+ * Submits the provided email to the API endpoint and updates the button UI based on the response.
  *
- * @param {string} email - The email address to be submitted.
- * @param {HTMLElement} form - The form element containing the email input.
- * @param {HTMLElement} button - The submit button to update with feedback.
+ * Workflow:
+ * 1. Sends a POST request with the email in JSON format.
+ * 2. If the response is successful (i.e., returns "Email sent successfully!"):
+ *    - Waits 2 seconds to maintain the "Sending..." animation.
+ *    - Updates the button text to "Thanks! You're on the list!", removes the "sending" class, and adds the "success" class.
+ *    - Clears the email input field.
+ *    - Disables the button to preserve the final success state indefinitely (allowing users to take a screenshot).
+ * 3. If the response fails or a network error occurs:
+ *    - Sets the button text to "Failed. Try again.", removes the "sending" class, and adds the "error" class.
+ *    - After 3 seconds, resets the button text to "Request Early Access", removes the "error" class, and re-enables the button.
+ *
+ * @param {string} email - The email address to submit.
+ * @param {HTMLElement} form - The form element containing the email input; used for clearing the field on success.
+ * @param {HTMLElement} button - The submit button that triggers the request; its state is updated to reflect sending, success, or error.
+ * @returns {Promise<void>} A promise that resolves when the submission workflow completes.
  */
 async function submitEmail(email, form, button) {
   try {
@@ -189,25 +200,8 @@ async function submitEmail(email, form, button) {
         button.classList.add("success");
         // Clear the email input.
         form.querySelector('.email-input').value = "";
-        
-        // Hold the success state solidly for 4 seconds.
-        setTimeout(() => {
-          // Immediately remove any opacity transition and set opacity to 0 (no fade-out).
-          button.style.transition = "";
-          button.style.opacity = "0";
-          
-          // Update the button text and state.
-          button.textContent = "Request Early Access";
-          button.classList.remove("success");
-          button.disabled = false;
-          
-          // Then apply a smooth fade-in over 1 second.
-          button.style.transition = "opacity 1s ease";
-          // A slight delay ensures the transition takes effect.
-          setTimeout(() => {
-            button.style.opacity = "1";
-          }, 50);
-        }, 4000);
+        // Keep the button disabled so the final success state remains visible indefinitely.
+        button.disabled = true;
       }, 2000);
     } else {
       // Handle error responses.
