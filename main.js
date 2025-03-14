@@ -190,7 +190,7 @@ async function submitEmail(email, form, button) {
         // Clear the email input.
         form.querySelector('.email-input').value = "";
         
-        // Hold the success state for 3 seconds.
+        // Hold the success state for 5 seconds.
         setTimeout(() => {
           // Fade out the button over 1 second.
           button.style.transition = "opacity 1s ease";
@@ -203,7 +203,7 @@ async function submitEmail(email, form, button) {
             button.disabled = false;
             button.style.opacity = "1";
           }, 1000);
-        }, 3000);
+        }, 5000); // Hold the success state for 5 seconds.
       }, 2000);
     } else {
       // Handle error responses similarly.
