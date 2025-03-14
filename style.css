@@ -508,8 +508,10 @@ footer {
 }
 
 .modal-content {
+  position: relative;
   background-color: #FAFAFA;
   padding: 2rem;
+  padding-top: 50px;
   margin: 10% auto;
   width: 80%;
   max-width: 600px;
@@ -561,10 +563,14 @@ footer {
 
 /* Close button */
 .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 10;
 }
 
 /* Tabs styling */
