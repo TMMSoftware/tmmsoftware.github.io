@@ -326,3 +326,10 @@ window.addEventListener('click', function(e) {
     modal.style.display = 'none';
   }
 });
+
+// Close the modal by pressing the Escape key
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    modal.style.display = 'none';
+  }
+});
