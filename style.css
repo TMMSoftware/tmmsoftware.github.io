@@ -531,6 +531,7 @@ Modal Styles
   width: 80%;
   height: 80vh;  
   overflow-y: auto;
+  overscroll-behavior: contain;
   background-color: #FAFAFA; /* very light gray */
   border: 1px solid #888; /* gray */
   border-radius: 10px;
