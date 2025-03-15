@@ -612,12 +612,20 @@ Modal Styles
 /*================================================
 Footer Links Styles
 ================================================*/
-.footer-links {
+footer {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.footer-links a {
+.footer-links {
+  display: flex;
+  width:100;
+  margin-left: 20px;
+}
+
+.footer-links a:nth-child(3) {
+  margin-left: auto;
   color: inherit; /* inherits parent color */
   text-decoration: none;
 }
