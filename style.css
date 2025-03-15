@@ -546,6 +546,7 @@ Modal Styles
 }
 
 .modal-content h2 {
+  text-align: center;
   margin-top: 0;
   padding-bottom: 0.5rem;
   font-size: 1.8rem;
@@ -554,6 +555,7 @@ Modal Styles
 }
 
 .modal-content h3 {
+  text-align: center;
   margin-top: 1.5rem;
   font-size: 1.2rem;
   font-weight: 500;
@@ -562,6 +564,7 @@ Modal Styles
 .modal-content p,
 .modal-content ul {
   margin: 1rem 0;
+  text-align: left;
   font-size: 1rem;
 }
 
