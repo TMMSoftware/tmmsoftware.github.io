@@ -624,7 +624,13 @@ Footer Links Styles
 ================================================*/
 footer {
   display: flex;
-  align-items: center; /* keeps items vertically centered */
+  align-items: center;
+  color: #999;
+}
+
+/* Prevent the copyright from wrapping */
+footer > div:first-child {
+  white-space: nowrap;
 }
 
 .footer-links {
@@ -634,13 +640,20 @@ footer {
   gap: 10px;
 }
 
-/* The third link (GitHub) gets margin-left: auto, pushing it and the next link (X) to the right */
+/* Force the third link (GitHub) to push itself and subsequent links to the right */
 .footer-links a:nth-child(3) {
   margin-left: auto;
-  color: inherit;
+}
+
+/* Ensure all link states use the same gray color and remove default link styling */
+.footer-links a,
+.footer-links a:visited,
+.footer-links a:active {
+  color: inherit;       /* inherit the gray color from footer */
   text-decoration: none;
 }
 
+/* Underline on hover only */
 .footer-links a:hover {
   text-decoration: underline;
 }
