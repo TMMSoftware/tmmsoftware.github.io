@@ -637,7 +637,7 @@ footer > div:first-child {
   display: flex;
   width: 100%;
   margin-left: 20px;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* Force the third link (GitHub) to push itself and subsequent links to the right */
