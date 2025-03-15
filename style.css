@@ -614,19 +614,20 @@ Footer Links Styles
 ================================================*/
 footer {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: center; /* keeps items vertically centered */
 }
 
 .footer-links {
   display: flex;
-  width:100;
+  width: 100%;
   margin-left: 20px;
+  gap: 10px;
 }
 
+/* The third link (GitHub) gets margin-left: auto, pushing it and the next link (X) to the right */
 .footer-links a:nth-child(3) {
   margin-left: auto;
-  color: inherit; /* inherits parent color */
+  color: inherit;
   text-decoration: none;
 }
 
