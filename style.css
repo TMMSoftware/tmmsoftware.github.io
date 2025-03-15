@@ -527,9 +527,10 @@ Modal Styles
   position: relative;
   margin: 10% auto;
   max-width: 600px;
-  padding: 2rem;
-  padding-top: 50px;
+  padding: 60px 20px 20px 20px;
   width: 80%;
+  height: 80vh;  
+  overflow-y: auto;
   background-color: #FAFAFA; /* very light gray */
   border: 1px solid #888; /* gray */
   border-radius: 10px;
@@ -578,7 +579,6 @@ Modal Styles
   position: absolute;
   right: 10px;
   top: 10px;
-  float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
