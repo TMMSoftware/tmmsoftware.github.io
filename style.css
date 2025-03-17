@@ -653,6 +653,42 @@ footer > div:first-child {
   text-decoration: none;
 }
 
+/* TOS Section Styles */
+.tos-section {
+  /* Hidden by default; shown dynamically via JavaScript when the email is valid */
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center; /* or 'left' if you prefer */
+  color: inherit;     /* inherit text color from parent */
+}
+
+.tos-section label {
+  display: inline-flex;      /* keep checkbox & text on same line */
+  align-items: center;
+  gap: 0.4rem;               /* small spacing between checkbox & text */
+}
+
+.tos-checkbox {
+  /* Modern browsers can style the checkbox with accent-color */
+  accent-color: #2ecc71;     /* bright green accent */
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 0.3rem;      /* extra spacing */
+}
+
+/* Links inside TOS section */
+.tos-section a {
+  color: #2ecc71;            /* bright green */
+  text-decoration: none;     /* remove underline by default */
+}
+
+.tos-section a:hover {
+  text-decoration: underline; /* underline on hover for clarity */
+}
+
+
 /* Underline on hover only */
 .footer-links a:hover {
   text-decoration: underline;
