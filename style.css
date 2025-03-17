@@ -234,7 +234,6 @@ Product Section Styles
   transition: border-color 0.3s ease;
 }
 
-}
 .product:hover {
   border-color: #C89B3C; /* gold-ish color */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* semi-transparent black */
