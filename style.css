@@ -496,20 +496,6 @@ Custom Button Styles
 }
 
 /*================================================
-Footer Styles
-================================================*/
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  width: 100%;
-  background-color: inherit; /* inherits parent background */
-  color: #999; /* medium gray */
-  font-size: 14px;
-}
-
-/*================================================
 Modal Styles
 ================================================*/
 .modal {
@@ -623,12 +609,17 @@ Modal Styles
 }
 
 /*================================================
-Footer Links Styles
+Footer Styles
 ================================================*/
 footer {
   display: flex;
   align-items: center;
-  color: #999;
+  justify-content: space-between;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: inherit; /* inherits parent background */
+  color: #999; /* medium gray */
+  font-size: 14px;
 }
 
 /* Prevent the copyright from wrapping */
