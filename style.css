@@ -652,6 +652,12 @@ footer > div:first-child {
   text-decoration: none;
 }
 
+/* Underline on hover */
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 /* TOS Section Styles */
 .tos-section {
   /* Hidden by default; shown dynamically via JavaScript when the email is valid */
@@ -686,10 +692,4 @@ footer > div:first-child {
 
 .tos-section a:hover {
   text-decoration: underline; /* underline on hover for clarity */
-}
-
-
-/* Underline on hover only */
-.footer-links a:hover {
-  text-decoration: underline;
 }
