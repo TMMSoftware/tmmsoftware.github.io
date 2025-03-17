@@ -213,17 +213,20 @@ Product Section Styles
 ================================================*/
 .product-container {
   display: flex;
-  align-items: stretch;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   margin: auto;
-  max-width: 900px;
+  max-width: 1200px;
+  flex-wrap: wrap;
 }
 
 .product {
+  margin: auto;
   display: flex;
-  flex: 1;
+  flex: 1 1 320px;
   flex-direction: column;
+  min-width: 320px;  /* ensure we don't shrink below 320px */
+  max-width: 400px;  /* optional: cap how wide each product can get */
   padding: 10px;
   border: 1px solid transparent; /* transparent border */
   border-radius: 8px;
@@ -231,6 +234,7 @@ Product Section Styles
   transition: border-color 0.3s ease;
 }
 
+}
 .product:hover {
   border-color: #C89B3C; /* gold-ish color */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* semi-transparent black */
@@ -658,15 +662,16 @@ footer > div:first-child {
   /* Hidden by default; shown dynamically via JavaScript when the email is valid */
   display: none;
   margin-top: 10px;
-  font-size: 0.9rem;
-  text-align: center; /* or 'left' if you prefer */
-  color: inherit;     /* inherit text color from parent */
+  font-size: 0.8rem;
+  text-align: left;
+  color: inherit;
 }
 
 .tos-section label {
-  display: block;  
+  display: inline-flex;  
   align-items: center;
-  gap: 0.4rem;               /* small spacing between checkbox & text */
+  gap: 0.3rem; /* small spacing between checkbox & text */
+  text-align: left;
 }
 
 .tos-checkbox {
