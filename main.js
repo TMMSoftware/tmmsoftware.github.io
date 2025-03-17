@@ -307,6 +307,9 @@ function applySuggestion(input, suggestionContainer, suggestionText) {
   input.setCustomValidity("");
   input.closest('form').querySelector('.btn-waitlist').classList.add('valid');
   hideSuggestions(suggestionContainer);
+
+  // IMPORTANT: Fire an 'input' event so your TOS logic sees the new value
+  input.dispatchEvent(new Event('input', { bubbles: true }));
 }
 
 // =========================
