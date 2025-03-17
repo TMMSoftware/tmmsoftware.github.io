@@ -1,4 +1,6 @@
 import { Resend } from 'resend';
+import fs from 'fs';
+import path from 'path';
 
 export default async function handler(req, res) {
   // Set CORS headers to allow requests from GitHub Pages
@@ -28,6 +30,10 @@ export default async function handler(req, res) {
       .status(400)
       .json({ error: 'You must accept the Terms of Service.' });
   }
+  
+  // Load HTML confirmation-email template from a file
+  const emailTemplatePath = path.join(process.cwd(), 'api', 'templates', 'confirmation-email.html');
+  const emailTemplate = fs.readFileSync(emailTemplatePath, 'utf8');
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,7 +42,8 @@ export default async function handler(req, res) {
       from: 'onboarding@resend.dev',
       to: email,
       subject: 'Welcome to TMM Software!',
-      html: '<p>Thank you for signing up for early access!</p>',
+      subject: 'Thank you for joining TMM Software Early Access!',
+      html: emailTemplate, // The loaded HTML file
     });
 
     return res.status(200).json({ message: 'Email sent successfully!', data });
