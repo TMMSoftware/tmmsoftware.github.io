@@ -664,7 +664,7 @@ footer > div:first-child {
 }
 
 .tos-section label {
-  display: inline-flex;      /* keep checkbox & text on same line */
+  display: block;  
   align-items: center;
   gap: 0.4rem;               /* small spacing between checkbox & text */
 }
