@@ -85,7 +85,7 @@ function setupEmailValidation() {
 
     // On input, validate email, update TOS visibility, show suggestions, etc.
     input.addEventListener('input', function () {
-      this.value = this.value.toLowerCase();
+      this.value = this.value.trim().toLowerCase();
       selectedIndex = -1;
 
       updateTOSVisibility();
@@ -193,7 +193,7 @@ function processSubmission(form) {
   const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
   // Final email validation
-  emailInput.value = emailInput.value.toLowerCase();
+  emailInput.value = emailInput.value.trim().toLowerCase();
   if (!regex.test(emailInput.value)) {
     emailInput.setCustomValidity("Please enter a valid email address");
     emailInput.reportValidity();
