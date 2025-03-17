@@ -1,21 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Welcome to TMM Software!</title>
+    <!-- 
+      Linking to Google Fonts: Montserrat and fallback font to CSS.
+    -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      /* Minimal styling or embedded CSS for the email */
+      /* 
+        BASIC RESET 
+        Remove default margins/padding for a clean slate 
+      */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 
+        EMBEDDED STYLES 
+        Many email clients ignore <style> blocks, 
+        but for those that respect it, styling here.
+      */
+      body {
+        background-color: #f8f8f8; /* Light gray background */
+        font-family: 'Montserrat', Arial, sans-serif;
+        color: #333; /* Dark gray text */
+      }
+
+      .email-wrapper {
+        width: 100%;
+        table-layout: fixed;
+        background-color: #f8f8f8;
+        padding: 40px 0;
+      }
+
+      /* 
+        Container that holds the email content 
+      */
+      .email-content {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff; /* White background */
+        border-radius: 6px;
+        overflow: hidden;
+        padding: 24px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-top: 0;
+        font-weight: 600;
+        color: #111;
+      }
+
+      p {
+        line-height: 1.6;
+        margin: 16px 0;
+      }
+
+      /* 
+        button styles 
+        inline-block so it can be styled as a button
+      */
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        margin: 16px 0;
+        background-color: #0069ed;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* 
+        Footer or signature styling 
+      */
+      .footer {
+        margin-top: 24px;
+        font-size: 14px;
+        color: #999;
+        text-align: center;
+      }
+
+      /* 
+        For smaller screens 
+      */
+      @media (max-width: 600px) {
+        .email-content {
+          padding: 16px;
+        }
+      }
     </style>
   </head>
   <body>
-    <h1>Thank you for signing up for early access!</h1>
-    <p>
-      We’re thrilled to have you on board. We’ll keep you updated on new
-      features and next steps. 
-    </p>
-    <p>
-      Cheers,<br />
-      The TMM Software Team
-    </p>
+    <table
+      class="email-wrapper"
+      width="100%"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+    >
+      <tr>
+        <td align="center">
+          <!-- Email Container -->
+          <table
+            class="email-content"
+            width="100%"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+          >
+            <tr>
+              <td>
+                <h1>Thank you for signing up for early access!</h1>
+                <p>
+                  We’re thrilled to have you on board. We’ll keep you updated on
+                  new features and next steps.
+                </p>
+
+                <!-- Example button (for feature CTA) -->
+                <!--
+                <a href="#" class="btn">Explore Now</a>
+                -->
+
+                <p>
+                  Sincerely,<br />
+                  The TMM Software Team
+                </p>
+
+                <div class="footer">
+                  © <span id="year"></span> TMM Software. All rights reserved.
+                </div>
+              </td>
+            </tr>
+          </table>
+          <!-- /Email Container -->
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      // Small JS snippet for current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
