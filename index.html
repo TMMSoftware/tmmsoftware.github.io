@@ -69,7 +69,20 @@
           <input type="email" name="email" class="email-input" placeholder="Email address*" required autocomplete="email">
           <div class="email-suggestions-container"></div>
         </div>
-        <button type="submit" class="btn-waitlist" aria-label="Request Early Access">Request Early Access</button>
+
+        <!-- TOS section: hidden by default, revealed only after valid email -->
+        <div class="tos-section" style="display: none; margin: 10px 0;">
+          <label>
+            <input type="checkbox" class="tos-checkbox" />
+            By signing up, you agree to our 
+            <a href="#" id="openTermsOfService">Terms of Service</a> and 
+            <a href="#" id="openPrivacyPolicy">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-waitlist" aria-label="Request Early Access">
+          Request Early Access
+        </button>
       </form>
       
       <button class="btn-download" disabled title="Available Soon">↓ Download</button>
@@ -85,7 +98,20 @@
           <input type="email" name="email" class="email-input" placeholder="Email address*" required autocomplete="email">
           <div class="email-suggestions-container"></div>
         </div>
-        <button type="submit" class="btn-waitlist" aria-label="Request Early Access">Request Early Access</button>
+
+        <!-- TOS section -->
+        <div class="tos-section" style="display: none; margin: 10px 0;">
+          <label>
+            <input type="checkbox" class="tos-checkbox" />
+            By signing up, you agree to our 
+            <a href="#" id="openTermsOfService">Terms of Service</a> and 
+            <a href="#" id="openPrivacyPolicy">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-waitlist" aria-label="Request Early Access">
+          Request Early Access
+        </button>
       </form>
 
       <button class="btn-download" disabled title="Available Soon">↓ Download</button>
@@ -101,7 +127,20 @@
           <input type="email" name="email" class="email-input" placeholder="Email address*" required autocomplete="email">
           <div class="email-suggestions-container"></div>
         </div>
-        <button type="submit" class="btn-waitlist" aria-label="Request Early Access">Request Early Access</button>
+
+        <!-- TOS section -->
+        <div class="tos-section" style="display: none; margin: 10px 0;">
+          <label>
+            <input type="checkbox" class="tos-checkbox" />
+            By signing up, you agree to our 
+            <a href="#" id="openTermsOfService">Terms of Service</a> and 
+            <a href="#" id="openPrivacyPolicy">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-waitlist" aria-label="Request Early Access">
+          Request Early Access
+        </button>
       </form>
 
       <button class="btn-download" disabled title="Available Soon">↓ Download</button>
@@ -124,8 +163,7 @@
   <div id="policyModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <div id="modalContent">
-      </div>
+      <div id="modalContent"></div>
     </div>
   </div>
 
