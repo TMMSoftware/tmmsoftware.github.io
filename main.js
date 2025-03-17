@@ -344,6 +344,22 @@ function loadPolicy(file) {
     });
 }
 
+// Attach event listeners to all privacy links
+document.querySelectorAll('.openPrivacyPolicy').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    loadPolicy('privacy.html');
+  });
+});
+
+// Attach event listeners to all terms links
+document.querySelectorAll('.openTermsOfService').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    loadPolicy('terms.html');
+  });
+});
+
 // If these links exist, hook them up to open the modal
 if (privacyLink) {
   privacyLink.addEventListener('click', function(e) {
