@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     root.setAttribute("data-theme", savedTheme);
     modeSwitch.checked = savedTheme === "dark";
   }
+
   setupEmailValidation();
   setupFormSubmission();
 });
@@ -47,17 +48,34 @@ function hideSuggestions(suggestionContainer) {
 /**
  * Sets up real-time email validation and suggestions.
  * Validates the email format as the user types and shows common provider suggestions based on input.
+ * Also handles revealing the TOS checkbox only after the email is valid.
  */
 function setupEmailValidation() {
   const providers = ["gmail.com", "hotmail.com", "yahoo.com", "outlook.com", "icloud.com"];
+  // Basic email validation regex
   const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
   document.querySelectorAll('.email-input').forEach(input => {
     const suggestionContainer = input.parentNode.querySelector('.email-suggestions-container');
-    const label = input.closest('form').querySelector('.btn-waitlist');
+    const form = input.closest('form');
+    const label = form.querySelector('.btn-waitlist');
+    const tosSection = form.querySelector('.tos-section');
+    const tosCheckbox = form.querySelector('.tos-checkbox');
     let selectedIndex = -1;
 
-    // Event delegation for keydown on suggestion items:
+    // Helper to show/hide TOS section based on email validity
+    function updateTOSVisibility() {
+      if (regex.test(input.value)) {
+        // Show TOS if email is valid
+        if (tosSection) tosSection.style.display = 'block';
+      } else {
+        // Hide TOS if email is invalid
+        if (tosSection) tosSection.style.display = 'none';
+        if (tosCheckbox) tosCheckbox.checked = false;
+      }
+    }
+
+    // Handle suggestion item keyboard events
     suggestionContainer.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && e.target.classList.contains('suggestion-item')) {
         e.preventDefault();
@@ -65,9 +83,13 @@ function setupEmailValidation() {
       }
     });
 
+    // On input, validate email, update TOS visibility, show suggestions, etc.
     input.addEventListener('input', function () {
       this.value = this.value.toLowerCase();
       selectedIndex = -1;
+
+      updateTOSVisibility();
+
       if (regex.test(this.value)) {
         this.setCustomValidity("");
         label.classList.add('valid');
@@ -77,11 +99,11 @@ function setupEmailValidation() {
       this.setCustomValidity("Please enter a valid email address");
       label.classList.remove('valid');
 
+      // Email suggestions logic
       if (this.value.includes('@')) {
         const domainPart = this.value.split('@')[1] || "";
         const filtered = providers.filter(provider => provider.startsWith(domainPart));
         if (filtered.length > 0 && domainPart.length > 0) {
-          // Each suggestion item is made focusable with tabindex="0"
           suggestionContainer.innerHTML = filtered
             .map(p => `<div class="suggestion-item" tabindex="0">${p}</div>`)
             .join("");
@@ -94,10 +116,12 @@ function setupEmailValidation() {
       }
     });
 
+    // Handle arrow keys for navigating suggestion items
     input.addEventListener('keydown', function (e) {
       if (suggestionContainer.style.display !== 'block') return;
       const items = suggestionContainer.querySelectorAll('.suggestion-item');
       if (!items.length) return;
+
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
         e.preventDefault();
         selectedIndex = e.key === 'ArrowDown'
@@ -110,15 +134,16 @@ function setupEmailValidation() {
       }
     });
 
+    // Hide suggestions on blur (with a short delay to allow click)
     input.addEventListener('blur', function() {
       setTimeout(() => {
-        // Only hide suggestions if focus is not inside the suggestion container
         if (!suggestionContainer.contains(document.activeElement)) {
           hideSuggestions(suggestionContainer);
         }
       }, 150);
     });
 
+    // Handle clicks on suggestion items
     suggestionContainer.addEventListener('click', function (e) {
       if (e.target && e.target.matches('.suggestion-item')) {
         e.target.classList.add('highlight');
@@ -154,78 +179,84 @@ function setupFormSubmission() {
 
 /**
  * Handles the final form submission process.
- * It performs a final validation of the email field and, if valid,
- * disables the submit button and sends the email to the API.
+ * 1) Validates the email.
+ * 2) Ensures TOS is checked.
+ * 3) Disables the button and sends the email to the API.
  *
- * @param {HTMLElement} form - The form element being submitted.
- * @returns {boolean} - Returns true if the submission proceeds, false otherwise.
+ * @param {HTMLFormElement} form - The form element being submitted.
+ * @returns {boolean} - Returns false if validation fails, otherwise true.
  */
 function processSubmission(form) {
   const emailInput = form.querySelector('.email-input');
   const submitButton = form.querySelector('.btn-waitlist');
+  const tosCheckbox = form.querySelector('.tos-checkbox');
   const regex = /^[a-z0-9._%+\-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
+  // Final email validation
   emailInput.value = emailInput.value.toLowerCase();
-
   if (!regex.test(emailInput.value)) {
     emailInput.setCustomValidity("Please enter a valid email address");
     emailInput.reportValidity();
     return false;
   }
 
+  // Check TOS acceptance
+  if (tosCheckbox && !tosCheckbox.checked) {
+    alert('Please accept the Terms of Service before continuing.');
+    return false;
+  }
+
+  // UI feedback for "Sending..."
   submitButton.textContent = "Sending...";
   submitButton.disabled = true;
   submitButton.classList.add("sending");
 
-  submitEmail(emailInput.value, form, submitButton);
+  // Pass tosAccepted = true if checked
+  const tosAccepted = tosCheckbox ? tosCheckbox.checked : false;
+  submitEmail(emailInput.value, tosAccepted, form, submitButton);
   return true;
 }
 
 /**
- * Submits the provided email to the API endpoint and updates the button UI based on the response.
- *
- * Workflow:
- * 1. Sends a POST request with the email in JSON format.
- * 2. If the response is successful (i.e., returns "Email sent successfully!"):
- *    - Waits 2 seconds to maintain the "Sending..." animation.
- *    - Updates the button text to "Thanks! You're on the list!", removes the "sending" class, and adds the "success" class.
- *    - Clears the email input field.
- *    - Disables the button to preserve the final success state indefinitely (allowing users to take a screenshot).
- * 3. If the response fails or a network error occurs:
- *    - Sets the button text to "Failed. Try again.", removes the "sending" class, and adds the "error" class.
- *    - After 3 seconds, resets the button text to "Request Early Access", removes the "error" class, and re-enables the button.
+ * Submits the provided email (and TOS acceptance) to the API endpoint
+ * and updates the button UI based on the response.
  *
  * @param {string} email - The email address to submit.
- * @param {HTMLElement} form - The form element containing the email input; used for clearing the field on success.
+ * @param {boolean} tosAccepted - Whether the user accepted the TOS.
+ * @param {HTMLFormElement} form - The form element containing the email input; used for clearing the field on success.
  * @param {HTMLElement} button - The submit button that triggers the request; its state is updated to reflect sending, success, or error.
- * @returns {Promise<void>} A promise that resolves when the submission workflow completes.
+ * @returns {Promise<void>}
  */
-async function submitEmail(email, form, button) {
+async function submitEmail(email, tosAccepted, form, button) {
   try {
     const response = await fetch('https://tmmsoftware-resend.vercel.app/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email, tosAccepted })
     });
     const result = await response.json();
 
     if (response.ok && result.message === "Email sent successfully!") {
-      // Wait 2 seconds (keeping the "Sending..." animation)
+      // Keep the "Sending..." animation for 2 seconds
       setTimeout(() => {
-        // Transition to the success state.
+        // Transition to success
         button.innerHTML = `
           <span style="display:block;">Thanks!</span>
           <span style="display:block;">You're on the list</span>
         `;
         button.classList.remove("sending");
         button.classList.add("success");
-        // Clear the email input.
+
+        // Clear input + uncheck TOS
         form.querySelector('.email-input').value = "";
-        // Keep the button disabled so the final success state remains visible indefinitely.
+        const tosBox = form.querySelector('.tos-checkbox');
+        if (tosBox) tosBox.checked = false;
+
+        // Keep button disabled so final success state remains
         button.disabled = true;
       }, 2000);
     } else {
-      // Handle error responses.
+      // Error from server
       button.textContent = "Failed. Try again.";
       button.classList.remove("sending");
       button.classList.add("error");
@@ -237,6 +268,7 @@ async function submitEmail(email, form, button) {
       }, 3000);
     }
   } catch (error) {
+    console.error('Error:', error);
     button.textContent = "Failed. Try again.";
     button.classList.remove("sending");
     button.classList.add("error");
@@ -277,14 +309,19 @@ function applySuggestion(input, suggestionContainer, suggestionText) {
   hideSuggestions(suggestionContainer);
 }
 
-// Get modal elements and policy links
+// =========================
+// Modal Logic for TOS/Privacy
+// =========================
 const modal = document.getElementById('policyModal');
 const modalContent = document.getElementById('modalContent');
 const privacyLink = document.getElementById('openPrivacyPolicy');
 const termsLink = document.getElementById('openTermsOfService');
 const closeBtn = document.querySelector('.modal .close');
 
-// Function to load content from a file and show it in the modal
+/**
+ * Loads content from a file (privacy.html or terms.html) into the modal.
+ * @param {string} file - The path to the file to load ('privacy.html').
+ */
 function loadPolicy(file) {
   fetch(file)
     .then(response => {
@@ -304,21 +341,26 @@ function loadPolicy(file) {
     });
 }
 
-// Event listeners for the policy links
-privacyLink.addEventListener('click', function(e) {
-  e.preventDefault();
-  loadPolicy('privacy.html');
-});
-
-termsLink.addEventListener('click', function(e) {
-  e.preventDefault();
-  loadPolicy('terms.html');
-});
+// If these links exist, hook them up to open the modal
+if (privacyLink) {
+  privacyLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    loadPolicy('privacy.html');
+  });
+}
+if (termsLink) {
+  termsLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    loadPolicy('terms.html');
+  });
+}
 
 // Close the modal when the close button is clicked
-closeBtn.addEventListener('click', function() {
-  modal.style.display = 'none';
-});
+if (closeBtn) {
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+}
 
 // Close the modal when clicking outside of the modal content
 window.addEventListener('click', function(e) {
