@@ -142,7 +142,6 @@ Navigation Bar Styles
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-decoration: none;
 }
 
 .nav-software {
@@ -151,12 +150,16 @@ Navigation Bar Styles
   font-size: 12px;
   font-weight: normal;
   text-transform: uppercase;
-  text-decoration: none;
 }
 
 [data-theme="dark"] .nav-tmm,
 [data-theme="dark"] .nav-software {
   color: white; /* white */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /*================================================
