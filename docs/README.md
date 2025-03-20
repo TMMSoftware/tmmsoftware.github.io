@@ -99,8 +99,8 @@ For full API details, check **[API.md](docs/API.md)**.
 ---
 
 ## 📜 Legal & Privacy
-- **[Privacy Policy](privacy.html)** – How we handle user data.
-- **[Terms of Service](terms.html)** – User agreements.
+- **[Privacy Policy](../privacy.html)** – How we handle user data.
+- **[Terms of Service](../terms.html)** – User agreements.
 
 ---
 
