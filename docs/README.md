@@ -28,8 +28,6 @@ This repository includes:
 │   ├── CI_CD.md                # CI/CD process
 │   ├── DEPLOYMENT_GUIDE.md     # Deployment steps
 │   ├── FILE_STRUCTURE.md       # Project structure
-│   ├── PRIVACY_POLICY.md       # Privacy policy
-│   ├── TERMS_OF_SERVICE.md     # Terms of service
 │   ├── CHANGELOG.md            # Version updates
 │   ├── README.md               # Overview (this file)
 │
@@ -37,8 +35,8 @@ This repository includes:
 ├── main.js                      # JavaScript functions
 ├── style.css                    # Stylesheet
 ├── package.json                 # Node.js dependencies
-├── privacy.html                 # Privacy Policy page
-├── terms.html                   # Terms of Service page
+├── privacy.html                 # Privacy Policy page (root directory)
+├── terms.html                   # Terms of Service page (root directory)
 ```
 
 For a detailed breakdown, check **[FILE_STRUCTURE.md](docs/FILE_STRUCTURE.md)**.
