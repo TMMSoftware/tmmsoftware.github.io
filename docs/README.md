@@ -101,8 +101,8 @@ For full API details, check **[API.md](docs/API.md)**.
 ---
 
 ## 📜 Legal & Privacy
-- **[Privacy Policy](docs/PRIVACY.md)** – How we handle user data.
-- **[Terms of Service](docs/TERMS.md)** – User agreements.
+- **[Privacy Policy](privacy.md)** – How we handle user data.
+- **[Terms of Service](terms.md)** – User agreements.
 
 ---
 
